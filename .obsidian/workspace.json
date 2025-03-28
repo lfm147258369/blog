@@ -1,0 +1,176 @@
+{
+  "main": {
+    "id": "226619cefdad5df0",
+    "type": "split",
+    "children": [
+      {
+        "id": "a1d2e010a4d8df7d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f7194a00f9d433ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "FirstVault/算法学习/进制转换.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "进制转换"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c4809c3cea6b0b60",
+    "type": "split",
+    "children": [
+      {
+        "id": "012991bad32a3488",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "153535055d84add7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "05afb06a84f09058",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "5a13fde88571c23b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "998eefb0a52424b7",
+    "type": "split",
+    "children": [
+      {
+        "id": "017750f1d486e663",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "27a2ba65665217c7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "FirstVault/Vim学习/Vim.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Vim 的反向链接列表"
+            }
+          },
+          {
+            "id": "1c6307628adf48fa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "FirstVault/Vim学习/Vim.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Vim 的出链列表"
+            }
+          },
+          {
+            "id": "4fb8021ab7b2b8a8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "11ced14c1da7185f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "FirstVault/Vim学习/Vim.md"
+              },
+              "icon": "lucide-list",
+              "title": "Vim 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "f7194a00f9d433ec",
+  "lastOpenFiles": [
+    "FirstVault/算法学习/双指针.md",
+    "FirstVault/算法学习/进制转换.md",
+    "FirstVault/Vim学习/Vim.md",
+    "FirstVault/未命名.md",
+    "FirstVault/欢迎.md",
+    "FirstVault/创建链接.md",
+    "FirstVault/代码图片/Pasted image 20241230162709.png",
+    "FirstVault/代码图片/Pasted image 20241231101207.png"
+  ]
+}
