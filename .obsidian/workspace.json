@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "FirstVault/算法学习/进制转换.md",
+                "file": "Math/Latex数学公式/公式.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "进制转换"
+              "title": "公式"
             }
           }
         ]
@@ -40,7 +40,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -164,6 +165,9 @@
   },
   "active": "f7194a00f9d433ec",
   "lastOpenFiles": [
+    "Math/高数下/向量.md",
+    "FirstVault/画图理解，Excalidrwa/组合数.md",
+    "FirstVault/画图理解，Excalidrwa/火柴棒.md",
     "FirstVault/算法学习/双指针.md",
     "FirstVault/算法学习/进制转换.md",
     "FirstVault/Vim学习/Vim.md",
