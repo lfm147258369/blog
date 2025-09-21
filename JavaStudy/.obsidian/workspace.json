@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/java方法/java方法的练习题.md",
+                "file": "Java/java集合类/TreeSet和HashSet的去重机制对比.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "java方法的练习题"
+              "title": "TreeSet和HashSet的去重机制对比"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 216,
+    "collapsed": true
   },
   "right": {
     "id": "0d9232ea93c3866e",
@@ -160,19 +161,25 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "bases:创建新数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "35263d932bc5a7e4",
   "lastOpenFiles": [
-    "Java/java方法/java的传递机制_引用类型.md",
+    "Pasted image 20250921141251.png",
+    "Pasted image 20250921141237.png",
+    "Java/java集合类/未命名.md",
+    "Java/java集合类/TreeSet和HashSet的去重机制对比.md",
     "Java/java方法/java方法的练习题.md",
+    "Java/java集合类",
+    "Java/java方法/java的传递机制_引用类型.md",
     "Java/java方法/未命名",
     "Excalidraw/java方法/java中方法的传递机制.md",
     "Pitcture/java方法/方法传递机制_引用类型.png",

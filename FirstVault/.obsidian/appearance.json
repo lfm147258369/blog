@@ -1,5 +1,7 @@
 {
   "monospaceFontFamily": "Consolas",
-  "baseFontSize": 19,
-  "theme": "system"
+  "baseFontSize": 17,
+  "theme": "system",
+  "cssTheme": "Catppuccin",
+  "baseFontSizeAction": true
 }

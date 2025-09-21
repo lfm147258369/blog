@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++学习笔记/类和对象/1.3类模板/1.3.4类模板对象做函数参数.md",
+                "file": "算法学习/前缀和/二维前缀和/2132. 用邮票贴满网格图.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.3.4类模板对象做函数参数"
+              "title": "2132. 用邮票贴满网格图"
             }
           }
         ],
@@ -68,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#基础算法",
+                "query": "\"![[Pasted image 20250921202644.png]]\"",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -103,7 +103,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -185,6 +186,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:创建新数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -194,8 +196,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "8046cd097ee0352e",
+  "active": "b34e2fea3a6623a1",
   "lastOpenFiles": [
+    "Pasted image 20250921202644.png",
+    "C++学习笔记/类和对象/1.3类模板/1.3.4类模板对象做函数参数.md",
+    "算法学习/前缀和/二维前缀和/2132. 用邮票贴满网格图.md",
+    "算法学习/前缀和/二维前缀和",
     "算法学习/前缀和/常用枚举技巧/Leetcode 2001 可互换矩形的组数/Leetcode2001. 可互换矩形的组数.md",
     "算法学习/前缀和/Leetcode1685/有序数组中绝对值之和.md",
     "算法学习/前缀和/常用枚举技巧/121买卖股票的最佳时机/Leetcode121买卖股票的最佳时机.md",
@@ -213,13 +219,11 @@
     "算法学习/回溯/子集型回溯/Leetcode1286字母组合迭代器.md",
     "算法学习/回溯/子集型回溯/Leetcode1286字母组合迭代器",
     "算法学习/前缀和/蓝桥云课前缀和.md",
-    "C++学习笔记/类和对象/1.3类模板/1.3.4类模板对象做函数参数.md",
     "C++学习笔记/类和对象/1.3类模板/1.3.3类模板中成员函数创建时机.md",
     "C++学习笔记/类和对象/模板.md",
     "C++学习笔记/类和对象/1.3类模板",
     "算法学习/前缀和/Leetcode1685",
     "算法学习/回溯/子集型回溯",
-    "算法学习/回溯",
     "算法学习/DFS/刷题_下.md",
     "算法学习/基础算法/双指针.md",
     "算法学习/DP/做题思路.md",
@@ -230,8 +234,6 @@
     "算法学习/DP/牛客面试101DP.md",
     "画图理解，Excalidrwa/Drawing 2025-03-07 19.44.41.excalidraw.md",
     "算法学习/BFS/BFS入门.md",
-    "C++学习笔记/类和对象/类和对象-友元.md",
-    "C++学习笔记/类和对象/运算符重载/加号运算符重载.md",
     "Pasted Image 20250122145300_871.png",
     "代码图片/Pasted image 20250105154648.png",
     "画图理解部分/P1706全排列问题.png",
