@@ -247,19 +247,13 @@ limit 0,2;
 ```
 
 # 多表查询
-```sql
-#多表查询
-#显示雇员名， 雇员工资及所在部门的名字 [笛卡尔集]
-/*
-            分析:
-            1.雇员名，雇员工资来自emp表
-            2.部门名字 来自dept表
-            3.需求对emp和dept查询
- */
-
-
-
-#思路
+```
+多表查询
+显示雇员名， 雇员工资及所在部门的名字 [笛卡尔集]
+    分析:
+    1.雇员名，雇员工资来自emp表
+    2.部门名字 来自dept表
+    3.需求对emp和dept查询
 
 ```
 
@@ -712,5 +706,403 @@ create table t20
 
 desc t20;
 desc t18;
+
+```
+
+# 外键使用
+1. 外键指向表的字段，必须是主键(primary key)或者唯一索引(unique )
+2. 表的类型是InnoDB，这样的表才能建立外键
+3. 外键的字段的数据类型必须和引用的主键的数据类型一致
+4. 外键的字段的值必须在主键表中存在或者为null前提是允许空值
+5. 一旦建立了外键，不能随意删除主键，只能修改主键
+
+
+```sql
+# 外键演示
+
+
+# 创建主表 myclass
+create table myclass
+(
+    id     int primary key,
+    `name` varchar(32) not null default ''
+);
+
+rename table myclass to my_class;
+
+# 创建从表 my_stu
+create table my_stu
+(
+    id       int primary key,#学生编号
+    `name`   varchar(32) not null default '',
+    class_id int,
+    foreign key (class_id) references my_class (id)
+
+);
+
+# 测试数据
+insert into my_class
+values (100, 'java'),
+       (200, 'web');
+
+insert into my_class
+values (300, 'php');
+
+insert into my_stu
+values (1, 'tom', 100);
+
+
+insert into my_stu
+values (2, 'jack', 200);
+
+
+insert into  my_stu
+values (3, 'lfm', 300);#
+
+insert into  my_stu
+values (4, 'mary', 400);# 会失败400 号班级还不存在
+
+insert into  my_stu
+values (4, 'mary', null);# null 可以, 没有写not null
+
+
+select * from my_stu;
+
+
+delete from my_class
+where id = 100;
+
+
+```
+
+# check
+```sql
+# 演示check的使用
+# mysql 5.7不支持check, 只做语法校验
+
+create table t23
+(
+    id int primary key ,
+    `name` varchar(32),
+    sex varchar(6) check (sex in ('man', 'woman')),
+    sal double check (sal > 1000 and sal < 2000)
+);
+
+
+# 添加数据
+insert into t23
+values (1, 'jack', 'mid', 1);
+
+select * from t23;
+
+
+```
+# mysql 索引
+1. 主键索引，主键自动的为主索引(类型Primary)
+2. 唯一索引(UNIQUE)
+3. 普通索引(INDEX)
+4. 全文索引(FULLTEXT) 适用于MyISAM
+```sql
+# 演示mysql索引的使用
+#创建索引
+
+create table t25
+(
+    id     int,
+    `name` varchar(32)
+);
+
+# 查询表是否有索引
+show index from t25;
+
+# 添加索引
+# 添加唯一索引:唯一约束
+create unique index id_index on t25 (id);
+# 添加普通索引
+create index id_index on t25 (id);
+
+# 如何选择
+# 如果某列的值是不会重复的，则优先考虑使用unique索引，否则使用普通索引
+alter table t25 add index id_index (id);
+
+#添加主键索引
+
+
+create table t26
+(
+    id     int,
+    `name` varchar(32)
+);
+alter table t26 add primary key (id);
+show index from t26;
+
+select * from t25;
+
+
+```
+
+-  如何选择
+
+如果某列的值是不会重复的，则优先考虑使用unique索引，否则使用普通索引
+
+## 删除索引
+
+
+```sql
+# 演示mysql索引的使用
+#创建索引
+
+create table t25
+(
+    id     int,
+    `name` varchar(32)
+);
+
+# 查询表是否有索引
+show index from t25;
+
+# 添加索引
+# 添加唯一索引:唯一约束
+create unique index id_index on t25 (id);
+# 添加普通索引
+create index id_index on t25 (id);
+
+# 如何选择
+# 如果某列的值是不会重复的，则优先考虑使用unique索引，否则使用普通索引
+alter table t25
+    add index id_index (id);
+
+#添加主键索引
+
+
+create table t26
+(
+    id     int,
+    `name` varchar(32)
+);
+alter table t26
+    add primary key (id);
+show index from t26;
+
+# 删除索引
+select *
+from t25;
+
+# 删除索引
+drop index id_index on t25;
+
+# 删除主键索引
+alter table t26
+    drop primary key;
+
+# 修改索引 先删除， 再添加新的索引
+
+
+
+# 查询索引
+# 1. 方式
+show index from t25;
+# 2.方式
+show indexes from t25;
+# 3. 方式
+show keys from t25;
+# 4 方式
+desc t25;
+
+```
+
+# 事务 
+
+- 相当于给数据库提供了快照的功能，可以保证数据的一致性
+
+# 隔离级别
+
+- 四大隔离级别分别是:
+- READ UNCOMMITTED(未提交读)
+- READ COMMITTED(提交读)
+- REPEATABLE READ(可重复读)
+- SERIALIZABLE(可串行化)
+```sql
+
+#DROP TABLE lfm_db02.my_teachers;
+
+#演示mysql的事务隔离级别
+#1. 开了两个mysql的控制台
+#2. 查看当前mysql的隔离级别
+
+select @@tx_isolation;
+# MariaDB [(none)]> select @@tx_isolation;
+# +-----------------+
+# | @@tx_isolation  |
+# +-----------------+
+# | REPEATABLE-READ |
+# +-----------------+
+
+# 把其中一个控制台的隔离几倍设置 Read uncommitted
+set session transaction isolation level read uncommitted;
+set session transaction isolation level read committed;
+
+# 4. 创建表
+create table `account`
+(
+    id     int,
+    `name` varchar(32),
+    money  int
+);
+
+drop table `account`;
+
+select @@tx_isolation;
+
+select @@global.tx_isolation;
+
+set session transaction isolation level read uncommitted;
+
+set global transaction isolation level read committed;
+
+show engines;
+```
+
+# 存储引擎
+常用存储引擎有：
+- InnoDB:支持事务，支持外键，支持行级锁，支持MVCC(多版本并发控制)
+- MyISAM:不支持事务，不支持外键，支持全文索引，支持表级锁
+- Memory:支持内存表，数据保存在内存中，速度快，适合临时表或缓存数据
+- CSV
+- Archive
+- Blackhole
+
+# 视图
+当我们想要更新表，但是又不能删掉原来的表，这时候就可以使用视图。
+
+相当于我们在表的基础上创建了一个虚拟的表，可以对其进行查询、更新、删除等操作。
+
+对视图的操作，实际上是对基础表的操作。
+
+```sql
+create view emp_view01
+as
+select empno, ename, job, deptno
+from emp;
+
+desc emp_view01;
+
+select *
+from emp_view01;
+select empno, job
+from emp_view01;
+
+# 查看创建视图的指令
+show create view emp_view01;
+
+#删除视图
+drop view emp_view01;
+
+# 视图的细节
+# 1.创建视图以后，到数据库去看，对应视图只有一个视图结构文件
+# 2. 视图的数据变化会影响到基表，基表的数据变化也会影响到视图[insert update delete]
+
+# 修改视图 会影响到基表
+
+update emp_view01
+set job = 'MANAGER'
+where empno = 7369;
+
+select * from emp;
+
+select * from emp_view01;
+
+# 修改基本表也会影响视图
+
+#3. 视图中可以再使用视图，比如从emp_view01 视图中， 选出empno和ename做出新视图
+
+desc emp_view01;
+
+
+create view emp_view02
+as
+select empno, ename from emp_view01;
+
+select * from emp_view02;
+
+
+desc dept;
+desc emp;
+desc salgrade;
+create view emp_view03
+as
+select empno, ename, dname,grade
+from emp, dept, salgrade
+where emp.deptno = dept.deptno and (sal between losal and hisal);
+desc emp_view03;
+
+
+```
+
+# 用户管理
+
+小练习
+
+```sql
+# 用户权限管理
+
+create user 'lfm_01'@'localhost' identified by '123';
+
+
+create database testdb;
+create table news
+(
+    id      int,
+    content varchar(32)
+);
+
+insert into news values(100, '北京新闻');
+
+select * from news;
+grant select , insert
+on testdb.news
+to 'lfm_01'@'localhost';
+
+grant update
+    on testdb.news
+    to 'lfm_01'@'localhost';
+
+set password for 'lfm_01'@'localhost' = password ('abc');
+
+revoke select, update, insert on testdb.news from 'lfm_01'@'localhost';
+
+revoke all on testdb.news from 'lfm_01'@'localhost';
+
+drop user 'lfm'@'localhost';
+
+
+```
+- 细节
+
+```sql
+create user jack;
+
+select `host`, `user`
+from mysql.user;
+
+
+create user 'smith'@'192.168.1.%';
+
+
+drop user jack; #== drop user 'jack'@'%'
+drop user 'smith'@'192.168.1.%';
+
+create table actor
+(
+    id       int primary key auto_increment,
+    `name`     varchar(32) not null default '',
+    sex      char(1)     not null default '女',
+    borndate datetime,
+    phone    varchar(12)
+);
+
+select *
+from actor;
+select * from emp;
 
 ```
