@@ -1,0 +1,213 @@
+{
+  "main": {
+    "id": "6b41d421b9073cae",
+    "type": "split",
+    "children": [
+      {
+        "id": "c255bacd363555e2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5c606ff26c717074",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Java/期末/期末考点整理.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "期末考点整理 的大纲"
+            }
+          },
+          {
+            "id": "2e498b91b90a3c3a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Java/期末/期末考点整理.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "期末考点整理"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "37c1aa80fa6933d8",
+    "type": "split",
+    "children": [
+      {
+        "id": "0fe4bd7b81ae2fbe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e1042308dfb1b551",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "b34e2fea3a6623a1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "4d4285f44a216a43",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "f9ec461a498b8a34",
+    "type": "split",
+    "children": [
+      {
+        "id": "860ed5175549c64d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "13aa9f38a4e2784e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "497c56bae389d2d2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Java/期末/期末考点整理.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "期末考点整理 的大纲"
+            }
+          },
+          {
+            "id": "be71091b86d93b1c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 282
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新建数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "497c56bae389d2d2",
+  "lastOpenFiles": [
+    "Java/期末/期末考点整理.md",
+    "未命名.base",
+    "未命名 1.base",
+    "Java/错题/java基础.md",
+    "Java/期末",
+    "期末/数据库重点.md",
+    "Java/错题",
+    "picture/算法画图理解部分/DFS/P1706全排列问题 1.png",
+    "picture/算法画图理解部分/DFS/P1706全排列问题.png",
+    "picture/算法画图理解部分/DFS/组合数的枚举、.png",
+    "picture/算法画图理解部分/DFS/递归搜索树 1.png",
+    "picture/算法画图理解部分/DFS/acwing_92递归实现枚举 1.png",
+    "picture/算法画图理解部分/DFS/递归搜索树.png",
+    "picture/算法画图理解部分/DFS/P1036选数(递推，DFS).png",
+    "picture/算法画图理解部分/DFS/acwing_92递归实现枚举.png",
+    "picture/算法画图理解部分/DFS",
+    "picture/算法画图理解部分/单调栈/image.png",
+    "picture/算法画图理解部分/单调栈/image-2.png",
+    "picture/算法画图理解部分/单调栈",
+    "Algorithm/DFS/递归与递推.md",
+    "Algorithm/DFS/模板下.md",
+    "Algorithm/DFS/模板上.md",
+    "Algorithm/DP/力扣/Leetcode322.md",
+    "Algorithm/回溯/子集型回溯/模板.md",
+    "Algorithm/053单调栈/Class053.md",
+    "Algorithm/032位图/位图模板.md",
+    "Algorithm/前缀和/蓝桥云课前缀和.md",
+    "Algorithm/前缀和/常用枚举技巧/有序数组中绝对值之和.md",
+    "Algorithm/前缀和/力扣.md",
+    "Algorithm/前缀和/常用枚举技巧/2132. 用邮票贴满网格图.md",
+    "Algorithm/前缀和/常用枚举技巧/Leetcode2815数组中最大数对和.md",
+    "Algorithm/前缀和/常用枚举技巧/Leetcode2342数位和相等数对的最大和.md",
+    "Algorithm/前缀和/常用枚举技巧/Leetcode121买卖股票的最佳时机.md",
+    "2025-04-03.md",
+    "Algorithm/DP/牛客面试101DP.md",
+    "Algorithm/Slidingwindow/Leetcode134.md",
+    "Algorithm/Slidingwindow/Leetcode72/覆盖最小子串.md",
+    "期末/计算机组成原理.md",
+    "期末/计算思维题目.md",
+    "算法学习/Class032/位图.md",
+    "算法学习/Class051/二分答案法与相关题目.md",
+    "算法学习/Class032",
+    "算法学习/Class051",
+    "算法学习/前缀和/二维前缀和",
+    "算法学习/前缀和/常用枚举技巧/121买卖股票的最佳时机"
+  ]
+}
