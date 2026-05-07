@@ -4,5 +4,7 @@
   "obsidian-hover-editor",
   "obsidian-style-settings",
   "obsidian-relative-line-numbers",
-  "obsidian-git"
+  "obsidian-git",
+  "attachment-management",
+  "dataview"
 ]

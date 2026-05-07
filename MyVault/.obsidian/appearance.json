@@ -1,7 +1,9 @@
 {
-  "monospaceFontFamily": "Consolas",
-  "baseFontSize": 18,
+  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono,Consolas",
+  "baseFontSize": 19,
   "theme": "moonstone",
-  "cssTheme": "Obsidian Nord",
-  "baseFontSizeAction": true
+  "cssTheme": "Minimal",
+  "baseFontSizeAction": true,
+  "interfaceFontFamily": "Noto Sans",
+  "textFontFamily": "Noto Sans"
 }
