@@ -16,7 +16,7 @@ public:
         }
         return sum;
     }
-    int maximumSum(vector<int>& nums)
+    int maximumSum(vector&lt;int&gt;& nums)
     {
         int ans = 0;
         unordered_map<int, int> cnt;

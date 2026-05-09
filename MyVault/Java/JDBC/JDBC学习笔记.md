@@ -1376,7 +1376,7 @@ public class JDBCUtilsByDruid_USE {
         String sql = "select * from actor where id >= ?";
         PreparedStatement preparedStatement = null;
         ResultSet set = null;
-        ArrayList<Actor> list = new ArrayList<>();
+        ArrayList&lt;Actor&gt; list = new ArrayList<>();
         //3. 创建
         try {
             connection = JDBCUtilsByDruid.getConnection();
@@ -1442,7 +1442,7 @@ public class DBUtils_USE {
         //(6) 1就是给sql语句中的? 赋值， 可变参数
         //(7) preparement 和 结果集(ResultSet)会在底层关闭
         String sql = "select * from actor where id >= ?";
-        List<Actor> list =
+        List&lt;Actor&gt; list =
                 queryRunner.query(connection,sql ,new BeanListHandler<>(Actor.class), 1);
 
         for (Actor actor : list) {
@@ -1461,7 +1461,7 @@ public class DBUtils_USE {
 ---
 ## 追源码
 ```java
-public <T> T query(Connection conn, String sql, ResultSetHandler<T> rsh, Object... params) throws SQLException {
+public &lt;T&gt; T query(Connection conn, String sql, ResultSetHandler&lt;T&gt; rsh, Object... params) throws SQLException {
     if (conn == null) {
         throw new SQLException("Null connection");
     } else if (sql == null) {
@@ -1525,7 +1525,7 @@ import java.util.List;
  * 开发BasicD A O
  */
 
-public class BasicDao<T> {//泛型指定具体类型
+public class BasicDao&lt;T&gt; {//泛型指定具体类型
 
     private QueryRunner qr = new QueryRunner();
 
@@ -1550,11 +1550,11 @@ public class BasicDao<T> {//泛型指定具体类型
      * @param parameters 传入 ? 的具体的值， 可以是多个
      * @return 根据Actor.class 对应的ArrayList集合
      */
-    public List<T> queryMulti(String sql, Class<T> clazz, Object... parameters) {
+    public List&lt;T&gt; queryMulti(String sql, Class&lt;T&gt; clazz, Object... parameters) {
         Connection connection = null;
         try {
             connection = JDBCUtilsByDruid.getConnection();
-            return qr.query(connection, sql, new BeanListHandler<T>(clazz), parameters);
+            return qr.query(connection, sql, new BeanListHandler&lt;T&gt;(clazz), parameters);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -1562,12 +1562,12 @@ public class BasicDao<T> {//泛型指定具体类型
         }
     }
     //查询单行结果通用方法
-    public T querySingle(String sql, Class<T> clazz, Object... parameters) {
+    public T querySingle(String sql, Class&lt;T&gt; clazz, Object... parameters) {
 
         Connection connection = null;
         try {
             connection = JDBCUtilsByDruid.getConnection();
-            return qr.query(connection, sql, new BeanHandler<T>(clazz), parameters);
+            return qr.query(connection, sql, new BeanHandler&lt;T&gt;(clazz), parameters);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {

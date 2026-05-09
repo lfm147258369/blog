@@ -5,6 +5,7 @@ import { set_sidebar } from "./utils/auto-sidebar.mjs";	// 改成自己的路径
 export default defineConfig({
   title: "学习笔记",
   description: "记录学习历程",
+  ignoreDeadLinks: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

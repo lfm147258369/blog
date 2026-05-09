@@ -187,12 +187,12 @@ switch (obj) {
 // ---------------- JDK 8旧写法 ----------------
 String name = "Java17";
 int age = 25;
-List<String> list = new ArrayList<>();
+List&lt;String&gt; list = new ArrayList<>();
 
 // ---------------- JDK 17新写法 ----------------
 var name = "Java17"; // 推断为String
 var age = 25;        // 推断为int
-var list = new ArrayList<String>(); // 推断为ArrayList<String>
+var list = new ArrayList&lt;String&gt;(); // 推断为ArrayList&lt;String&gt;
 
 // 循环中使用
 for (var i = 0; i < 10; i++) { // i推断为int

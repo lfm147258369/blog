@@ -10,13 +10,13 @@ tags:
 - n个元素
 
 ```cpp
-#include <iostream>
-#include <vector>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
 using namespace std;
 
-void printVector(vector<int> & v)
+void printVector(vector&lt;int&gt; & v)
 {
-    for (vector<int>::iterator it = v.begin(); it != v.end(); it ++)
+    for (vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); it ++)
     {
         cout << *it  << " ";
     }
@@ -25,22 +25,22 @@ void printVector(vector<int> & v)
 //vector容器构造
 void tets01()
 {
-    vector<int> v1;
+    vector&lt;int&gt; v1;
     for (int i = 0; i < 10; i++)
     {
         v1.push_back(i);
     }
     printVector(v1);
 
-    vector<int> v2(v1.begin(), v1.end());
+    vector&lt;int&gt; v2(v1.begin(), v1.end());
     printVector(v2);
 
     //n个elem方式构造
-    vector<int>v3(10, 100);
+    vector&lt;int&gt;v3(10, 100);
     printVector(v3);
 
     //拷贝
-    vector<int>v4(v3);
+    vector&lt;int&gt;v4(v3);
     printVector(v4);
 }
 
@@ -53,7 +53,7 @@ int main()
 
 - 迭代器方法来遍历vector数组
 ```cpp
-for (vector<int>::iterator it = v.begin(); it != v.end(); it ++)
+for (vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); it ++)
 {
     cout << *it  << " ";
 }
@@ -65,13 +65,13 @@ for (vector<int>::iterator it = v.begin(); it != v.end(); it ++)
 
 ```cpp
 
-#include <iostream>
-#include <vector>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
 using namespace std;
 
-void PrintVector(vector<int> & v)
+void PrintVector(vector&lt;int&gt; & v)
 {
-    for (vector<int>::iterator it = v.begin(); it != v.end(); it ++)
+    for (vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); it ++)
     {
         cout << *it << " ";
     }
@@ -79,7 +79,7 @@ void PrintVector(vector<int> & v)
 }
 void test01()
 {
-    vector<int> v1;
+    vector&lt;int&gt; v1;
     for (int i = 0; i < 10; i++)
     {
         v1.push_back(i);
@@ -87,18 +87,18 @@ void test01()
     PrintVector(v1);
 	
     //赋值
-    vector<int> v2;
+    vector&lt;int&gt; v2;
     v2 = v1;
     PrintVector(v2);
 
     //assign前闭后开
-    vector<int> v3;
+    vector&lt;int&gt; v3;
     v3.assign(v1.begin(), v1.end());
     PrintVector(v1);
 
 
     //n个elem
-    vector<int> v4;
+    vector&lt;int&gt; v4;
     v4.assign(10, 100);
     PrintVector(v4);
 }

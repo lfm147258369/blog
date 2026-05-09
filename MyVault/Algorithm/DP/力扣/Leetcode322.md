@@ -45,7 +45,7 @@ class Solution
 {
 
     int mem[N];
-    int dfs(vector<int>& coins, int amount)
+    int dfs(vector&lt;int&gt;& coins, int amount)
     {
         if (mem[amount])
             return mem[amount];
@@ -64,7 +64,7 @@ class Solution
         return res;
     }
 public:
-    int coinChange(vector<int>& coins, int amount)
+    int coinChange(vector&lt;int&gt;& coins, int amount)
     {
         int n = coins.size();
         int ans = dfs(coins, amount);
@@ -90,12 +90,12 @@ public:
 class Solution 
 {
 public:
-    int coinChange(vector<int>& coins, int amount) 
+    int coinChange(vector&lt;int&gt;& coins, int amount) 
     {
         if (amount == 0)
             return 0;
         int n = coins.size();
-        vector<int> dp(amount + 1, amount + 1);
+        vector&lt;int&gt; dp(amount + 1, amount + 1);
         dp[0] = 0;
         for (int i = 1; i <= amount; i++)
         { 
@@ -280,7 +280,7 @@ class Solution
 {
   public:
     //x表示当前以nums[x]为结尾的数组
-    int dfs(int x, vector<int>& nums)
+    int dfs(int x, vector&lt;int&gt;& nums)
     {
         if (x < 2)
             return 0;
@@ -299,12 +299,12 @@ class Solution
     }
     int mem[N];
     
-    int numberOfArithmeticSlices(vector<int> &nums)
+    int numberOfArithmeticSlices(vector&lt;int&gt; &nums)
     {
         int n = nums.size();
         if (nums.size() < 3)
             return 0;
-        // vector<int> dp(n, 0);
+        // vector&lt;int&gt; dp(n, 0);
         int res = 0;
         int prev = 0;
         // for (int i = 2; i < nums.size(); i++)
@@ -387,7 +387,7 @@ class Solution
         {
             return 0;
         }
-        vector<int> dp(n + 1, INT_MAX);
+        vector&lt;int&gt; dp(n + 1, INT_MAX);
         dp[0] = 0;
         for (int i = 1; i <= n; i++)
         {
@@ -481,7 +481,7 @@ class Solution
         int n = s.size();
         if (n == 0 || s[0] == '0')
             return 0;
-        // vector<int> dp(n + 1, 0);
+        // vector&lt;int&gt; dp(n + 1, 0);
         // dp[0] = 1;
         // dp[1] = s[0] != '0' ? 1 : 0;
         int prevPrev = 1;

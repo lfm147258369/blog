@@ -2,7 +2,7 @@
 class Solution
 {
 public:
-    // int dfs(int target, vector<int> & nums, vector<int> &mem)
+    // int dfs(int target, vector&lt;int&gt; & nums, vector&lt;int&gt; &mem)
     // {
     //     if (target == 0)
     //     {
@@ -19,10 +19,10 @@ public:
     //     }
     //     return mem[target]  = ans;
     // }
-    int combinationSum4(vector<int>& nums, int target)
+    int combinationSum4(vector&lt;int&gt;& nums, int target)
     {
-        // vector<int> mem(target + 1, -1);
-        vector<size_t> dp(target + 1, 0);
+        // vector&lt;int&gt; mem(target + 1, -1);
+        vector&lt;size_t&gt; dp(target + 1, 0);
         dp[0]  = 1;
         for (int i = 1; i <= target; i++)
         { 
@@ -43,7 +43,7 @@ public:
   于是。我们就可以根据这个思路写出这样的递归：
 
 ```cpp
-    int dfs(int target, vector<int> & nums, vector<int> &mem)
+    int dfs(int target, vector&lt;int&gt; & nums, vector&lt;int&gt; &mem)
     {
         if (target == 0)
         {

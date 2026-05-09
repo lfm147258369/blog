@@ -12,7 +12,7 @@
 class Solution
 {
 public:
-    int maxOperations(vector<int>& nums, int k)
+    int maxOperations(vector&lt;int&gt;& nums, int k)
     {
         int ans = 0;
         int n = nums.size();

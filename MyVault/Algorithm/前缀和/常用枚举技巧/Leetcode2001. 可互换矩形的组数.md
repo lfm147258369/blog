@@ -8,7 +8,7 @@ class Solution
 {
 public:
     unordered_map<double, int> mp;
-    long long interchangeableRectangles(vector<vector<int>>& rectangles) 
+    long long interchangeableRectangles(vector<vector&lt;int&gt;>& rectangles) 
     {
         long long ans = 0;
         for (auto & t: rectangles)

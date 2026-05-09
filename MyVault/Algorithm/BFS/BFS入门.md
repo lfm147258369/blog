@@ -71,7 +71,7 @@ if (g[x1][y1] != 0 || g[x2][y2] != 0)
 using namespace std;
 
 typedef pair<int, int> PII;
-queue<PII> q;
+queue&lt;PII&gt; q;
 
 const int N = 1001;
 int n; // 迷宫的长和宽

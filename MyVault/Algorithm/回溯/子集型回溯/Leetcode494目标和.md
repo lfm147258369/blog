@@ -14,8 +14,8 @@ class Solution
 public:
     int n;
     int ans = 0;
-    vector<int> tmp;
-    void dfs(int x, vector<int> & nums, int & target)
+    vector&lt;int&gt; tmp;
+    void dfs(int x, vector&lt;int&gt; & nums, int & target)
     {
         if (x == n)
         {
@@ -46,7 +46,7 @@ public:
         dfs(x + 1, nums, target);
 
     }
-    int findTargetSumWays(vector<int>& nums, int target)
+    int findTargetSumWays(vector&lt;int&gt;& nums, int target)
     {
         n = nums.size();
         tmp.resize(n);
@@ -73,7 +73,7 @@ public:
 
 	int t;
 
-void dfs(int x, vector<int>& nums, int now_Sum)
+void dfs(int x, vector&lt;int&gt;& nums, int now_Sum)
 
 {
 
@@ -90,7 +90,7 @@ void dfs(int x, vector<int>& nums, int now_Sum)
 
 }
 
-int findTargetSumWays(vector<int>& nums, int target)
+int findTargetSumWays(vector&lt;int&gt;& nums, int target)
 
 {
 	n = nums.size();

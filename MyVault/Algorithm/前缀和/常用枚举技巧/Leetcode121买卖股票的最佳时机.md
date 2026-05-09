@@ -8,7 +8,7 @@
 class Solution 
 {
 public:
-    int maxProfit(vector<int>& prices) 
+    int maxProfit(vector&lt;int&gt;& prices) 
     {
         int minP = prices[0];
         int ans = 0;
