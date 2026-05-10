@@ -18,9 +18,9 @@ export default defineConfig({
       }
     ],
 
-    sidebar: {
-      "/MyVault/期末": set_sidebar("/MyVault/期末"),
-    },
+    // sidebar: {
+    //   "/MyVault/期末": set_sidebar("/MyVault/期末"),
+    // },
     aside: "left",
     
     socialLinks: [
