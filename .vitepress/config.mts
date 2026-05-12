@@ -6,8 +6,7 @@ export default defineConfig({
   title: "学习笔记",
   description: "记录学习历程",
   ignoreDeadLinks: true,
-  themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
+  themeConfig: {   // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
       { 
@@ -23,10 +22,9 @@ export default defineConfig({
         ],
       },
     ],
-
-    // sidebar: {
-    //   "/MyVault/期末": set_sidebar("/MyVault/期末"),
-    // },
+    outline: {
+      level: [1, 2],
+    },
     aside: "left",
     
     socialLinks: [
