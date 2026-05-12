@@ -283,7 +283,7 @@ public class ClassStatistics {
 | 选项 | 任务描述 | 难度 |
 | :--- | :--- | :--- |
 | A | 实现方法 `public static int[] findAboveThreshold(int[] arr, int threshold)`，返回数组中所有大于阈值的元素组成的新数组。<br>例：`findAboveThreshold([10,25,30,15,40],20)` 返回 `[25,30,40]` | ⭐⭐ |
-| B | 实现方法 `public static void printMatrix(int[][] matrix)`，以矩阵形式（每行每列对齐）输出二维数组。<br>例：输入 `{{1,2,3},{4,5,6}}` → 输出：<br>`1 2 3`<br>`4 5 6` | ⭐⭐ |
+| B | 实现方法 `public static void printMatrix(int[][] matrix)`，以矩阵形式（每行每列对齐）输出二维数组。<br>例：输入 `int[][] matrix = { {1,2,3}, {4,5,6} }` → 输出：<br>`1 2 3`<br>`4 5 6` | ⭐⭐ |
 
 ### 操作步骤
 
