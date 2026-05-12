@@ -14,6 +14,7 @@ export default defineConfig({
         text: '期末合集', 
         items: [
           { text: '专业课复习', link: '/MyVault/期末' },
+          { text: '实验', link: '/MyVault/Lab' },
         ]
       }
     ],
