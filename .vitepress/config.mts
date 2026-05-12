@@ -17,8 +17,9 @@ export default defineConfig({
         ]
       },
       {
+        text: '实验合集',
         items: [
-          { text: '实验', link: '/MyVault/Lab' },
+          { text: '程序设计实验', link: '/MyVault/Lab' },
         ],
       },
     ],
