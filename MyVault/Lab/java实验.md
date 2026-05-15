@@ -263,6 +263,36 @@ public class NarcissisticNumber {
 4 位的水仙花数：1634 8208 9474
 ```
 
+**AI 使用记录**：
+
+### 记录一
+
+| 项目 | 内容 |
+|:---|:---|
+| 使用的AI工具 | opencode |
+| 我的提问原文 | 帮我补全java实验.md里面实验一和实验三所有要填空的代码和完整类 |
+| AI回复的代码 | CircleArea（变量定义+常量+输出）、TemperatureConvert（celsius公式）、LeapYear（for+闰年判断）、FactorialSum（while+内层for阶乘）、PrimeMethod（isPrime方法+格式化输出5个一行）、NarcissisticNumber（countDigits/power/isNarcissistic+分组输出） |
+| 是否正确运行 | ☑ 直接运行成功 |
+| 如有修改 | 无需修改 |
+
+**简短反思**：
+- 优点：一次性补全6个类的完整代码，从变量定义到方法设计全覆盖
+- 注意事项：NarcissisticNumber 的 power 方法需确认手动实现而非 Math.pow，注意 countDigits 对 num=0 的边界处理
+
+### 记录二
+
+| 项目 | 内容 |
+|:---|:---|
+| 使用的AI工具 | opencode |
+| 我的提问原文 | 检查PrimeMethod的isPrime方法是否正确，格式输出是否符合要求（每行5个右对齐，最后统计总数）|
+| AI回复的代码 | 确认 isPrime 使用 `Math.sqrt(number)` 优化、使用 `printf("%4d", num)` 右对齐、`count % 5 == 0` 换行、最后一行补换行+统计输出 |
+| 是否正确运行 | ☑ 直接运行成功 |
+| 如有修改 | 无需修改 |
+
+**简短反思**：
+- 优点：对格式化输出的细节（printf + 右对齐宽度 + 换行时机）检查到位
+- 注意事项：`printf` 是 JDK 5+ 才引入，确认实验环境 JDK 17 完全兼容
+
 ---
 
 # Java 数组基础实验
@@ -502,6 +532,36 @@ public class ClassStatistics {
 - `classAvg(int[][] data, int classIndex)`：计算指定班级的平均分
 - `schoolMax(int[][] data)`：查找全校最高分
 - `bestClass(int[][] data)`：找出平均分最高的班级
+
+**AI 使用记录**：
+
+### 记录一
+
+| 项目 | 内容 |
+|:---|:---|
+| 使用的AI工具 | opencode |
+| 我的提问原文 | 帮我补全java实验.md里面数组基础实验的所有填空（ArrayBasic），并写完整ScoreStatistics和ClassStatistics |
+| AI回复的代码 | ArrayBasic（数组初始化+for/增强for遍历+求和+最值）、ScoreStatistics（Scanner输入+统计+冒泡降序）、ClassStatistics（classAvg/schoolMax/bestClass三个方法+main调用） |
+| 是否正确运行 | ☑ 直接运行成功 |
+| 如有修改 | 无需修改 |
+
+**简短反思**：
+- 优点：从填空补全到完整类编写一次性完成，冒泡排序手动实现避免过度依赖 Arrays.sort
+- 注意事项：增强 for 循环不能修改数组元素，需用普通 for 循环处理赋值场景
+
+### 记录二
+
+| 项目 | 内容 |
+|:---|:---|
+| 使用的AI工具 | opencode |
+| 我的提问原文 | ScoreStatistics 的平均分保留一位小数、ClassStatistics 的二维数组遍历逻辑对不对？ |
+| AI回复的代码 | 确认 `printf("%.1f", average)` 格式化、`classAvg` 使用增强 for 遍历 `data[classIndex]`、`schoolMax` 双层循环遍历所有元素 |
+| 是否正确运行 | ☑ 直接运行成功 |
+| 如有修改 | 无需修改 |
+
+**简短反思**：
+- 优点：逐方法核对二维数组的遍历逻辑（外层班级/内层学生），保证索引不越界
+- 注意事项：整型除法默认截断，平均分需先将 sum 转为 double 再除（`sum / (double) length`）
 
 ---
 
