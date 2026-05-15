@@ -14,18 +14,19 @@
 public class CircleArea {
     public static void main(String[] args) {
         // 1. 定义半径变量，标识符命名为 radius，初始值为 5.2
-        // >>> 请在此处补全变量定义语句 <<<
+        double radius = 5.2;
 
         // 2. 定义圆周率常量（使用 final 修饰），标识符命名为 PI，初始值为 3.14159
-        // >>> 请在此处补全常量定义语句 <<<
+        final double PI = 3.14159;
 
         // 3. 计算面积：面积 = PI * radius * radius，定义变量 area 存储结果
-        // >>> 请补全面积计算及赋值语句 <<<
+        double area = PI * radius * radius;
 
         // 4. 输出结果，格式如下：
         // 半径：5.2
         // 面积：84.905
-        // >>> 请补全输出语句 <<<
+        System.out.println("半径：" + radius);
+        System.out.println("面积：" + area);
     }
 }
 ```
@@ -37,7 +38,7 @@ public class TemperatureConvert {
     public static void main(String[] args) {
         double fahrenheit = 100.0; // 华氏度
 
-        // >>> 请补全：定义变量 celsius，并利用运算符计算对应的摄氏度 <<<
+        double celsius = (fahrenheit - 32) * 5 / 9;
 
         System.out.println(fahrenheit + "华氏度 = " + celsius + "摄氏度");
     }
@@ -61,8 +62,12 @@ public class LeapYear {
 
         System.out.println(startYear + "年到" + endYear + "年之间的闰年有：");
 
-        // >>> 请补全循环结构（使用 for 循环） <<<
-        // 闰年判断条件：能被 4 整除但不能被 100 整除，或者能被 400 整除
+        for (int year = startYear; year <= endYear; year++) {
+            if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+                System.out.print(year + " ");
+                count++;
+            }
+        }
 
         System.out.println("\n共计 " + count + " 个闰年。");
     }
@@ -80,7 +85,14 @@ public class FactorialSum {
         int sum = 0;
         int i = 1;
 
-        // >>> 请使用 while 循环实现，内层阶乘计算可使用 for 循环 <<<
+        while (i <= n) {
+            int factorial = 1;
+            for (int j = 1; j <= i; j++) {
+                factorial *= j;
+            }
+            sum += factorial;
+            i++;
+        }
 
         System.out.println("1! + 2! + ... + " + n + "! = " + sum);
     }
@@ -103,12 +115,39 @@ public class FactorialSum {
  * 2. main 方法中调用判断 2~100 之间素数，每行输出 5 个数，统计总数
  */
 public class PrimeMethod {
-    // 请补充你的代码，包含适当文档注释
-
-    // public static boolean isPrime(int number) { ... }
+    /**
+     * 判断一个整数是否为素数
+     * @param number 待判断的整数
+     * @return 如果是素数返回 true，否则返回 false
+     */
+    public static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
-        // 调用 isPrime，输出素数，格式化展示
+        int count = 0;
+        System.out.println("2~100 之间的素数：");
+        for (int num = 2; num <= 100; num++) {
+            if (isPrime(num)) {
+                System.out.printf("%4d", num);
+                count++;
+                if (count % 5 == 0) {
+                    System.out.println();
+                }
+            }
+        }
+        if (count % 5 != 0) {
+            System.out.println();
+        }
+        System.out.println("2~100 之间共有 " + count + " 个素数");
     }
 }
 ```
@@ -126,12 +165,91 @@ public class PrimeMethod {
  * 3. boolean isNarcissistic(int num) // 判断水仙花数
  * 4. main 方法先求 100~999 间的所有水仙花数，再扩展用户输入范围并分组输出
  */
+import java.util.Scanner;
+
 public class NarcissisticNumber {
-    // 补全以上三个方法，要求方法职责单一，注释完整
+    /**
+     * 返回整数的位数
+     * @param num 待计算的整数
+     * @return 位数
+     */
+    public static int countDigits(int num) {
+        if (num == 0) {
+            return 1;
+        }
+        int count = 0;
+        int temp = Math.abs(num);
+        while (temp > 0) {
+            temp /= 10;
+            count++;
+        }
+        return count;
+    }
+
+    /**
+     * 手动实现幂运算 base^exp
+     * @param base 底数
+     * @param exp 指数
+     * @return 幂运算结果
+     */
+    public static int power(int base, int exp) {
+        int result = 1;
+        for (int i = 0; i < exp; i++) {
+            result *= base;
+        }
+        return result;
+    }
+
+    /**
+     * 判断一个数是否为水仙花数（阿姆斯特朗数）
+     * @param num 待判断的整数
+     * @return 如果是水仙花数返回 true，否则返回 false
+     */
+    public static boolean isNarcissistic(int num) {
+        int digits = countDigits(num);
+        int sum = 0;
+        int temp = num;
+        while (temp > 0) {
+            int digit = temp % 10;
+            sum += power(digit, digits);
+            temp /= 10;
+        }
+        return sum == num;
+    }
 
     public static void main(String[] args) {
         // 1. 输出三位水仙花数
+        System.out.print("100~999 之间的水仙花数：");
+        for (int num = 100; num <= 999; num++) {
+            if (isNarcissistic(num)) {
+                System.out.print(num + " ");
+            }
+        }
+        System.out.println();
+
         // 2. 使用 Scanner 获取范围，输出所有阿姆斯特朗数并按位数分组
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("请输入查找范围（起始 终止）：");
+        int start = scanner.nextInt();
+        int end = scanner.nextInt();
+        scanner.close();
+
+        int maxDigits = countDigits(end);
+        for (int d = 1; d <= maxDigits; d++) {
+            boolean hasOutput = false;
+            for (int num = start; num <= end; num++) {
+                if (countDigits(num) == d && isNarcissistic(num)) {
+                    if (!hasOutput) {
+                        System.out.print(d + " 位的水仙花数：");
+                        hasOutput = true;
+                    }
+                    System.out.print(num + " ");
+                }
+            }
+            if (hasOutput) {
+                System.out.println();
+            }
+        }
     }
 }
 ```
@@ -162,33 +280,39 @@ public class NarcissisticNumber {
 public class ArrayBasic {
     public static void main(String[] args) {
         // 1.1. 声明并初始化一个 int 数组，包含 5 个元素：10, 20, 30, 40, 50
-        int[] numbers = _______________;
+        int[] numbers = {10, 20, 30, 40, 50};
 
         // 1.2. 使用普通 for 循环遍历数组并输出所有元素
         System.out.print("数组元素：");
-        for (int i = 0; i < _______________; i++) {
-            System.out.print(_______________ + " ");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + " ");
         }
         System.out.println();
 
         // 1.3. 使用增强 for 循环计算所有元素的和
         int sum = 0;
-        for (_______________ : _______________) {
-            sum += _______________;
+        for (int num : numbers) {
+            sum += num;
         }
         System.out.println("数组元素和：" + sum);
 
         // 1.4. 查找最大值并输出
-        int max = _______________; // 初始值应为数组第一个元素
+        int max = numbers[0]; // 初始值应为数组第一个元素
         for (int i = 0; i < numbers.length; i++) {
-            if (_______________ > max) {
+            if (numbers[i] > max) {
                 max = numbers[i];
             }
         }
         System.out.println("最大值：" + max);
 
-        // 1.5. 查找最小值并输出（请自行完成）
-        // 请补充代码...
+        // 1.5. 查找最小值并输出
+        int min = numbers[0];
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] < min) {
+                min = numbers[i];
+            }
+        }
+        System.out.println("最小值：" + min);
     }
 }
 ```
@@ -225,6 +349,62 @@ public class ArrayBasic {
 成绩排名（从高到低）：92 88 78 70 65
 ```
 
+**参考代码**：
+```java
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class ScoreStatistics {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] scores = new int[5];
+
+        System.out.println("请输入 5 个学生的成绩（0-100）：");
+        for (int i = 0; i < scores.length; i++) {
+            System.out.print("第 " + (i + 1) + " 个学生成绩：");
+            scores[i] = scanner.nextInt();
+        }
+        scanner.close();
+
+        int sum = 0;
+        int max = scores[0];
+        int min = scores[0];
+        for (int i = 0; i < scores.length; i++) {
+            sum += scores[i];
+            if (scores[i] > max) {
+                max = scores[i];
+            }
+            if (scores[i] < min) {
+                min = scores[i];
+            }
+        }
+        double average = sum / (double) scores.length;
+
+        int[] sorted = Arrays.copyOf(scores, scores.length);
+        for (int i = 0; i < sorted.length - 1; i++) {
+            for (int j = 0; j < sorted.length - 1 - i; j++) {
+                if (sorted[j] < sorted[j + 1]) {
+                    int temp = sorted[j];
+                    sorted[j] = sorted[j + 1];
+                    sorted[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println("\n========== 统计结果 ==========");
+        System.out.println("总分：" + sum);
+        System.out.printf("平均分：%.1f\n", average);
+        System.out.println("最高分：" + max);
+        System.out.println("最低分：" + min);
+        System.out.print("\n成绩排名（从高到低）：");
+        for (int s : sorted) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+    }
+}
+```
+
 ---
 
 **实验三：二维数组初步 —— 班级成绩统计**
@@ -243,7 +423,58 @@ public class ClassStatistics {
             {88, 85, 90, 87}   // 班级 3
         };
 
-        // 请在此处编写代码完成以下功能
+        // 1. 计算并输出每个班级的平均分（保留一位小数）
+        System.out.println("========== 班级平均分 ==========");
+        double[] classAvgs = new double[scores.length];
+        for (int i = 0; i < scores.length; i++) {
+            classAvgs[i] = classAvg(scores, i);
+            System.out.printf("班级 %d 平均分：%.1f\n", i + 1, classAvgs[i]);
+        }
+
+        // 2. 计算并输出全校最高分
+        System.out.println("\n========== 全校最高分 ==========");
+        System.out.println(schoolMax(scores));
+
+        // 3. 输出平均分最高的班级
+        System.out.println("\n========== 平均分最高的班级 ==========");
+        int best = bestClass(scores);
+        System.out.println("班级 " + (best + 1));
+    }
+
+    /** 计算指定班级的平均分 */
+    public static double classAvg(int[][] data, int classIndex) {
+        int sum = 0;
+        for (int score : data[classIndex]) {
+            sum += score;
+        }
+        return sum / (double) data[classIndex].length;
+    }
+
+    /** 查找全校最高分 */
+    public static int schoolMax(int[][] data) {
+        int max = data[0][0];
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                if (data[i][j] > max) {
+                    max = data[i][j];
+                }
+            }
+        }
+        return max;
+    }
+
+    /** 找出平均分最高的班级（返回班级索引） */
+    public static int bestClass(int[][] data) {
+        int bestIndex = 0;
+        double bestAvg = classAvg(data, 0);
+        for (int i = 1; i < data.length; i++) {
+            double avg = classAvg(data, i);
+            if (avg > bestAvg) {
+                bestAvg = avg;
+                bestIndex = i;
+            }
+        }
+        return bestIndex;
     }
 }
 ```
@@ -291,22 +522,25 @@ public class Employee {
 
     // 构造方法1：无参构造，调用本类有参构造，提供默认值（工号"E000"，姓名"待定"，部门"未分配"，工资0.0）
     public Employee() {
-        // 【填空1：使用this调用本类的四个参数构造方法，传入默认值："E000", "待定", 0.0, "未分配"】
+        this("E000", "待定", 0.0, "未分配");
     }
 
     // 构造方法2：只接收姓名和工资，部门默认"通用"，工号自动生成（简单拼接"E" + 系统时间毫秒数，这里写死"E999"）
     public Employee(String name, double salary) {
-        // 【填空2：使用this调用本类的四个参数构造方法，工号设为"E999"，部门设为"通用"】
+        this("E999", name, salary, "通用");
     }
 
     // 构造方法3：接收工号、姓名、工资，部门默认"研发部"
     public Employee(String empId, String name, double salary) {
-        // 【填空3：使用this调用本类的四个参数构造方法，部门传入"研发部"】
+        this(empId, name, salary, "研发部");
     }
 
     // 构造方法4：全参数构造方法（这是最终目标构造器）
     public Employee(String empId, String name, double salary, String department) {
-        // 【填空4：为四个实例变量赋值，使用this区分局部变量和成员变量】
+        this.empId = empId;
+        this.name = name;
+        this.salary = salary;
+        this.department = department;
     }
 
     // 实例方法：显示员工信息
@@ -316,13 +550,13 @@ public class Employee {
 
     // 实例方法：比较两个员工的工资（演示this作为参数传递）
     public boolean hasHigherSalaryThan(Employee other) {
-        // 【填空5：返回当前员工工资是否高于other员工工资】
+        return this.salary > other.salary;
     }
 
     // 实例方法：返回当前对象自身（演示this作为返回值，可用于链式调用）
     public Employee setSalary(double salary) {
         this.salary = salary;
-        // 【填空6：返回当前对象】
+        return this;
     }
 }
 ```
@@ -335,22 +569,20 @@ public class Employee {
 public class EmployeeTest {
     public static void main(String[] args) {
         // 创建两个银行账户对象，使用构造方法初始化
-        // 【填空16：创建对象，账号"10086"，户主"张三"，余额2000.0】
-        BankAccount acc1 = 
+        BankAccount acc1 = new BankAccount("10086", "张三", 2000.0);
 
-        // 【填空17：创建对象，账号"10010"，户主"李四"，余额500.0】
-        BankAccount acc2 = 
+        BankAccount acc2 = new BankAccount("10010", "李四", 500.0);
 
         // 调用 showInfo 展示账户信息
-        // 【填空18：让 acc1 显示账户信息】
-        // 【填空19：让 acc2 显示账户信息】
+        acc1.showInfo();
+        acc2.showInfo();
 
         // 存款操作
-        // 【填空20：调用 acc1 的存款方法，存入 500 元】
+        acc1.deposit(500);
 
         // 取款操作
-        // 【填空21：调用 acc1 的取款方法，取出 300 元】
-        // 【填空22：调用 acc2 的取款方法，尝试取出 600 元（测试金额不足）】
+        acc1.withdraw(300);
+        acc2.withdraw(600); // 测试金额不足
 
         // 以下两行演示封装性——private 成员无法直接访问，取消注释会编译报错
         // acc1.balance = 9999;   // 编译错误，证明封装
@@ -374,23 +606,25 @@ public class Product {
 
     // 构造方法1：无参构造，委托给三参构造（默认库存10）
     public Product() {
-        // 【填空12：调用本类三参构造方法，传入"P000", "无名商品", 0.0】
+        this("P000", "无名商品", 0.0);
     }
 
     // 构造方法2：接收产品名称和价格，ID自动生成（"PID"随机数，此处写死"P999"），库存默认为0
     public Product(String name, double price) {
-        // 【填空13：调用本类三参构造方法，传入"P999", name, price】
-        // 库存待默认0
+        this("P999", name, price);
     }
 
     // 构造方法3：接收ID、名称、价格（库存默认0）
     public Product(String productId, String name, double price) {
-        // 【填空14：调用本类全参数构造方法，库存传入0】
+        this(productId, name, price, 0);
     }
 
     // 构造方法4：全参数构造方法（id, name, price, stock）
     public Product(String productId, String name, double price, int stock) {
-        // 【填空15：为所有实例变量赋值，使用this区分】
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
     }
 
     // 实例方法：商品信息展示
@@ -400,13 +634,13 @@ public class Product {
 
     // 实例方法：比较两个商品价格是否相等（this作为参数传递给工具方法）
     public boolean isSamePrice(Product other) {
-        // 【填空16：返回当前商品价格是否等于other商品价格】
+        return this.price == other.price;
     }
 
     // 实例方法：增加库存，并返回当前对象（链式调用）
     public Product addStock(int amount) {
         this.stock += amount;
-        // 【填空17：返回当前对象】
+        return this;
     }
 
     // 额外演示：this作为参数传递给普通方法
@@ -446,34 +680,34 @@ public class Product {
 ```java
 public class BankAccount {
     // 1. 属性定义（全部私有，体现封装）
-    // 【填空1：定义账号 accountNumber，类型 String，private】
-    // 【填空2：定义户主姓名 accountHolder，类型 String，private】
-    // 【填空3：定义余额 balance，类型 double，private】
+    private String accountNumber;
+    private String accountHolder;
+    private double balance;
 
     // 2. 构造方法：初始化账号、户主姓名和余额
     public BankAccount(String accountNumber, String accountHolder, double balance) {
-        // 【填空4：使用 this 关键字为 accountNumber 属性赋值】
-        // 【填空5：使用 this 关键字为 accountHolder 属性赋值】
-        // 【填空6：使用 this 关键字为 balance 属性赋值】
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+        this.balance = balance;
     }
 
     // 3. 公共 getter 方法（只提供读取，不提供修改，加强封装）
     public String getAccountNumber() {
-        // 【填空7：返回账号】
+        return accountNumber;
     }
 
     public String getAccountHolder() {
-        // 【填空8：返回户主姓名】
+        return accountHolder;
     }
 
     public double getBalance() {
-        // 【填空9：返回余额】
+        return balance;
     }
 
     // 4. 存款方法
     public void deposit(double amount) {
-        if (【填空10：判断存款金额大于 0 的条件】) {
-            // 【填空11：余额增加 amount】
+        if (amount > 0) {
+            balance += amount;
             System.out.println("存款成功：+" + amount + "，当前余额：" + balance);
         } else {
             System.out.println("存款金额无效");
@@ -483,7 +717,7 @@ public class BankAccount {
     // 5. 取款方法
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
-            // 【填空12：余额减少 amount】
+            balance -= amount;
             System.out.println("取款成功：-" + amount + "，剩余余额：" + balance);
         } else {
             System.out.println("余额不足或金额无效");
@@ -492,9 +726,9 @@ public class BankAccount {
 
     // 6. 展示账户信息
     public void showInfo() {
-        System.out.println("账号：" + 【填空13：获取账号属性】
-            + " | 户主：" + 【填空14：获取户主姓名属性】
-            + " | 余额：" + 【填空15：获取余额属性】);
+        System.out.println("账号：" + accountNumber
+            + " | 户主：" + accountHolder
+            + " | 余额：" + balance);
     }
 
     // 7. 仅供内部使用的密码验证（private 方法）
@@ -569,7 +803,7 @@ public class CallerClass {
     public void instanceMethod() {
         System.out.println("实例方法被调用");
         // 实例方法中可以直接调用静态方法
-        // 【填空1：调用本类的静态方法 staticMethod】
+        staticMethod();
         
         // 实例方法中可以访问静态变量
         System.out.println("在实例方法中访问静态变量：" + staticName);
