@@ -1,12 +1,17 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import { set_sidebar } from "./utils/auto-sidebar.mjs";	// 改成自己的路径
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
-  title: "学习笔记",
-  description: "记录学习历程",
-  ignoreDeadLinks: true,
-  themeConfig: {   // https://vitepress.dev/reference/default-theme-config
+export default withMermaid(
+  defineConfig({
+    title: "学习笔记",
+    description: "记录学习历程",
+    ignoreDeadLinks: true,
+    mermaid: {
+      // mermaid 全局配置（可选）
+    },
+    themeConfig: {   // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
       { 
@@ -36,3 +41,4 @@ export default defineConfig({
     }
   }
 })
+)
