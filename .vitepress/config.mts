@@ -1,3 +1,4 @@
+import './crypto-polyfill.mjs'           // 必须在 markdownItMathjax3 之前加载
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import markdownItMathjax3 from 'markdown-it-mathjax3'
