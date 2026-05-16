@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import markdownItMathjax3 from 'markdown-it-mathjax3'
 import { set_sidebar } from "./utils/auto-sidebar.mjs";	// 改成自己的路径
 
 // https://vitepress.dev/reference/site-config
@@ -8,6 +9,16 @@ export default withMermaid(
     title: "学习笔记",
     description: "记录学习历程",
     ignoreDeadLinks: true,
+    markdown: {
+      config: (md) => {
+        md.use(markdownItMathjax3, {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          }
+        })
+      }
+    },
     mermaid: {
       // mermaid 全局配置（可选）
     },
