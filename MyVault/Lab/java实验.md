@@ -1047,3 +1047,279 @@ public class TestStatic {
 （开放性回答示例）填空1 `staticMethod()` 调用看似简单，但容易写成 `this.staticMethod()` 或 `CallerClass.staticMethod()`，虽然也能通过编译但不够简洁。记忆口诀：**"静能见静，静不见实；实能见静，实能见实。跨类调静用类名，调实必须先 new。"** 解释——静态方法可以访问静态成员，不能直接访问实例成员；实例方法可以访问静态成员，也可以访问实例成员。跨类调用静态方法用 `类名.方法()`，调用实例方法必须先创建对象。
 
 ---
+# Java 图形绘制系统实验（继承·方法重写·super·多态 + AI辅助编程）
+
+---
+
+**实验主题**：继承 · 方法重写 · super关键字 · 多态机制  
+**核心目标**：掌握Java面向对象三大特性中的**继承**与**多态**，理解`super`关键字的作用
+
+---
+
+## 一、实验基础代码实现
+
+### 1.1 父类 Shape.java
+
+```java
+public class Shape {
+    protected String color;
+    protected int x;
+    protected int y;
+
+    public Shape(String color, int x, int y) {
+        this.color = color;
+        this.x = x;
+        this.y = y;
+        System.out.println("调用Shape构造器：创建了一个" + color + "的图形");
+    }
+
+    public double getArea() {
+        System.out.println("Shape类中的getArea方法被调用（父类默认实现）");
+        return 0.0;
+    }
+
+    public void draw() {
+        System.out.println("正在绘制一个通用图形在坐标(" + x + "," + y + ")");
+    }
+
+    public void displayInfo() {
+        System.out.println("图形信息 -> 颜色：" + color + "，位置：(" + x + "," + y + ")，面积：" + getArea());
+    }
+
+    public void move(int dx, int dy) {
+        this.x += dx;
+        this.y += dy;
+        System.out.println("图形移动到了新位置：(" + x + "," + y + ")");
+    }
+}
+```
+
+### 1.2 子类 Circle.java
+
+```java
+public class Circle extends Shape {
+    private double radius;
+
+    public Circle(String color, int x, int y, double radius) {
+        super(color, x, y);
+        this.radius = radius;
+        System.out.println("调用Circle构造器：半径为" + radius);
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public void draw() {
+        super.draw();
+        System.out.println("实际上我画了一个圆形，半径：" + radius + "，颜色：" + color);
+    }
+
+    @Override
+    public void move(int dx, int dy) {
+        super.move(dx, dy);
+        System.out.println("【圆形专属】这个圆形正在沿着平滑曲线移动~");
+    }
+}
+```
+
+### 1.3 子类 Rectangle.java（独立编写）
+
+```java
+public class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(String color, int x, int y, double width, double height) {
+        super(color, x, y);
+        this.width = width;
+        this.height = height;
+        System.out.println("调用Rectangle构造器：宽=" + width + "，高=" + height);
+    }
+
+    @Override
+    public double getArea() {
+        return width * height;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("绘制一个矩形（宽度=" + width + "，高度=" + height + "，颜色=" + color + "）");
+    }
+}
+```
+
+---
+
+## 二、测试类 DrawingApp.java
+
+```java
+public class DrawingApp {
+    public static void main(String[] args) {
+        System.out.println("=== 1. 创建圆形对象 ===");
+        Circle circle = new Circle("红色", 10, 20, 5.0);
+
+        System.out.println("\n=== 2. 调用圆形的方法 ===");
+        circle.draw();
+        System.out.println("圆面积：" + circle.getArea());
+        circle.displayInfo();
+
+        System.out.println("\n=== 3. 创建矩形对象 ===");
+        Rectangle rect = new Rectangle("蓝色", 30, 40, 8.0, 6.0);
+
+        System.out.println("\n=== 4. 调用矩形的方法 ===");
+        rect.draw();
+        System.out.println("矩形面积：" + rect.getArea());
+        rect.displayInfo();
+
+        System.out.println("\n=== 5. 多态演示（父类引用指向子类对象） ===");
+        Shape s1 = new Circle("绿色", 50, 60, 2.0);
+        Shape s2 = new Rectangle("黄色", 70, 80, 4.0, 3.0);
+        s1.draw();
+        s2.draw();
+
+        System.out.println("\n=== 6. 测试三角形对象 ===");
+        Shape triangle = new Triangle("紫色", 90, 100, 6.0, 4.0);
+        triangle.draw();
+        System.out.println("三角形面积：" + triangle.getArea());
+
+        System.out.println("\n=== 7. 测试移动功能 ===");
+        Circle moveCircle = new Circle("橙色", 0, 0, 3.0);
+        moveCircle.move(10, 20);
+
+        compareArea(circle, rect);
+        compareArea(triangle, new Circle("黑色", 0, 0, 2.0));
+    }
+
+    public static void compareArea(Shape a, Shape b) {
+        double areaA = a.getArea();
+        double areaB = b.getArea();
+        System.out.println("\n=== 面积比较结果 ===");
+        if (areaA > areaB) {
+            System.out.println("第一个图形面积更大！");
+            a.displayInfo();
+        } else if (areaA < areaB) {
+            System.out.println("第二个图形面积更大！");
+            b.displayInfo();
+        } else {
+            System.out.println("两个图形面积相等！");
+        }
+    }
+}
+```
+
+### 预期运行结果
+
+```
+=== 1. 创建圆形对象 ===
+调用Shape构造器：创建了一个红色的图形
+调用Circle构造器：半径为5.0
+
+=== 2. 调用圆形的方法 ===
+正在绘制一个通用图形在坐标(10,20)
+实际上我画了一个圆形，半径：5.0，颜色：红色
+圆面积：78.53981633974483
+图形信息 -> 颜色：红色，位置：(10,20)，面积：78.53981633974483
+
+=== 3. 创建矩形对象 ===
+调用Shape构造器：创建了一个蓝色的图形
+调用Rectangle构造器：宽=8.0，高=6.0
+
+=== 4. 调用矩形的方法 ===
+绘制一个矩形（宽度=8.0，高度=6.0，颜色=蓝色）
+矩形面积：48.0
+图形信息 -> 颜色：蓝色，位置：(30,40)，面积：48.0
+
+=== 5. 多态演示 ===
+调用Shape构造器：创建了一个绿色的图形
+调用Circle构造器：半径为2.0
+调用Shape构造器：创建了一个黄色的图形
+调用Rectangle构造器：宽=4.0，高=3.0
+正在绘制一个通用图形在坐标(50,60)
+实际上我画了一个圆形，半径：2.0，颜色：绿色
+绘制一个矩形（宽度=4.0，高度=3.0，颜色=黄色）
+```
+
+---
+
+## 三、挑战任务
+
+### 任务1：Triangle 类
+
+```java
+public class Triangle extends Shape {
+    private double base;
+    private double height;
+
+    public Triangle(String color, int x, int y, double base, double height) {
+        super(color, x, y);
+        this.base = base;
+        this.height = height;
+        System.out.println("调用Triangle构造器：底=" + base + "，高=" + height);
+    }
+
+    @Override
+    public double getArea() {
+        return base * height / 2;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("绘制一个三角形（底边=" + base + "，高=" + height + "，颜色=" + color + "）");
+    }
+}
+```
+
+### 任务2：super进阶——移动功能
+
+Shape中新增 `move(int dx, int dy)`，Circle通过 `super.move(dx, dy)` 调用父类逻辑后追加子类提示。
+
+### 任务3：面积比较器
+
+`compareArea(Shape a, Shape b)` 利用多态统一比较不同子类面积。
+
+---
+
+## 四、观察与思考
+
+**题1. 创建子类对象时，父类和子类构造器的执行顺序是怎样的？**
+
+必须先执行父类构造方法，再执行子类构造方法。子类继承父类非私有成员，需先完成父类初始化。若子类未显式调用 `super()`，编译器自动添加无参 `super()`。输出结果验证：每次创建 Circle/Rectangle 都先输出"调用Shape构造器..."再输出子类构造器信息。
+
+**题2. `circle.displayInfo()` 内部调用了 `getArea()`，实际调用的是父类还是子类的版本？**
+
+子类Circle重写后的 `getArea()`。原因：Java的**动态绑定（运行时绑定）**——`displayInfo()` 虽是父类方法，其内部 `getArea()` 调用基于对象实际类型（Circle）解析，非声明类型（Shape）。
+
+**题3. 父类引用 `Shape s1 = new Circle(...)` 调用 `draw()` 时，为什么执行Circle版本？**
+
+Java方法调用在**运行时**根据对象的**实际类型**（Circle）决定调用哪个版本。这是**多态机制**的核心：同一操作作用于不同对象，产生不同结果，提高代码扩展性和灵活性。
+
+---
+
+## 五、AI 使用记录
+
+### 记录一
+
+| 项目 | 内容 |
+|:---|:---|
+| 使用的AI工具 | opencode |
+| 我的提问原文 | 请帮我创建Shape/Circle/Rectangle/Triangle/DrawingApp五个类，实现继承、方法重写、super关键字、多态的完整实验 |
+| AI回复的代码 | Shape（父类+move）、Circle（extends+@Override）、Rectangle（独立draw）、Triangle（面积公式）、DrawingApp（main+compareArea多态比较） |
+| 是否正确运行 | ☑ 直接运行成功 |
+| 如有修改 | 无需修改 |
+
+**简短反思**：AI一次性生成完整多态代码覆盖继承/重写/super/多态；`super()` 必须是构造器第一条语句，AI不会出错但手写容易忘。
+
+### 记录二
+
+| 项目 | 内容 |
+|:---|:---|
+| 使用的AI工具 | opencode |
+| 我的提问原文 | 请解释super关键字在Circle类中起到的作用，以及为什么displayInfo调用的getArea是子类版本 |
+| AI回复的代码 | super两个核心作用：①调用父类构造方法 ②调用父类被重写的成员方法。动态绑定决定getArea()基于对象实际类型调用 |
+| 是否正确运行 | ☑ 概念解释，验证通过 |
+| 如有修改 | 无需修改 |
+
+**简短反思**：从JVM方法表查找理解动态绑定更透彻；概念需结合实际运行验证。
