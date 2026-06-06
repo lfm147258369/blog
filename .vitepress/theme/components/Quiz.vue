@@ -47,7 +47,11 @@ function textOf(opt) {
 }
 
 function optionClass(i) {
-  if (!submitted.value) return ''
+  if (!submitted.value) {
+    // Pre-submission: highlight selected options for multi-choice
+    if (quizType.value === 'multi' && selected.value.includes(labelOf(i))) return 'selected'
+    return ''
+  }
   const letter = labelOf(i)
   const isCorrectAns = correctAnswers.value.includes(letter)
   const isSelected =
@@ -55,7 +59,8 @@ function optionClass(i) {
       ? selected.value.includes(letter)
       : selected.value === letter
 
-  if (isCorrectAns) return 'correct'
+  if (isCorrectAns && isSelected) return 'correct'
+  if (isCorrectAns) return 'correct-missed'
   if (isSelected && !isCorrectAns) return 'wrong'
   return 'dimmed'
 }
@@ -279,6 +284,12 @@ function reset() {
   background: #f0fdf4;
 }
 
+.quiz-option.correct-missed {
+  border-color: #16a34a;
+  background: #fefce8;
+  opacity: 0.9;
+}
+
 .quiz-option.wrong {
   border-color: #dc2626;
   background: #fef2f2;
@@ -287,6 +298,18 @@ function reset() {
 .quiz-option.dimmed {
   opacity: 0.5;
   cursor: default;
+}
+
+/* Pre-submission selected state (multi-choice) */
+.quiz-option.selected {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+}
+
+.quiz-option.selected .quiz-option-letter {
+  background: var(--vp-c-brand-1);
+  color: #fff;
+  border-color: var(--vp-c-brand-1);
 }
 
 /* Multi submit */
@@ -411,6 +434,9 @@ function reset() {
 /* Dark mode */
 html.dark .quiz-option.correct {
   background: #052e16;
+}
+html.dark .quiz-option.correct-missed {
+  background: #2e2005;
 }
 html.dark .quiz-option.wrong {
   background: #2e0510;
