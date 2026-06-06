@@ -21,7 +21,7 @@ const selected = ref(quizType.value === 'multi' ? [] : null)
 const submitted = ref(false)
 
 const typeLabel = computed(() => {
-  return { single: '单选题', multi: '多选题', tf: '判断题' }[quizType.value] || ''
+  return { single: '单选题', multi: '多选题', tf: '判断题', bianxi: '辨析题' }[quizType.value] || ''
 })
 
 const correctAnswers = computed(() =>
@@ -114,7 +114,7 @@ function reset() {
     <div class="quiz-question" v-html="quizQuestion" />
 
     <div class="quiz-options">
-      <template v-if="quizType !== 'tf'">
+      <template v-if="quizType !== 'tf' && quizType !== 'bianxi'">
         <div
           v-for="(opt, i) in quizOptions"
           :key="i"
@@ -168,10 +168,10 @@ function reset() {
       <div class="quiz-result-header">
         <strong v-if="isCorrect">✅ 回答正确！</strong>
         <strong v-else>❌ 回答错误</strong>
-        <span class="quiz-answer-hint" v-if="!isCorrect && quizType !== 'tf'">
+        <span class="quiz-answer-hint" v-if="!isCorrect && quizType !== 'tf' && quizType !== 'bianxi'">
           正确答案：{{ Array.isArray(quizAnswer) ? quizAnswer.join('、') : quizAnswer }}
         </span>
-        <span class="quiz-answer-hint" v-else-if="!isCorrect && quizType === 'tf'">
+        <span class="quiz-answer-hint" v-else-if="!isCorrect && (quizType === 'tf' || quizType === 'bianxi')">
           正确答案：{{ quizAnswer === 'true' ? '正确' : '错误' }}
         </span>
         <button class="quiz-retry-btn" @click="reset">重新作答</button>
