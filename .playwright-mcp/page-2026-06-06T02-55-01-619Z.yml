@@ -1,0 +1,14 @@
+- generic [ref=e4]:
+  - generic [ref=e5]: "[plugin:vite:vue] Attribute name cannot contain U+0022 (\"), U+0027 ('), and U+003C (<)."
+  - generic [ref=e6]: /home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/MyVault/期末/马克思主义基本原理期末复习重点.md:478:37
+  - generic [ref=e7]: "476| ### P242 477| 478| 垄断价格包括**垄断高价**和**垄断低价**两种形式。从全社会看，整个社会商品的价值仍然是由生产它们的社会必要劳动时间决定的，垄断价格既不能增加也不能减少整个社会所生产的价值总量——**垄断价格的产生没有否定价值规律**，它是价值规律在垄断资本主义阶段作用的具体体现。 | ^ 479| 480| （一）国家垄断资本主义的形成及作用"
+  - generic [ref=e8]: at createCompilerError (/home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:1378:17) at Object.emitError [as onerr] (/home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:3014:5) at Tokenizer.stateInAttrName (/home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:868:16) at Tokenizer.parse (/home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:1117:16) at Object.baseParse (/home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:3053:13) at Object.parse (/home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.js:910:23) at Object.parse$1 [as parse] (/home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js:1824:24) at createDescriptor (file:///home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43) at transformMain (file:///home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vitejs/plugin-vue/dist/index.mjs:2421:34) at TransformPluginContext.transform (file:///home/lfm/000-box/000-Inbox/002-Archived/100-Notes/120_mdNotes/node_modules/@vitejs/plugin-vue/dist/index.mjs:3053:16
+  - generic [ref=e9]:
+    - text: Click outside, press Esc key, or fix the code to dismiss.
+    - text: You can also disable this overlay by setting
+    - code [ref=e10]: server.hmr.overlay
+    - text: to
+    - code [ref=e11]: "false"
+    - text: in
+    - code [ref=e12]: vite.config.js
+    - text: .

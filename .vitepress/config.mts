@@ -30,6 +30,7 @@ export default withMermaid(
         text: '期末合集', 
         items: [
           { text: '专业课复习', link: '/MyVault/期末' },
+          { text: '思政课复习', link: '/MyVault/期末/思政' },
         ]
       },
       {
