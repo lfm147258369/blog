@@ -412,6 +412,7 @@ function reset() {
 .quiz-explanation {
   margin-top: 6px;
   font-size: 13px;
+  white-space: pre-line;
 }
 
 .quiz-retry-btn {
