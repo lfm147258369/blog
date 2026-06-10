@@ -80,4 +80,4 @@ dist-ssr
 cache
 .cache
 .temp
-*.local
+*.local.playwright-mcp/
