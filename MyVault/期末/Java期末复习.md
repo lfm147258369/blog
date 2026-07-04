@@ -510,6 +510,95 @@ Throwable
 
 <Quiz :q='{"type":"single","question":"List<String> list = new ArrayList<>(); 中使用了什么 Java 特性？","options":["A. 反射","B. 泛型","C. 注解","D. 序列化"],"answer":"B","explanation":"<String> 是泛型，指定集合中元素的类型，编译时提供类型安全检查。"}' />
 
+# Java 17 新特性（LTS，2021.09）
+
+Java 17 是继 Java 8 以来最重要的长期支持版本，Spring Boot 3.x 最低要求 Java 17。
+
+## Sealed Classes（密封类）
+
+限制哪些类可以继承或实现该接口，JDK 15 预览 → JDK 17 正式。
+
+```java
+// 密封接口：只允许 A、B 实现
+sealed interface Shape permits Circle, Rectangle, Triangle { }
+
+// 密封类：只允许 A、B 继承
+sealed class Animal permits Dog, Cat { }
+final class Dog extends Animal { }
+final class Cat extends Animal { }
+
+// 非密封
+non-sealed class Bird extends Animal { }
+```
+
+- `sealed`：声明密封类/接口
+- `permits`：指定允许继承/实现的子类列表
+- 子类必须是 `final`、`sealed` 或 `non-sealed`
+
+## Pattern Matching for instanceof
+
+`instanceof` 匹配后自动类型转换，省去强制转型。
+
+```java
+// 旧：判断 + 强转
+if (o instanceof String) {
+    String s = (String) o;
+    System.out.println(s.length());
+}
+
+// 新：判断 + 自动转换
+if (o instanceof String s) {
+    System.out.println(s.length());
+}
+```
+
+## Pattern Matching for switch（预览）
+
+switch 可以直接匹配类型，简洁很多。
+
+```java
+// 旧：if-else 链
+static String formatter(Object o) {
+    String formatted = "unknown";
+    if (o instanceof Integer i) formatted = String.format("int %d", i);
+    else if (o instanceof Long l) formatted = String.format("long %d", l);
+    else if (o instanceof String s) formatted = String.format("String %s", s);
+    return formatted;
+}
+
+// 新：switch 模式匹配
+static String formatterPatternSwitch(Object o) {
+    return switch (o) {
+        case Integer i -> String.format("int %d", i);
+        case Long l    -> String.format("long %d", l);
+        case String s  -> String.format("String %s", s);
+        default        -> o.toString();
+    };
+}
+```
+
+switch 还能处理 `null`：
+
+```java
+switch (s) {
+    case null      -> System.out.println("Oops");
+    case "Foo"     -> System.out.println("Great");
+    case "Bar"     -> System.out.println("Great");
+    default         -> System.out.println("Ok");
+}
+```
+
+## Enhanced Pseudo-Random Number Generators
+
+新增 `RandomGenerator` 接口和多种算法实现（如 `L128X256MixRandom`），可互换使用。
+
+```java
+RandomGeneratorFactory<RandomGenerator> factory =
+    RandomGeneratorFactory.of("L128X256MixRandom");
+RandomGenerator rg = factory.create(System.currentTimeMillis());
+int num = rg.nextInt(10);  // 生成 [0,10) 随机数
+```
+
 # 补充练习
 
 <Quiz :q='{"type":"tf","question":"Java 中 == 比较的是对象的内容是否相等。","answer":"false","explanation":"== 比较的是引用地址（引用类型）或值（基本类型）。内容比较需用 equals()。"}' />
