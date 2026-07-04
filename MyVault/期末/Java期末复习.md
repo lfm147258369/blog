@@ -60,9 +60,9 @@
 
 <Quiz :q='{"type":"single","question":"下列哪个属于自动类型转换？","options":["A. int → byte","B. long → int","C. int → long","D. double → float"],"answer":"C","explanation":"小范围到大范围为自动转换（隐式），int 转 long 是自动的；大转小需要强制转换。"}' />
 
-<Quiz :q='{"type":"single","question":"以下代码输出什么？\nshort x = 10;\nx = x * 5;\nSystem.out.print(x);","options":["A. 50","B. 10","C. 编译错误","D. 运行时异常"],"answer":"C","explanation":"x * 5 结果为 int 类型，赋值给 short 需要强制转换，否则编译报错。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>short x = 10;\nx = x * 5;\nSystem.out.print(x);</pre>", "options": ["A. 50", "B. 10", "C. 编译错误", "D. 运行时异常"], "answer": "C", "explanation": "x * 5 结果为 int 类型，赋值给 short 需要强制转换，否则编译报错。"}' />
 
-<Quiz :q='{"type":"single","question":"以下代码输出什么？\nbyte x = 127;\nx++;  x++;\nSystem.out.print(x);","options":["A. -127","B. 127","C. 129","D. 2"],"answer":"A","explanation":"byte 范围 -128~127，127+1 溢出到 -128，再+1 到 -127。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>byte x = 127;\nx++;  x++;\nSystem.out.print(x);</pre>", "options": ["A. -127", "B. 127", "C. 129", "D. 2"], "answer": "A", "explanation": "byte 范围 -128~127，127+1 溢出到 -128，再+1 到 -127。"}' />
 
 # 运算符
 
@@ -79,7 +79,7 @@
 - `break`：跳出循环
 - `continue`：跳过本次循环
 
-<Quiz :q='{"type":"single","question":"以下代码输出什么？\nint i;\nfor(i = 1; i < 6; i++) {\n    if(i > 3) continue;\n}\nSystem.out.println(i);","options":["A. 3","B. 4","C. 5","D. 6"],"answer":"D","explanation":"循环结束时 i=6（不满足 i<6），continue 只是跳过本次迭代，不影响循环计数。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>int i;\nfor(i = 1; i &lt; 6; i++) {\n    if(i &gt; 3) continue;\n}\nSystem.out.println(i);</pre>", "options": ["A. 3", "B. 4", "C. 5", "D. 6"], "answer": "D", "explanation": "循环结束时 i=6（不满足 i<6），continue 只是跳过本次迭代，不影响循环计数。"}' />
 
 # 方法
 
@@ -99,7 +99,7 @@
 
 <Quiz :q='{"type":"single","question":"将数组作为参数传递给方法时，方法接收到的是什么？","options":["A. 数组的引用","B. 数组的副本","C. 数组的长度","D. 首元素的副本"],"answer":"A","explanation":"Java 按值传递，但数组是引用类型，传递的是引用的副本，引用的仍是原数组对象。"}' />
 
-<Quiz :q='{"type":"single","question":"以下代码输出什么？\nint[] x = {120, 200, 016};\nfor(int i = 0; i < x.length; i++)\n    System.out.print(x[i] + \" \");","options":["A. 120 200 016","B. 120 200 14","C. 120 200 16","D. 编译错误"],"answer":"B","explanation":"016 以 0 开头是八进制，等于十进制 14。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>int[] x = {120, 200, 016};\nfor(int i = 0; i &lt; x.length; i++)\n    System.out.print(x[i] + \" \");</pre>", "options": ["A. 120 200 016", "B. 120 200 14", "C. 120 200 16", "D. 编译错误"], "answer": "B", "explanation": "016 以 0 开头是八进制，等于十进制 14。"}' />
 
 # 面向对象基础
 
@@ -148,7 +148,7 @@ public class A {
 
 <Quiz :q='{"type":"single","question":"如果类中定义了有参构造方法 Point(int x, int y)，执行 new Point() 会怎样？","options":["A. 调用无参构造","B. 编译错误","C. 运行时异常","D. 自动生成无参构造"],"answer":"B","explanation":"一旦定义了有参构造，编译器不再生成默认无参构造，new Point() 会报编译错误。"}' />
 
-<Quiz :q='{"type":"single","question":"以下代码输出什么？\nclass Test1 {\n    Test1(int x) { System.out.print(\"C\" + x + \" \"); }\n}\nclass Test2 {\n    Test1 t1 = new Test1(10);\n    Test2(int i) { t1 = new Test1(i); }\n    public static void main(String[] args) { new Test2(5); }\n}","options":["A. C5","B. C10","C. C10 C5","D. 编译错误"],"answer":"C","explanation":"实例变量初始化先于构造方法体。先执行 t1 = new Test1(10)（输出 C10），再执行构造方法体内的 new Test1(5)（输出 C5）。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>class Test1 {\n    Test1(int x) { System.out.print(\"C\" + x + \" \"); }\n}\nclass Test2 {\n    Test1 t1 = new Test1(10);\n    Test2(int i) { t1 = new Test1(i); }\n    public static void main(String[] args) { new Test2(5); }\n}</pre>", "options": ["A. C5", "B. C10", "C. C10 C5", "D. 编译错误"], "answer": "C", "explanation": "实例变量初始化先于构造方法体。先执行 t1 = new Test1(10)（输出 C10），再执行构造方法体内的 new Test1(5)（输出 C5）。"}' />
 
 # this
 
@@ -250,7 +250,7 @@ public class A {
   - 方法重载
   - 向上转型 + 方法重写
 
-<Quiz :q='{"type":"single","question":"以下代码输出什么？\nclass A { void display() { System.out.print(\"A\"); } }\nclass B extends A { void display() { System.out.print(\"B\"); } }\nA obj = new B();\nobj.display();","options":["A. A","B. B","C. 编译错误","D. 运行时错误"],"answer":"B","explanation":"多态：父类引用指向子类对象，调用被覆盖的方法时执行子类版本（运行时绑定）。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>class A { void display() { System.out.print(\"A\"); } }\nclass B extends A { void display() { System.out.print(\"B\"); } }\nA obj = new B();\nobj.display();</pre>", "options": ["A. A", "B. B", "C. 编译错误", "D. 运行时错误"], "answer": "B", "explanation": "多态：父类引用指向子类对象，调用被覆盖的方法时执行子类版本（运行时绑定）。"}' />
 
 <Quiz :q='{"type":"single","question":"以下关于重载和重写的描述正确的是？","options":["A. 重载是运行时多态，重写是编译时多态","B. 重载是编译时多态，重写是运行时多态","C. 两者都是编译时多态","D. 两者都是运行时多态"],"answer":"B","explanation":"重载（Overload）是编译时多态，根据参数类型/个数确定调用哪个方法。重写（Override）是运行时多态，根据实际对象类型确定。"}' />
 
@@ -318,7 +318,7 @@ Throwable
 
 # String
 
-<Quiz :q='{"type":"single","question":"以下代码创建了几个 String 对象？\nString a = new String(\"Hello\");\nString b = new String(\"Hello\");\nString c = \"Hello\";\nString d = \"Hello\";","options":["A. 2","B. 3","C. 4","D. 1"],"answer":"B","explanation":"new 创建 2 个堆对象，字面量 \"Hello\" 在字符串常量池中只有 1 个，共 3 个对象。c 和 d 指向池中同一个对象。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码创建了几个 String 对象？<br><pre>String a = new String(\"Hello\");\nString b = new String(\"Hello\");\nString c = \"Hello\";\nString d = \"Hello\";</pre>", "options": ["A. 2", "B. 3", "C. 4", "D. 1"], "answer": "B", "explanation": "new 创建 2 个堆对象，字面量 \"Hello\" 在字符串常量池中只有 1 个，共 3 个对象。c 和 d 指向池中同一个对象。"}' />
 
 <Quiz :q='{"type":"single","question":"String 类的 compareTo() 方法返回值类型是？","options":["A. boolean","B. int","C. char","D. String"],"answer":"B","explanation":"compareTo() 返回 int：相等返回 0，小于返回负数，大于返回正数。"}' />
 
