@@ -276,7 +276,7 @@ graph TD
 
 <Quiz :q='{"type":"multi","question":"接口中可以包含哪些成员？（JDK 8 以后）","options":["A. 抽象方法","B. default 方法（默认实现）","C. 静态方法（有方法体）","D. 实例变量"],"answer":["A","B","C"],"explanation":"JDK 8+ 接口可以有抽象方法、default 方法和静态方法。接口中不能有实例变量，只能有静态常量。"}' />
 
-<Quiz :q='{"type":"single","question":"接口中的 default 方法如何调用？","options":["A. 接口名.方法名()","B. 实现类对象.方法名()","C. 类名.方法名()","D. 直接调用方法名"],"answer":"B","explanation":"default 方法是实例方法，通过实现类对象调用。接口的静态方法则通过接口名调用。"}' />
+<Quiz :q='{"type":"single","question":"接口中的 default 方法如何调用？","options":["A. 接口名.方法名()","B. 实现类对象.方法名()","C. 类名.方法名()","D. 直接调用方法名"],"answer":"B","explanation":"default 方法是实例方法，由接口实现类对象调用。接口中的静态方法必须通过接口名调用（如 MyInterface.staticMethod()）。default 方法可以有方法体，子类可以继承或重写。区分三种接口成员：\n①抽象方法→实现类实现\n②default方法→实现类对象调用\n③静态方法→接口名调用"}' />
 
 # 对象的类型转换
 
@@ -289,7 +289,7 @@ graph TD
   - 方法重载
   - 向上转型 + 方法重写
 
-<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>class A { void display() { System.out.print(\"A\"); } }<br><pre>class B extends A { void display() { System.out.print(\"B\"); } }\nA obj = new B();\nobj.display();&lt;/pre&gt;</pre>", "options": ["A. A", "B. B", "C. 编译错误", "D. 运行时错误"], "answer": "B", "explanation": "多态：父类引用指向子类对象，调用被覆盖的方法时执行子类版本（运行时绑定）。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>class A { void display() { System.out.print(\"A\"); } }\nclass B extends A { void display() { System.out.print(\"B\"); } }\nA obj = new B();\nobj.display();</pre>", "options": ["A. A", "B. B", "C. 编译错误", "D. 运行时错误"], "answer": "B", "explanation": "多态成立的三个条件：①继承（或接口实现）②方法重写③父类引用指向子类对象（向上转型）。本题 A obj = new B() 是向上转型，obj 编译时类型是 A、运行时类型是 B。调用 display() 时 JVM 根据实际对象类型 B 执行 B 的方法（动态绑定/运行时多态）。如果 display 是 static 方法或直接访问成员变量，则没有多态效果（编译时绑定）。"}' />
 
 <Quiz :q='{"type":"single","question":"以下关于重载和重写的描述正确的是？","options":["A. 重载是运行时多态，重写是编译时多态","B. 重载是编译时多态，重写是运行时多态","C. 两者都是编译时多态","D. 两者都是运行时多态"],"answer":"B","explanation":"重载（Overload）是编译时多态，根据参数类型/个数确定调用哪个方法。重写（Override）是运行时多态，根据实际对象类型确定。"}' />
 
@@ -299,7 +299,7 @@ graph TD
 
 - `toString()`、`equals()`、`hashCode()`
 
-<Quiz :q='{"type":"single","question":"toString() 方法定义在哪个类中？","options":["A. java.lang.String","B. java.lang.Object","C. java.util","D. java.lang.System"],"answer":"B","explanation":"toString() 定义在 java.lang.Object 中，所有类都可覆写该方法。"}' />
+<Quiz :q='{"type":"single","question":"toString() 方法定义在哪个类中？","options":["A. java.lang.String","B. java.lang.Object","C. java.util","D. java.lang.System"],"answer":"B","explanation":"toString() 定义在 java.lang.Object 类中（java.lang 包自动导入，无需 import）。Object 是所有类的根父类，因此所有 Java 类都继承了 toString()。默认实现返回 类名@哈希码，通常需要重写来返回有意义的字符串表示。System.out.println(obj) 打印时会自动调用 obj.toString()。类似的还有 equals() 和 hashCode()。"}' />
 
 # 内部类
 
@@ -332,7 +332,7 @@ Throwable
     └── RuntimeException（非受检异常）
 ```
 
-<Quiz :q='{"type":"single","question":"Java 中所有异常类的根类是？","options":["A. Exception","B. Error","C. Throwable","D. RuntimeException"],"answer":"C","explanation":"Throwable 是 Error 和 Exception 的父类，是所有异常和错误的根类。"}' />
+<Quiz :q='{"type":"single","question":"Java 中所有异常类的根类是？","options":["A. Exception","B. Error","C. Throwable","D. RuntimeException"],"answer":"C","explanation":"Throwable 是 Java 异常体系的根类，位于 java.lang 包。其下两个分支：\n① Error（非受检）→ JVM 内部错误，程序无法处理，如 OutOfMemoryError、StackOverflowError\n② Exception（受检/非受检）→ 程序可处理的异常，又分为 RuntimeException（非受检，如 NullPointerException）和其他 Exception（受检，如 IOException）\n受检异常必须 try-catch 或 throws 声明，非受检异常可以不处理。"}' />
 
 <Quiz :q='{"type":"single","question":"整数除法中除数为 0 会抛出什么异常？","options":["A. NullPointerException","B. NumberFormatException","C. ArithmeticException","D. ArrayIndexOutOfBoundsException"],"answer":"C","explanation":"整数除以 0 抛出 ArithmeticException（注意：浮点数除以 0 不会抛异常，结果为 Infinity）。"}' />
 
@@ -344,14 +344,14 @@ Throwable
 
 <Quiz :q='{"type":"single","question":"try-catch 中哪个块无论是否发生异常都会执行？","options":["A. try","B. catch","C. finally","D. throw"],"answer":"C","explanation":"finally 块在任何情况下都会执行（除非 JVM 退出），用于释放资源等清理操作。"}' />
 
-<Quiz :q='{"type":"single","question":"throw 和 throws 的区别是什么？","options":["A. 功能完全相同","B. throws 声明异常，throw 抛出异常","C. throw 声明异常，throws 抛出异常","D. 两者都在方法签名中使用"],"answer":"B","explanation":"throws 在方法签名中声明可能抛出的异常，throw 在方法体中实际抛出异常实例。"}' />
+<Quiz :q='{"type":"single","question":"throw 和 throws 的区别是什么？","options":["A. 功能完全相同","B. throws 声明异常，throw 抛出异常","C. throw 声明异常，throws 抛出异常","D. 两者都在方法签名中使用"],"answer":"B","explanation":"throw 和 throws 的区别：\n① throw（方法体内）→ 实际抛出一个异常对象，如 throw new IOException()，每次只能抛一个\n② throws（方法签名末尾）→ 声明该方法可能抛出的异常类型，如 void read() throws IOException，可声明多个用逗号隔开\n③ throw 后接的是异常实例，throws 后接的是异常类名\n④ 受检异常要么用 try-catch 处理，要么用 throws 继续往外抛"}' />
 
 # 自定义异常
 
 - `extends Exception` → 受检异常
 - `extends RuntimeException` → 非受检异常
 
-<Quiz :q='{"type":"single","question":"自定义受检异常应继承哪个类？","options":["A. RuntimeException","B. Exception","C. Error","D. Throwable"],"answer":"B","explanation":"继承 Exception 类是受检异常（编译器强制处理），继承 RuntimeException 是非受检异常。"}' />
+<Quiz :q='{"type":"single","question":"自定义受检异常应继承哪个类？","options":["A. RuntimeException","B. Exception","C. Error","D. Throwable"],"answer":"B","explanation":"自定义异常：\n① 继承 Exception → 受检异常（Checked Exception），编译器强制要求 try-catch 或 throws 声明，适用于可预见的业务异常\n② 继承 RuntimeException → 非受检异常（Unchecked Exception），编译器不强制处理，适用于程序逻辑错误\n③ 通常提供两个构造方法：无参构造和带 String message 参数的构造（调用父类 super(message)）"}' />
 
 # 常用类与集合
 
@@ -359,7 +359,7 @@ Throwable
 
 <Quiz :q='{"type": "single", "question": "以下代码创建了几个 String 对象？<br><pre>String a = new String(\"Hello\");\nString b = new String(\"Hello\");\nString c = \"Hello\";\nString d = \"Hello\";</pre>", "options": ["A. 2", "B. 3", "C. 4", "D. 1"], "answer": "B", "explanation": "new 创建 2 个堆对象，字面量 \"Hello\" 在字符串常量池中只有 1 个，共 3 个对象。c 和 d 指向池中同一个对象。"}' />
 
-<Quiz :q='{"type":"single","question":"String 类的 compareTo() 方法返回值类型是？","options":["A. boolean","B. int","C. char","D. String"],"answer":"B","explanation":"compareTo() 返回 int：相等返回 0，小于返回负数，大于返回正数。"}' />
+<Quiz :q='{"type":"single","question":"String 类的 compareTo() 方法返回值类型是？","options":["A. boolean","B. int","C. char","D. String"],"answer":"B","explanation":"compareTo() 是 Comparable 接口中的方法，返回值类型为 int：\n① 当前对象 < 参数对象 → 返回负数\n② 当前对象 == 参数对象 → 返回 0\n③ 当前对象 > 参数对象 → 返回正数\nString 类实现了 Comparable 接口，按字典序（lexicographic）比较。区别于 equals()：equals 返回 boolean，compareTo 返回 int 且能区分大小顺序。"}' />
 
 <Quiz :q='{"type":"single","question":"String 类的 substring(1, 3) 对 \"abcde\" 的结果是？","options":["A. \"abc\"","B. \"bc\"","C. \"bcd\"","D. \"cd\""],"answer":"B","explanation":"substring(begin, end) 取 [begin, end)，即索引 1 到 2 的字符：\"bc\"。"}' />
 
