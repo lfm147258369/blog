@@ -340,6 +340,41 @@ public class Computer {
 答案：mainbord:华硕 cpu:Intel
 </details>
 
+
+
+<details>
+<summary>简答题：什么是继承？</summary>
+
+通过必要的说明能够实现某个类无需重新定义就拥有另一个类的某些属性和方法，这种关系称为继承。先定义的类称为父类（基类），后定义的类称为子类（派生类）。Java 支持单继承（一个子类只能有一个直接父类），但可以通过接口实现多重继承的效果。继承的目的主要是代码复用和方法扩展（重写）。
+</details>
+
+
+<details>
+<summary>简答题：请简述重载（Overload）和重写（Override）的区别？</summary>
+
+①**重载**发生在同一个类中，方法名相同但参数列表不同（个数、类型或顺序），与返回值无关，是编译时多态（静态绑定）。
+②**重写**发生在父子类之间，子类重新定义父类的同名同参方法，方法名、参数列表、返回值类型（可协变）必须相同，访问权限不能更严格，是运行时多态（动态绑定）。
+</details>
+
+
+<details>
+<summary>简答题：什么是实例变量和类变量？它们的区别？</summary>
+
+用 static 修饰的变量是**类变量**（静态变量），属于类本身，所有对象共享同一份内存，通过类名直接访问。
+没有被 static 修饰的变量是**实例变量**，属于每个对象，不同对象的实例变量分配不同的内存空间，互不影响。
+
+区别：①归属不同（类 vs 对象）②内存分配时机不同（类加载时 vs 创建对象时）③访问方式不同（类名.变量名 vs 对象.变量名）。
+</details>
+
+
+<details>
+<summary>简答题：用 abstract 修饰符修饰的类和方法有什么特点？</summary>
+
+①用 abstract 修饰的类称为抽象类，不能通过 new 创建对象，必须产生子类，由子类创建对象。
+②用 abstract 修饰的方法称为抽象方法，只有方法声明没有方法体（没有 {}），必须被子类实现。
+③如果一个类是抽象类的子类且不是抽象类，它必须实现父类的所有抽象方法。
+④抽象类中可以同时包含抽象方法和具体方法。
+</details>
 # 第4章 面向对象（下）
 
 <Quiz :q='{"type": "single", "question": "以下程序输出什么？\nclass Animal {\n    Animal() { System.out.print(\"Animal \"); }\n}\nclass Dog extends Animal {\n    Dog() { System.out.print(\"Dog \"); }\n    public static void main(String[] args) { new Dog(); }\n}", "options": ["A. Dog", "B. Animal", "C. Animal Dog", "D. Dog Animal"], "answer": "C", "explanation": "创建子类对象时，先调用父类构造器（Animal），再调用子类构造器（Dog），输出 Animal Dog。"}' />
@@ -547,6 +582,22 @@ class CourseTest {
 答案：课程号:101 课程名:ASP 学分:3
 </details>
 
+
+
+<details>
+<summary>简答题：简述 Java 中异常处理的机制？</summary>
+
+Java 的异常处理是面向对象的。当程序出现异常时，系统生成一个异常对象并抛出，该对象包含了异常的类型、出现位置等信息。
+
+Java 的异常处理通过 5 个关键字实现：
+- **try**：监视可能抛出异常的代码块
+- **catch**：捕获并处理指定类型的异常
+- **finally**：无论是否发生异常都会执行的代码块（如资源释放）
+- **throw**：在方法体中手动抛出异常对象
+- **throws**：在方法签名中声明该方法可能抛出的异常类型
+
+受检异常（除 RuntimeException 及其子类）必须要么用 try-catch 处理，要么用 throws 声明抛出。
+</details>
 # 第5章 异常
 
 
