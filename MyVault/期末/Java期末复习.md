@@ -24,6 +24,9 @@
 
 # 标识符
 
+
+<Quiz :q='{"type": "single", "question": "如下哪个是合法的 Java 标识符？", "options": ["A. fieldname", "B. super", "C. 3number", "D. #number"], "answer": "A", "explanation": "fieldname 以字母开头合法。"}' />
+<Quiz :q='{"type": "single", "question": "如下哪个是 Java 中有效的关键字？", "options": ["A. name", "B. hello", "C. false", "D. good"], "answer": "C", "explanation": "false 是 boolean 字面量关键字。"}' />
 <Quiz :q='{"type": "single", "question": "如下哪个是合法的 Java 标识符？", "options": ["A. fieldname", "B. super", "C. 3number", "D. #number"], "answer": "A", "explanation": "标识符不能是关键字（super），不能以数字开头（3number），不能包含 # 等特殊字符。"}' />
 
 <Quiz :q='{"type": "multi", "question": "以下哪些是合法的标识符？", "options": ["A. String", "B. int", "C. name", "D. 4item"], "answer": ["C"], "explanation": "String 和 int 是关键字；4item 以数字开头不合法。只有 name 合法。"}' />
@@ -49,8 +52,15 @@
 - 常量（`final`）：只能赋值一次
 
 
-# 数据类型
 
+
+<details>
+<summary>填空题：若 x=5, y=10，则 x&lt;y 和 x&gt;=y 的逻辑值分别为____和____。</summary>
+答案：true, false
+</details>
+
+# 
+<Quiz :q='{"type": "single", "question": "表达式 10/3 的结果是？", "options": ["A. 3.3", "B. 3.33", "C. 3", "D. 3.0"], "answer": "C", "explanation": "整数相除结果为整数，10/3=3。"}' />
 <Quiz :q='{"type": "single", "question": "以下哪个不是 Java 的原始数据类型？", "options": ["A. int", "B. Boolean", "C. float", "D. char"], "answer": "B", "explanation": "Java 区分大小写，原始布尔类型是 boolean（小写），Boolean 是包装类。"}' />
 
 <Quiz :q='{"type": "single", "question": "下列选项中属于自动类型转换的是？", "options": ["A. double 转 int", "B. int 转 short", "C. int 转 double", "D. long 转 int"], "answer": "C", "explanation": "小范围到大范围自动转换。int 到 double 自动；其他需要强制转换。"}' />
@@ -60,6 +70,7 @@
   - 浮点型：`float`、`double`
   - 字符型：`char`
   - 布尔型：`boolean`
+
 - **类型转换**：
   - 自动类型转换（小→大）
   - 强制类型转换（大→小，可能丢失精度）
@@ -69,8 +80,15 @@
 
 
 
-# 运算符
 
+
+<details>
+<summary>填空题：设 x=2，则表达式 (x++)/3 的值是____。</summary>
+答案：0
+</details>
+
+# 
+<Quiz :q='{"type": "single", "question": "设 x=1, y=2, z=3，则表达式 y+=z--/++x 的值是？", "options": ["A. 3", "B. 3.5", "C. 4", "D. 5"], "answer": "A", "explanation": "z-- 先返回值 3；++x 先自增 x=2；3/2=1；y+=1→y=3。"}' />
 <Quiz :q='{"type": "single", "question": "设 x=1, y=2, z=3，则表达式 y+=z--/++x 的值是？", "options": ["A. 3", "B. 3.5", "C. 4", "D. 5"], "answer": "A", "explanation": "z-- 先返回 3 再自减为 2；++x 使 x=2 并返回 2；3/2 整数除法=1；y+=1 → y=3。"}' />
 
 <Quiz :q='{"type": "single", "question": "表达式 10/3 的结果是？", "options": ["A. 3.3", "B. 3.33", "C. 3", "D. 3.0"], "answer": "C", "explanation": "两个整数相除结果仍是整数，截断小数部分，10/3=3。若需小数应写成 10.0/3 或 10/3.0。"}' />
@@ -107,6 +125,9 @@
 
 # 数组
 
+
+<Quiz :q='{"type": "single", "question": "已知数组 array，最后一个元素的下标是？", "options": ["A. array.size", "B. array.length", "C. array.size-1", "D. array.length-1"], "answer": "D", "explanation": "数组下标从 0 到 length-1。"}' />
+<Quiz :q='{"type": "single", "question": "int[] x={12,35,8,7,2}，Arrays.sort(x) 后？", "options": ["A. 2 7 8 12 35", "B. 12 35 8 7 2", "C. 35 12 8 7 2", "D. 8 7 12 35 2"], "answer": "A", "explanation": "Arrays.sort() 升序排序。"}' />
 <Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>int[] a = {1, 2, 3, 4, 5};\nfor (int count = 0; count &lt; 5; count++)\n    System.out.print(a[count++]);</pre>", "options": ["A. 运行时异常", "B. 12345", "C. 135", "D. 24"], "answer": "C", "explanation": "count++ 导致取 a[0]、a[2]、a[4]，输出 135。"}' />
 <Quiz :q='{"type": "single", "question": "使用 Arrays 类应导入？", "options": ["A. import java.lang.*;", "B. import java.util.*;", "C. package java.lang.*;", "D. package java.util.*;"], "answer": "B", "explanation": "Arrays 在 java.util 包中。"}' />
 <Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>char[] ch = {&#39;a&#39;, &#39;b&#39;, &#39;c&#39;};\nfor (int i = 0; i &lt; ch.length; i++) {\n    System.out.print(ch[i]);\n    i++;\n}</pre>", "options": ["A. abc", "B. 979899", "C. ac", "D. 编译出错"], "answer": "C", "explanation": "循环体内 i++ 导致跳过一个元素，取 ch[0]=a、ch[2]=c，输出 ac。"}' />
@@ -130,6 +151,8 @@
 
 # 类和对象
 
+
+<Quiz :q='{"type": "single", "question": "下列哪个不是面向对象程序设计方法的特点？", "options": ["A. 封装", "B. 继承", "C. 多态", "D. 结构化"], "answer": "D", "explanation": "封装、继承、多态 是三大特性。"}' />
 <Quiz :q='{"type": "single", "question": "下列有关类、对象和实例的叙述，正确的是？", "options": ["A. 三者没有差别", "B. 类是对象的抽象，对象是类的具体化，实例即对象", "C. 对象是类的抽象，类是对象的具体化", "D. 类是对象的抽象，对象是类的具体化，实例是类的另一个名称"], "answer": "B", "explanation": "类是创建对象的模板（抽象），对象是类的实例（具体化），实例是对象的同义词。"}' />
 
 <Quiz :q='{"type": "single", "question": "下列哪个不是面向对象程序设计方法的特点？", "options": ["A. 封装", "B. 继承", "C. 多态", "D. 结构化"], "answer": "D", "explanation": "OOP 三大特征是封装、继承和多态。结构化是面向过程编程的特点。"}' />
@@ -168,6 +191,8 @@
 
 # 构造方法
 
+
+<Quiz :q='{"type": "single", "question": "下列构造函数定义中，哪种形式是错误的？", "options": ["A. class MC { public MC() {} }", "B. class MC { public MC(int x) {} }", "C. class MC { public int MC() {} }", "D. class MC { public MC(int x, int y) {} }"], "answer": "C", "explanation": "构造方法不能有返回值类型声明。"}' />
 <Quiz :q='{"type": "single", "question": "下列构造函数定义中，哪种形式是错误的？", "options": ["A. public MyClass() {}", "B. public MyClass(int x) {}", "C. public int MyClass() {}", "D. public MyClass(int x, int y) {}"], "answer": "C", "explanation": "构造函数不能有返回值类型声明（连 void 都不能写）。C 选项 public int MyClass() 实际上是一个普通方法，不是构造函数。"}' />
 
 <Quiz :q='{"type": "single", "question": "下面哪句说法正确？", "options": ["A. 无显式构造时自动生成缺省构造器", "B. 必须显式定义构造", "C. 每个类都有缺省构造", "D. 缺省构造可以有参数"], "answer": "A", "explanation": "无显式构造时，编译器自动生成无参缺省构造。"}' />
@@ -254,14 +279,22 @@ graph TD
 答案：`extends`
 </details>
 - Java **单继承**（类），接口**多继承**
-- 子类继承父类的非 `private` 成员，不能继承构造方法
+- 子类继承父类的非 `private` 成员
+<Quiz :q='{"type": "single", "question": "父类属性和方法继承规则描述错误的是？", "options": ["A. private 成员在子类中不被继承", "B. public 成员可访问", "C. protected 成员可访问", "D. default 成员同包中可访问"], "answer": "A", "explanation": "private 成员也会被子类继承，但子类中不可直接访问。"}' />，不能继承构造方法
 
 <Quiz :q='{"type":"tf","question":"Java 支持类的多继承。","answer":"false","explanation":"Java 类只支持单继承（一个类只能有一个直接父类），但接口支持多继承。"}' />
 
 <Quiz :q='{"type":"single","question":"子类可以继承父类的哪些成员？","options":["A. 所有成员","B. 非 private 成员","C. 只有 public 成员","D. 只有 protected 成员"],"answer":"B","explanation":"子类继承父类所有非 private 成员（public、protected、默认权限）。构造方法不能被继承。"}' />
 
-# 方法重写
 
+
+<details>
+<summary>填空题：多个方法同名不同参称为____。</summary>
+答案：重载
+</details>
+
+# 
+<Quiz :q='{"type": "single", "question": "覆盖与重载的关系是？", "options": ["A. 覆盖在父子类间，重载在同一类中", "B. 覆盖可以不同名", "C. final 方法可被覆盖", "D. 两者是同一回事"], "answer": "A", "explanation": "覆盖是子类重写父类方法，重载是同一类中同名不同参。"}' />
 <Quiz :q='{"type": "single", "question": "覆盖（Override）与重载（Overload）的关系是？", "options": ["A. 覆盖发生在父子类间，重载可发生在同类中", "B. 覆盖方法可不同名，重载必须同名", "C. final 方法可被覆盖但不能重载", "D. 覆盖和重载是同一回事"], "answer": "A", "explanation": "覆盖（Override）是子类重写父类方法（同名同参），重载（Overload）是同类中间名不同参的方法。"}' />
 
 - 从父类继承的方法才能重写
@@ -298,6 +331,8 @@ graph TD
 
 # 抽象类和抽象方法
 
+
+<Quiz :q='{"type": "single", "question": "以下关于抽象方法的说法正确的是？", "options": ["A. 可以有方法体", "B. 可出现在非抽象类中", "C. 是没有方法体的方法", "D. 抽象类中的方法都是抽象方法"], "answer": "C", "explanation": "抽象方法只有声明没有方法体。"}' />
 - `abstract` 关键字
 - 抽象类中可以没有抽象方法；有抽象方法的类必须是抽象类
 - 抽象类不能创建对象，必须依赖子类
@@ -306,8 +341,16 @@ graph TD
 
 <Quiz :q='{"type":"single","question":"以下关于抽象类的说法正确的是？","options":["A. 抽象类必须有抽象方法","B. 抽象类可以没有抽象方法","C. 抽象类可以直接 new 创建对象","D. 抽象类不能有构造方法"],"answer":"B","explanation":"抽象类可以没有抽象方法（但反之不成立——有抽象方法的类必须是抽象类）。抽象类不能实例化，可以有构造方法（供子类调用）。"}' />
 
-# 接口
 
+
+<details>
+<summary>填空题：类的定义实现____重继承，接口实现____重继承。</summary>
+答案：单, 多
+</details>
+
+# 
+<Quiz :q='{"type": "single", "question": "定义一个接口必须使用的关键字是？", "options": ["A. public", "B. class", "C. interface", "D. static"], "answer": "C", "explanation": "interface 是定义接口的关键字。"}' />
+<Quiz :q='{"type": "single", "question": "实现接口用哪个关键字？", "options": ["A. implements", "B. extends", "C. interface", "D. class"], "answer": "A", "explanation": "implements 用于类实现接口。"}' />
 - 不同 JDK 版本接口特性有差异
 <details>
 <summary>填空题：接口中定义的变量默认是 public static final，也称为？</summary>
@@ -389,8 +432,21 @@ Throwable
 
 <Quiz :q='{"type":"single","question":"整数除法中除数为 0 会抛出什么异常？","options":["A. NullPointerException","B. NumberFormatException","C. ArithmeticException","D. ArrayIndexOutOfBoundsException"],"answer":"C","explanation":"整数除以 0 抛出 ArithmeticException（注意：浮点数除以 0 不会抛异常，结果为 Infinity）。"}' />
 
-# 异常的处理方式
 
+
+<details>
+<summary>填空题：异常处理由____、____和 finally 组成。</summary>
+答案：try, catch
+</details>
+
+<details>
+<summary>填空题：自定义异常通过继承____类。</summary>
+答案：Exception
+</details>
+
+# 
+<Quiz :q='{"type": "single", "question": "对于可能抛出异常的语句，编程时应该？", "options": ["A. 必须 try/catch 或用 throws", "B. 出错才 try/catch", "C. 可以不管", "D. 只能用 try/catch"], "answer": "A", "explanation": "受检异常必须处理。"}' />
+<Quiz :q='{"type": "tf", "question": "catch 参数有父子关系，父类放后面。", "options": [], "answer": "true", "explanation": ""}' />
 <Quiz :q='{"type": "tf", "question": "异常处理中多个 catch 时，父类异常应放在后面，子类异常放在前面。", "answer": "true", "explanation": "子类异常在前、父类在后，否则子类异常会被父类 catch 提前捕获，永远无法执行到子类 catch。"}' />
 
 - `try` - `catch` - `finally`
@@ -412,6 +468,8 @@ Throwable
 
 # String
 
+
+<Quiz :q='{"type": "single", "question": "String 的 equals vs ==：\nString s1 = new String(\"abc\");\nString s2 = new String(\"abc\");\nSystem.out.print(s1.equals(s2) + \" \" + (s1 == s2));", "options": ["A. true false", "B. false true", "C. true true", "D. false false"], "answer": "A", "explanation": "equals() 比较内容→true；== 比较引用→false。"}' />
 <Quiz :q='{"type": "single", "question": "String s = new String(\"abcdefg\"); for(int i=0; i&lt;s.length(); i+=2) System.out.print(s.charAt(i)); 输出是？", "options": ["A. aceg", "B. ACEG", "C. abcdefg", "D. abcd"], "answer": "A", "explanation": "i=0,2,4,6 时分别取字符 a,c,e,g。"}' />
 
 <Quiz :q='{"type": "single", "question": "已知 String s = \"story\"; 下面哪个语句不合法？", "options": ["A. s += \"books\";", "B. s = s + 100;", "C. int len = s.length;", "D. String t = s + \"abc\";"], "answer": "C", "explanation": "length 是 String 的方法，必须用 s.length() 调用（带括号），不是 public 属性。"}' />
@@ -428,6 +486,8 @@ Throwable
 
 # List & Set & Map
 
+
+<Quiz :q='{"type": "single", "question": "关于集合的说法不正确的是？", "options": ["A. List/Set/Map 都是 java.util 接口", "B. List 可包含重复元素", "C. Set 不包含重复元素", "D. Map 的键可重复"], "answer": "D", "explanation": "Map 的键不能重复。"}' />
 <Quiz :q='{"type": "single", "question": "下面说法不正确的是？", "options": ["A. List/Set/Map 都是 java.util 中的接口", "B. List 可含重复元素、有序", "C. Set 不含重复元素", "D. Map 的键可以重复，每个键最多映射一个值"], "answer": "D", "explanation": "Map 的键不能重复。List 可重复且有序，Set 不可重复，Map 键不可重复。"}' />
 
 - **增强 for 循环**：
