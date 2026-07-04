@@ -181,7 +181,7 @@ public class A {
 - 推荐通过 `类名.静态成员` 访问
 - 对象也可以访问静态成员（不推荐）
 
-<Quiz :q='{"type":"multi","question":"关于 static 方法的正确说法有哪些？","options":["A. 只能访问静态数据","B. 只能调用其他静态方法","C. 可以访问实例变量","D. 不能使用 this 或 super"],"answer":["A","B","D"],"explanation":"静态方法不能访问实例变量（C 错误），其余 A、B、D 均正确。"}' />
+<Quiz :q='{"type":"multi","question":"关于 static 方法的正确说法有哪些？","options":["A. 只能访问静态数据","B. 只能调用其他静态方法","C. 可以访问实例变量","D. 不能使用 this 或 super"],"answer":["A","B","D"],"explanation":"静态方法属于类，不依赖对象实例，因此：①只能直接访问静态成员（静态变量/其他静态方法）；②不能访问实例变量（必须通过对象引用才能访问）；③不能使用 this/super（因为没有当前对象）。A、B、D 正确，C 错误。"}' />
 
 # 继承
 
