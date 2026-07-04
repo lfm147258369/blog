@@ -22,6 +22,9 @@
 
 # 标识符
 
+<Quiz :q='{"type": "multi", "question": "以下哪些是合法的标识符？", "options": ["A. String", "B. int", "C. name", "D. 4item"], "answer": ["C"], "explanation": "String 和 int 是关键字；4item 以数字开头不合法。只有 name 合法。"}' />
+<Quiz :q='{"type": "single", "question": "下列属于合法的 Java 标识符的是？", "options": ["A. ABC（双引号括起）", "B. &5678", "C. +rriwo", "D. saler"], "answer": "D", "explanation": "标识符由字母、数字、_、$组成，不能以数字开头，不能是关键字。"}' />
+
 - **组成要素**：字母、数字、`$`、`_`
 - **硬性要求**：不能是关键字、数字不能开头
 - **命名约定**：
@@ -31,19 +34,20 @@
   - 包名：全小写
   - `dao`、`entity`、`service`、`util`
 
-<Quiz :q='{"type":"single","question":"下列哪个是合法的 Java 标识符？","options":["A. 2variable","B. my-variable","C. _myVariable","D. class"],"answer":"C","explanation":"标识符不能以数字开头（A），不能包含连字符（B），不能是关键字（D）。_myVariable 以 _ 开头，合法。"}' />
 
-<Quiz :q='{"type":"single","question":"以下哪个命名符合 Java 常量命名规范？","options":["A. MAX_VALUE","B. maxValue","C. MaxValue","D. max_value"],"answer":"A","explanation":"常量命名一般用全大写字母加下划线，如 MAX_VALUE。"}' />
 
 # 变量和常量
+
+<Quiz :q='{"type": "single", "question": "下列关于成员变量默认值的描述中，错误的是？", "options": ["A. char 默认值是 \\u0000", "B. int 默认值是 0", "C. long 默认值是 0", "D. float 默认值是 0.0f"], "answer": "C", "explanation": "long 默认值是 0L，不是 0。"}' />
 
 - 变量的作用域
 - 变量赋值：`float`（f 后缀）、`long`（L 后缀）、`char`（单引号）、`boolean`（`true`/`false`）
 - 常量（`final`）：只能赋值一次
 
-<Quiz :q='{"type":"single","question":"Java 中 final 关键字修饰的变量有什么特性？","options":["A. 可以多次赋值","B. 只能赋值一次","C. 不能用于方法参数","D. 只能在构造方法中赋值"],"answer":"B","explanation":"final 变量是常量，一旦赋值后不可修改。"}' />
 
 # 数据类型
+
+<Quiz :q='{"type": "single", "question": "下列选项中属于自动类型转换的是？", "options": ["A. double 转 int", "B. int 转 short", "C. int 转 double", "D. long 转 int"], "answer": "C", "explanation": "小范围到大范围自动转换。int 到 double 自动；其他需要强制转换。"}' />
 
 - **基本数据类型**（8种）：
   - 整型：`byte`、`short`、`int`、`long`
@@ -54,15 +58,10 @@
   - 自动类型转换（小→大）
   - 强制类型转换（大→小，可能丢失精度）
 
-<Quiz :q='{"type":"single","question":"Java 中有几种基本数据类型？","options":["A. 6","B. 7","C. 8","D. 9"],"answer":"C","explanation":"8 种基本数据类型：byte、short、int、long、float、double、char、boolean。"}' />
 
-<Quiz :q='{"type":"single","question":"float 和 double 在 Java 中各占多少位？","options":["A. 32 和 64","B. 32 和 32","C. 64 和 64","D. 64 和 32"],"answer":"A","explanation":"float 占 32 位（4 字节），double 占 64 位（8 字节）。"}' />
 
-<Quiz :q='{"type":"single","question":"下列哪个属于自动类型转换？","options":["A. int → byte","B. long → int","C. int → long","D. double → float"],"answer":"C","explanation":"小范围到大范围为自动转换（隐式），int 转 long 是自动的；大转小需要强制转换。"}' />
 
-<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>short x = 10;\nx = x * 5;\nSystem.out.print(x);</pre>", "options": ["A. 50", "B. 10", "C. 编译错误", "D. 运行时异常"], "answer": "C", "explanation": "x * 5 结果为 int 类型，赋值给 short 需要强制转换，否则编译报错。"}' />
 
-<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>byte x = 127;\nx++;  x++;\nSystem.out.print(x);</pre>", "options": ["A. -127", "B. 127", "C. 129", "D. 2"], "answer": "A", "explanation": "byte 范围 -128~127，127+1 溢出到 -128，再+1 到 -127。"}' />
 
 # 运算符
 
@@ -75,31 +74,38 @@
 
 # 循环
 
+<Quiz :q='{"type": "single", "question": "for(int x = 0, y = 0; !x && y <= 5; y++) 循环执行次数是？", "options": ["A. 0", "B. 5", "C. 6", "D. 无穷"], "answer": "A", "explanation": "x 是 int 类型，!x 编译错误，循环执行 0 次。"}' />
+
 - 循环条件的结果**必定是 `boolean`**
 - `break`：跳出循环
 - `continue`：跳过本次循环
 
-<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>int i;\nfor(i = 1; i &lt; 6; i++) {\n    if(i &gt; 3) continue;\n}\nSystem.out.println(i);</pre>", "options": ["A. 3", "B. 4", "C. 5", "D. 6"], "answer": "D", "explanation": "循环结束时 i=6（不满足 i<6），continue 只是跳过本次迭代，不影响循环计数。"}' />
 
 # 方法
+
+<Quiz :q='{"type": "single", "question": "关于程序入口 main 方法说法错误的是？", "options": ["A. main 中可以将 void 改成 String", "B. main 中只有一条语句也要用 {} 括起", "C. main 是程序入口", "D. 一个程序只能有一个入口"], "answer": "A", "explanation": "main 必须是 public static void main(String[] args)，void 不能改。"}' />
+<Quiz :q='{"type": "single", "question": "一个类可定义多个同名方法（参数不同），这种特性称为？", "options": ["A. 隐藏", "B. 覆盖", "C. 重载", "D. 重写"], "answer": "C", "explanation": "重载（Overloading）：同名不同参。覆盖/重写是子类重写父类方法。"}' />
 
 - 语法：`返回值类型 方法名(参数列表) { return 返回值; }`
 - 方法里**不能**再定义方法
 - `main` 方法签名：`public static void main(String[] args)`
 
-<Quiz :q='{"type":"single","question":"关于 main 方法，下列哪个说法正确？","options":["A. main 方法必须返回 int","B. main 方法可以不用 static","C. main 方法必须声明为 public static void，参数为 String[]","D. main 方法可以在任意类中定义并自动运行"],"answer":"C","explanation":"入口 main 方法必须是 public static void main(String[] args)，JVM 调用它启动程序。"}' />
 
 # 数组
+
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>int[] a = {1, 2, 3, 4, 5};\nfor (int count = 0; count &lt; 5; count++)\n    System.out.print(a[count++]);</pre>", "options": ["A. 运行时异常", "B. 12345", "C. 135", "D. 24"], "answer": "C", "explanation": "count++ 导致取 a[0]、a[2]、a[4]，输出 135。"}' />
+<Quiz :q='{"type": "single", "question": "使用 Arrays 类应导入？", "options": ["A. import java.lang.*;", "B. import java.util.*;", "C. package java.lang.*;", "D. package java.util.*;"], "answer": "B", "explanation": "Arrays 在 java.util 包中。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>char[] ch = {&#39;a&#39;, &#39;b&#39;, &#39;c&#39;};\nfor (int i = 0; i &lt; ch.length; i++) {\n    System.out.print(ch[i]);\n    i++;\n}</pre>", "options": ["A. abc", "B. 979899", "C. ac", "D. 编译出错"], "answer": "C", "explanation": "循环体内 i++ 导致跳过一个元素，取 ch[0]=a、ch[2]=c，输出 ac。"}' />
+<Quiz :q='{"type": "single", "question": "以下数组声明错误的是？", "options": ["A. int[] ABC", "B. double ABC[]", "C. String[] name", "D. char ABC[10]"], "answer": "D", "explanation": "数组声明不能指定大小，char ABC[10] 语法错误。"}' />
+<Quiz :q='{"type": "single", "question": "以下数组赋值错误的是？", "options": ["A. int[] a = new int[4];", "B. int[] a = {1, 2, 3, 4};", "C. int[] a = new int[]{1, 2, 3, 4};", "D. int[] a = new int[4]{1, 2, 3, 4};"], "answer": "D", "explanation": "提供初始化列表时不能同时指定数组大小。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>int[] a = {1, 3, 5, 7, 9};\nfor (int i = 0; i &lt; a.length; i++)\n    System.out.print(a[i] + \" \");</pre>", "options": ["A. 1 3 5 7 9", "B. 1 2 3 4 5", "C. 1 2 3 4", "D. 1 3 5 7"], "answer": "A", "explanation": "数组内容 {1, 3, 5, 7, 9}，按顺序遍历输出。"}' />
 
 - 定义：`int[] a = new int[5];` 或 `int[] a = {1,2,3};`
 - 下标有效范围：`0` ~ `length-1`
 - 二维数组：可以只有行没有列，`int[][] a = new int[2][];`
 
-<Quiz :q='{"type":"single","question":"Java 中数组属于什么？","options":["A. 基本数据类型","B. 对象","C. 接口","D. 原始类型"],"answer":"B","explanation":"Java 中数组是对象，持有固定数量的同类型元素。"}' />
 
-<Quiz :q='{"type":"single","question":"将数组作为参数传递给方法时，方法接收到的是什么？","options":["A. 数组的引用","B. 数组的副本","C. 数组的长度","D. 首元素的副本"],"answer":"A","explanation":"Java 按值传递，但数组是引用类型，传递的是引用的副本，引用的仍是原数组对象。"}' />
 
-<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>int[] x = {120, 200, 016};\nfor(int i = 0; i &lt; x.length; i++)\n    System.out.print(x[i] + \" \");</pre>", "options": ["A. 120 200 016", "B. 120 200 14", "C. 120 200 16", "D. 编译错误"], "answer": "B", "explanation": "016 以 0 开头是八进制，等于十进制 14。"}' />
 
 # 面向对象基础
 
@@ -110,6 +116,12 @@
 
 # 类和对象
 
+<Quiz :q='{"type": "single", "question": "声明一个类需要什么关键字？", "options": ["A. public", "B. private", "C. class", "D. 以上都是"], "answer": "C", "explanation": "class 是声明类的关键字。"}' />
+<Quiz :q='{"type": "single", "question": "Circle x = new Circle()，以下哪句最确切？", "options": ["A. x 包含 int 数据", "B. x 包含 Circle 对象", "C. x 包含 Circle 对象的引用", "D. x 可赋 int 值"], "answer": "C", "explanation": "x 是引用变量，存储的是 Circle 对象的地址。"}' />
+<Quiz :q='{"type": "single", "question": "既能修饰类也能修饰类成员的是？", "options": ["A. extends", "B. Float", "C. public", "D. static"], "answer": "C", "explanation": "public 可修饰类（顶级类）和成员。static 只能修饰成员。"}' />
+<Quiz :q='{"type": "single", "question": "private 成员可以被哪些对象访问？", "options": ["A. 同包其他类", "B. 仅本类私有方法", "C. 仅本类所有方法", "D. 所有其他类"], "answer": "C", "explanation": "private 成员只能在定义它的类内部访问。"}' />
+<Quiz :q='{"type": "single", "question": "下面关于类的定义，哪个正确？", "options": ["A. public void HH { }", "B. public class MOVE() { }", "C. public class void number { }", "D. public class Car { }"], "answer": "D", "explanation": "类定义格式：public class 类名 { }。"}' />
+
 - 类的定义
 - 创建对象：`类名 对象名 = new 类名([参数])`
 - 创建对象过程中的内存变化（堆、栈）
@@ -118,18 +130,20 @@
 - 访问修饰符
 - 包的定义：全小写
 
-<Quiz :q='{"type":"single","question":"在类中声明、供所有方法使用的变量称为？","options":["A. 局部变量","B. 实例变量","C. 引用变量","D. 参数变量"],"answer":"B","explanation":"实例变量（成员变量）声明在类体中，可被类中所有方法访问。"}' />
 
-<Quiz :q='{"type":"single","question":"Java 中创建对象使用哪个关键字？","options":["A. create","B. new","C. object","D. alloc"],"answer":"B","explanation":"使用 new 关键字创建对象，在堆上分配内存并调用构造方法。"}' />
 
 # 封装
+
+<Quiz :q='{"type": "single", "question": "修改 Person 的 name 属性应使用？", "options": ["A. new Person(Tom, 1996)", "B. getName(Tom)", "C. 直接赋值 myName", "D. setName(Tom)"], "answer": "D", "explanation": "setName 是 setter 方法，可修改私有属性。A 创建新对象，C 不能访问私有成员。"}' />
 
 - 目的：隐藏实现细节，保护数据
 - 步骤：属性私有化（`private`）→ 提供 `getter`/`setter`
 
-<Quiz :q='{"type":"single","question":"Java 中实现封装的关键步骤是什么？","options":["A. 使用 public 修饰所有属性","B. 属性用 private 修饰，提供公共 getter/setter","C. 使用 final 修饰类","D. 使用 static 修饰方法"],"answer":"B","explanation":"封装的核心：将属性私有化（private），对外提供公共的 getter/setter 方法访问。"}' />
 
 # 构造方法
+
+<Quiz :q='{"type": "single", "question": "下面哪句说法正确？", "options": ["A. 无显式构造时自动生成缺省构造器", "B. 必须显式定义构造", "C. 每个类都有缺省构造", "D. 缺省构造可以有参数"], "answer": "A", "explanation": "无显式构造时，编译器自动生成无参缺省构造。"}' />
+<Quiz :q='{"type": "single", "question": "关于构造方法描述错误的是？", "options": ["A. 创建对象时自动调用", "B. 参数必须不同", "C. 参数必须相同", "D. 名称与类名相同"], "answer": "C", "explanation": "构造方法重载要求参数必须不同。"}' />
 
 - 语法特点：
   - 方法名和类名必须相同
@@ -144,11 +158,8 @@ public class A {
 }
 ```
 
-<Quiz :q='{"type":"single","question":"构造方法是否可以声明返回值类型？","options":["A. 必须声明 void","B. 不能有任何返回值类型声明","C. 可以声明 int","D. 可以声明 boolean"],"answer":"B","explanation":"构造方法不能声明任何返回值类型——连 void 都不能写。"}' />
 
-<Quiz :q='{"type":"single","question":"如果类中定义了有参构造方法 Point(int x, int y)，执行 new Point() 会怎样？","options":["A. 调用无参构造","B. 编译错误","C. 运行时异常","D. 自动生成无参构造"],"answer":"B","explanation":"一旦定义了有参构造，编译器不再生成默认无参构造，new Point() 会报编译错误。"}' />
 
-<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>class Test1 {\n    Test1(int x) { System.out.print(\"C\" + x + \" \"); }\n}\nclass Test2 {\n    Test1 t1 = new Test1(10);\n    Test2(int i) { t1 = new Test1(i); }\n    public static void main(String[] args) { new Test2(5); }\n}</pre>", "options": ["A. C5", "B. C10", "C. C10 C5", "D. 编译错误"], "answer": "C", "explanation": "实例变量初始化先于构造方法体。先执行 t1 = new Test1(10)（输出 C10），再执行构造方法体内的 new Test1(5)（输出 C5）。"}' />
 
 # this
 
@@ -250,7 +261,7 @@ public class A {
   - 方法重载
   - 向上转型 + 方法重写
 
-<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>class A { void display() { System.out.print(\"A\"); } }\nclass B extends A { void display() { System.out.print(\"B\"); } }\nA obj = new B();\nobj.display();</pre>", "options": ["A. A", "B. B", "C. 编译错误", "D. 运行时错误"], "answer": "B", "explanation": "多态：父类引用指向子类对象，调用被覆盖的方法时执行子类版本（运行时绑定）。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>class A { void display() { System.out.print(\"A\"); } }<br><pre>class B extends A { void display() { System.out.print(\"B\"); } }\nA obj = new B();\nobj.display();&lt;/pre&gt;</pre>", "options": ["A. A", "B. B", "C. 编译错误", "D. 运行时错误"], "answer": "B", "explanation": "多态：父类引用指向子类对象，调用被覆盖的方法时执行子类版本（运行时绑定）。"}' />
 
 <Quiz :q='{"type":"single","question":"以下关于重载和重写的描述正确的是？","options":["A. 重载是运行时多态，重写是编译时多态","B. 重载是编译时多态，重写是运行时多态","C. 两者都是编译时多态","D. 两者都是运行时多态"],"answer":"B","explanation":"重载（Overload）是编译时多态，根据参数类型/个数确定调用哪个方法。重写（Override）是运行时多态，根据实际对象类型确定。"}' />
 
