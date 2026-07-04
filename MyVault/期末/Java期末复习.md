@@ -25,9 +25,8 @@
 # 第2章 Java编程基础
 
 
-<Quiz :q='{"type": "single", "question": "如下哪个是合法的 Java 标识符？", "options": ["A. fieldname", "B. super", "C. 3number", "D. #number"], "answer": "A", "explanation": "fieldname 以字母开头合法。"}' />
-<Quiz :q='{"type": "single", "question": "如下哪个是 Java 中有效的关键字？", "options": ["A. name", "B. hello", "C. false", "D. good"], "answer": "C", "explanation": "false 是 boolean 字面量关键字。"}' />
 <Quiz :q='{"type": "single", "question": "如下哪个是合法的 Java 标识符？", "options": ["A. fieldname", "B. super", "C. 3number", "D. #number"], "answer": "A", "explanation": "标识符不能是关键字（super），不能以数字开头（3number），不能包含 # 等特殊字符。"}' />
+<Quiz :q='{"type": "single", "question": "如下哪个是 Java 中有效的关键字？", "options": ["A. name", "B. hello", "C. false", "D. good"], "answer": "C", "explanation": "false 是 boolean 字面量关键字。"}' />
 
 <Quiz :q='{"type": "multi", "question": "以下哪些是合法的标识符？", "options": ["A. String", "B. int", "C. name", "D. 4item"], "answer": ["C"], "explanation": "String 和 int 是关键字；4item 以数字开头不合法。只有 name 合法。"}' />
 <Quiz :q='{"type": "single", "question": "下列属于合法的 Java 标识符的是？", "options": ["A. ABC（双引号括起）", "B. &5678", "C. +rriwo", "D. saler"], "answer": "D", "explanation": "标识符由字母、数字、_、$组成，不能以数字开头，不能是关键字。"}' />
@@ -54,7 +53,6 @@
 答案：true, false
 </details>
 
-<Quiz :q='{"type": "single", "question": "表达式 10/3 的结果是？", "options": ["A. 3.3", "B. 3.33", "C. 3", "D. 3.0"], "answer": "C", "explanation": "整数相除结果为整数，10/3=3。"}' />
 <Quiz :q='{"type": "single", "question": "以下哪个不是 Java 的原始数据类型？", "options": ["A. int", "B. Boolean", "C. float", "D. char"], "answer": "B", "explanation": "Java 区分大小写，原始布尔类型是 boolean（小写），Boolean 是包装类。"}' />
 
 <Quiz :q='{"type": "single", "question": "下列选项中属于自动类型转换的是？", "options": ["A. double 转 int", "B. int 转 short", "C. int 转 double", "D. long 转 int"], "answer": "C", "explanation": "小范围到大范围自动转换。int 到 double 自动；其他需要强制转换。"}' />
@@ -75,7 +73,6 @@
 答案：0
 </details>
 
-<Quiz :q='{"type": "single", "question": "设 x=1, y=2, z=3，则表达式 y+=z--/++x 的值是？", "options": ["A. 3", "B. 3.5", "C. 4", "D. 5"], "answer": "A", "explanation": "z-- 先返回值 3；++x 先自增 x=2；3/2=1；y+=1→y=3。"}' />
 <Quiz :q='{"type": "single", "question": "设 x=1, y=2, z=3，则表达式 y+=z--/++x 的值是？", "options": ["A. 3", "B. 3.5", "C. 4", "D. 5"], "answer": "A", "explanation": "z-- 先返回 3 再自减为 2；++x 使 x=2 并返回 2；3/2 整数除法=1；y+=1 → y=3。"}' />
 
 <Quiz :q='{"type": "single", "question": "表达式 10/3 的结果是？", "options": ["A. 3.3", "B. 3.33", "C. 3", "D. 3.0"], "answer": "C", "explanation": "两个整数相除结果仍是整数，截断小数部分，10/3=3。若需小数应写成 10.0/3 或 10/3.0。"}' />
@@ -120,8 +117,6 @@
 - 二维数组：可以只有行没有列，`int[][] a = new int[2][];`
 
 
-
-
 <details>
 <summary>程序阅读题：以下代码输出什么？</summary>
 
@@ -145,7 +140,6 @@ public class TestArray {
 </details>
 
 
-
 <details>
 <summary>程序阅读题：以下代码输出什么？</summary>
 
@@ -163,7 +157,6 @@ public class Test {
 
 答案：s=180（30+60+90 能被 3 整除的元素之和）
 </details>
-
 
 
 <details>
@@ -192,7 +185,6 @@ public class Test {
 - 面向对象与面向过程的区别
 
 
-<Quiz :q='{"type": "single", "question": "下列哪个不是面向对象程序设计方法的特点？", "options": ["A. 封装", "B. 继承", "C. 多态", "D. 结构化"], "answer": "D", "explanation": "封装、继承、多态 是三大特性。"}' />
 <Quiz :q='{"type": "single", "question": "下列有关类、对象和实例的叙述，正确的是？", "options": ["A. 三者没有差别", "B. 类是对象的抽象，对象是类的具体化，实例即对象", "C. 对象是类的抽象，类是对象的具体化", "D. 类是对象的抽象，对象是类的具体化，实例是类的另一个名称"], "answer": "B", "explanation": "类是创建对象的模板（抽象），对象是类的实例（具体化），实例是对象的同义词。"}' />
 
 <Quiz :q='{"type": "single", "question": "下列哪个不是面向对象程序设计方法的特点？", "options": ["A. 封装", "B. 继承", "C. 多态", "D. 结构化"], "answer": "D", "explanation": "OOP 三大特征是封装、继承和多态。结构化是面向过程编程的特点。"}' />
@@ -226,7 +218,6 @@ public class Test {
 - 步骤：属性私有化（`private`）→ 提供 `getter`/`setter`
 
 
-<Quiz :q='{"type": "single", "question": "下列构造函数定义中，哪种形式是错误的？", "options": ["A. class MC { public MC() {} }", "B. class MC { public MC(int x) {} }", "C. class MC { public int MC() {} }", "D. class MC { public MC(int x, int y) {} }"], "answer": "C", "explanation": "构造方法不能有返回值类型声明。"}' />
 <Quiz :q='{"type": "single", "question": "下列构造函数定义中，哪种形式是错误的？", "options": ["A. public MyClass() {}", "B. public MyClass(int x) {}", "C. public int MyClass() {}", "D. public MyClass(int x, int y) {}"], "answer": "C", "explanation": "构造函数不能有返回值类型声明（连 void 都不能写）。C 选项 public int MyClass() 实际上是一个普通方法，不是构造函数。"}' />
 
 <Quiz :q='{"type": "single", "question": "下面哪句说法正确？", "options": ["A. 无显式构造时自动生成缺省构造器", "B. 必须显式定义构造", "C. 每个类都有缺省构造", "D. 缺省构造可以有参数"], "answer": "A", "explanation": "无显式构造时，编译器自动生成无参缺省构造。"}' />
@@ -295,8 +286,6 @@ graph TD
 <Quiz :q='{"type":"multi","question":"关于 static 方法的正确说法有哪些？","options":["A. 只能访问静态数据","B. 只能调用其他静态方法","C. 可以访问实例变量","D. 不能使用 this 或 super"],"answer":["A","B","D"],"explanation":"静态方法属于类，不依赖对象实例，因此：①只能直接访问静态成员（静态变量/其他静态方法）；②不能访问实例变量（必须通过对象引用才能访问）；③不能使用 this/super（因为没有当前对象）。A、B、D 正确，C 错误。"}' />
 
 
-
-
 <details>
 <summary>程序阅读题：以下代码输出什么？</summary>
 
@@ -319,7 +308,6 @@ public class Person {
 </details>
 
 
-
 <details>
 <summary>程序阅读题：以下代码输出什么？</summary>
 
@@ -339,7 +327,6 @@ public class Computer {
 
 答案：mainbord:华硕 cpu:Intel
 </details>
-
 
 
 <details>
@@ -475,8 +462,6 @@ public class Computer {
 - 语法：`(参数列表) -> { 方法体 }`
 
 
-
-
 <details>
 <summary>程序阅读题：以下代码输出什么？</summary>
 
@@ -494,7 +479,6 @@ public class Dog extends Animal {
 
 答案：Animal Dog（创建子类对象时先调用父类构造方法）
 </details>
-
 
 
 <details>
@@ -521,7 +505,6 @@ public class Child extends Parent {
 答案：south
 east to west（多态：t 实际类型是 Child，调用 Child 的 print）
 </details>
-
 
 
 <details>
@@ -556,7 +539,6 @@ public class Test {
 </details>
 
 
-
 <details>
 <summary>程序阅读题：以下程序的输出结果？</summary>
 
@@ -581,7 +563,6 @@ class CourseTest {
 
 答案：课程号:101 课程名:ASP 学分:3
 </details>
-
 
 
 <details>
@@ -647,8 +628,6 @@ Throwable
 <Quiz :q='{"type":"single","question":"自定义受检异常应继承哪个类？","options":["A. RuntimeException","B. Exception","C. Error","D. Throwable"],"answer":"B","explanation":"自定义异常：\n① 继承 Exception → 受检异常（Checked Exception），编译器强制要求 try-catch 或 throws 声明，适用于可预见的业务异常\n② 继承 RuntimeException → 非受检异常（Unchecked Exception），编译器不强制处理，适用于程序逻辑错误\n③ 通常提供两个构造方法：无参构造和带 String message 参数的构造（调用父类 super(message)）"}' />
 
 
-
-
 <details>
 <summary>程序阅读题：以下代码能否正确执行？为什么？</summary>
 
@@ -705,8 +684,6 @@ System.out.println(x * x);
 <Quiz :q='{"type":"single","question":"List<String> list = new ArrayList<>(); 中使用了什么 Java 特性？","options":["A. 反射","B. 泛型","C. 注解","D. 序列化"],"answer":"B","explanation":"<String> 是泛型，指定集合中元素的类型，编译时提供类型安全检查。"}' />
 
 
-
-
 <details>
 <summary>程序阅读题：以下代码输出什么？</summary>
 
@@ -729,7 +706,6 @@ public class Sum {
 j in calculate() is: 20
 At last, j is : 10（Java 值传递，方法内修改不影响原变量）
 </details>
-
 
 
 <details>
