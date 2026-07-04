@@ -120,6 +120,71 @@
 - 二维数组：可以只有行没有列，`int[][] a = new int[2][];`
 
 
+
+
+<details>
+<summary>程序阅读题：以下代码输出什么？</summary>
+
+```
+public class TestArray {
+    public static void main(String args[]) {
+        int a[] = {5,9,6,8,7};
+        for (int i = 0; i < a.length-1; i++) {
+            int k = i;
+            for (int j = i; j < a.length; j++)
+                if (a[j] < a[k]) k = j;
+            int temp = a[i]; a[i] = a[k]; a[k] = temp;
+        }
+        for (int i = 0; i < a.length; i++)
+            System.out.print(a[i] + " ");
+    }
+}
+```
+
+答案：5 6 7 8 9（选择排序，升序排列）
+</details>
+
+
+
+<details>
+<summary>程序阅读题：以下代码输出什么？</summary>
+
+```
+public class Test {
+    public static void main(String args[]) {
+        int a[] = {10,20,30,40,50,60,70,80,90};
+        int s = 0;
+        for (int i = 0; i < a.length; i++)
+            if (a[i] % 3 == 0) s += a[i];
+        System.out.println("s=" + s);
+    }
+}
+```
+
+答案：s=180（30+60+90 能被 3 整除的元素之和）
+</details>
+
+
+
+<details>
+<summary>程序阅读题：以下程序输出什么？</summary>
+
+```
+public class Test {
+    public static void main(String args[]) {
+        String s1 = "hello";
+        String s2 = new String("hello");
+        if (s1.equals(s2))
+            System.out.println("相等");
+        else
+            System.out.println("不相等");
+    }
+}
+```
+
+答案：相等（equals 比较字符串内容）
+</details>
+
 # 第3章 面向对象（上）
 
 
@@ -230,6 +295,51 @@ graph TD
 <Quiz :q='{"type":"multi","question":"关于 static 方法的正确说法有哪些？","options":["A. 只能访问静态数据","B. 只能调用其他静态方法","C. 可以访问实例变量","D. 不能使用 this 或 super"],"answer":["A","B","D"],"explanation":"静态方法属于类，不依赖对象实例，因此：①只能直接访问静态成员（静态变量/其他静态方法）；②不能访问实例变量（必须通过对象引用才能访问）；③不能使用 this/super（因为没有当前对象）。A、B、D 正确，C 错误。"}' />
 
 
+
+
+<details>
+<summary>程序阅读题：以下代码输出什么？</summary>
+
+```
+public class Person {
+    String name;
+    int age;
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public static void main(String[] args) {
+        Person c = new Person("Peter", 17);
+        System.out.println(c.name + " is " + c.age + " years old!");
+    }
+}
+```
+
+答案：Peter is 17 years old!
+</details>
+
+
+
+<details>
+<summary>程序阅读题：以下代码输出什么？</summary>
+
+```
+public class Computer {
+    String mainbord, cpu;
+    public Computer(String s1, String s2) {
+        mainbord = s1;
+        cpu = s2;
+    }
+    public static void main(String[] args) {
+        Computer c = new Computer("华硕", "Intel");
+        System.out.println("mainbord:" + c.mainbord + " cpu:" + c.cpu);
+    }
+}
+```
+
+答案：mainbord:华硕 cpu:Intel
+</details>
+
 # 第4章 面向对象（下）
 
 <Quiz :q='{"type": "single", "question": "以下程序输出什么？\nclass Animal {\n    Animal() { System.out.print(\"Animal \"); }\n}\nclass Dog extends Animal {\n    Dog() { System.out.print(\"Dog \"); }\n    public static void main(String[] args) { new Dog(); }\n}", "options": ["A. Dog", "B. Animal", "C. Animal Dog", "D. Dog Animal"], "answer": "C", "explanation": "创建子类对象时，先调用父类构造器（Animal），再调用子类构造器（Dog），输出 Animal Dog。"}' />
@@ -330,6 +440,113 @@ graph TD
 - 语法：`(参数列表) -> { 方法体 }`
 
 
+
+
+<details>
+<summary>程序阅读题：以下代码输出什么？</summary>
+
+```
+class Animal {
+    Animal() { System.out.print("Animal "); }
+}
+public class Dog extends Animal {
+    Dog() { System.out.print("Dog "); }
+    public static void main(String[] args) {
+        Dog snoppy = new Dog();
+    }
+}
+```
+
+答案：Animal Dog（创建子类对象时先调用父类构造方法）
+</details>
+
+
+
+<details>
+<summary>程序阅读题：以下代码输出什么？</summary>
+
+```
+class Parent {
+    String one, two;
+    public Parent(String a, String b) { one = a; two = b; }
+    public void print() { System.out.println(one); }
+}
+public class Child extends Parent {
+    public Child(String a, String b) { super(a,b); }
+    public void print() { System.out.println(one + " to " + two); }
+    public static void main(String args[]) {
+        Parent p = new Parent("south", "north");
+        Parent t = new Child("east", "west");
+        p.print();
+        t.print();
+    }
+}
+```
+
+答案：south
+east to west（多态：t 实际类型是 Child，调用 Child 的 print）
+</details>
+
+
+
+<details>
+<summary>程序阅读题：以下代码输出什么？</summary>
+
+```
+class Father {
+    int a = 100;
+    public void miner() { a--; }
+}
+class Son extends Father {
+    int a = 0;
+    public int getA() { return super.a; }
+}
+public class Test {
+    public static void main(String[] args) {
+        Father x = new Father();
+        Son y = new Son();
+        System.out.println(y.a);
+        System.out.println(y.getA());
+        y.miner();
+        System.out.println(y.a);
+        System.out.println(y.getA());
+    }
+}
+```
+
+答案：0
+100
+0
+99（子类变量 a 隐藏了父类的 a，super.a 访问父类版本）
+</details>
+
+
+
+<details>
+<summary>程序阅读题：以下程序的输出结果？</summary>
+
+```
+public class Course {
+    private String cNumber, cName;
+    private int cUnit;
+    public Course(String number, String name, int unit) {
+        cNumber = number; cName = name; cUnit = unit;
+    }
+    public void printCourseInfo() {
+        System.out.println("课程号:" + cNumber + " 课程名:" + cName + " 学分:" + cUnit);
+    }
+}
+class CourseTest {
+    public static void main(String[] args) {
+        Course c = new Course("101", "ASP", 3);
+        c.printCourseInfo();
+    }
+}
+```
+
+答案：课程号:101 课程名:ASP 学分:3
+</details>
+
 # 第5章 异常
 
 
@@ -379,6 +596,21 @@ Throwable
 <Quiz :q='{"type":"single","question":"自定义受检异常应继承哪个类？","options":["A. RuntimeException","B. Exception","C. Error","D. Throwable"],"answer":"B","explanation":"自定义异常：\n① 继承 Exception → 受检异常（Checked Exception），编译器强制要求 try-catch 或 throws 声明，适用于可预见的业务异常\n② 继承 RuntimeException → 非受检异常（Unchecked Exception），编译器不强制处理，适用于程序逻辑错误\n③ 通常提供两个构造方法：无参构造和带 String message 参数的构造（调用父类 super(message)）"}' />
 
 
+
+
+<details>
+<summary>程序阅读题：以下代码能否正确执行？为什么？</summary>
+
+```
+BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
+String str = buf.readLine();  // 输入: exit
+int x = Integer.parseInt(str);
+System.out.println(x * x);
+```
+
+答案：不能正确执行。输入 "exit" 后 Integer.parseInt("exit") 抛出 NumberFormatException（运行时异常），程序中断。
+</details>
+
 # 集合
 
 
@@ -421,6 +653,48 @@ Throwable
 
 <Quiz :q='{"type":"single","question":"List<String> list = new ArrayList<>(); 中使用了什么 Java 特性？","options":["A. 反射","B. 泛型","C. 注解","D. 序列化"],"answer":"B","explanation":"<String> 是泛型，指定集合中元素的类型，编译时提供类型安全检查。"}' />
 
+
+
+
+<details>
+<summary>程序阅读题：以下代码输出什么？</summary>
+
+```
+public class Sum {
+    public static void main(String[] args) {
+        int j = 10;
+        System.out.println("j is : " + j);
+        calculate(j);
+        System.out.println("At last, j is : " + j);
+    }
+    static void calculate(int j) {
+        for (int i = 0; i < 10; i++) j++;
+        System.out.println("j in calculate() is: " + j);
+    }
+}
+```
+
+答案：j is : 10
+j in calculate() is: 20
+At last, j is : 10（Java 值传递，方法内修改不影响原变量）
+</details>
+
+
+
+<details>
+<summary>程序阅读题：以下代码输出什么？</summary>
+
+```
+String s = "12345#aaa#bbb#67890";
+int n = s.indexOf("#");
+int k = s.indexOf("#", n+1);
+int m = s.indexOf("#", k+1);
+String s2 = s.substring(m+1);
+System.out.println(s2);
+```
+
+答案：67890（substring 从第三个 # 之后取到末尾）
+</details>
 
 # Java 17 新特性（LTS，2021.09）
 
