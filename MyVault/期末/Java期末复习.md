@@ -272,7 +272,7 @@ graph TD
 - 接口可以多继承：`interface A extends B, C`
 - 一般类先继承再实现：`class A extends B implements C, D`
 
-<Quiz :q='{"type":"single","question":"函数式接口（Functional Interface）是指？","options":["A. 包含多个抽象方法的接口","B. 恰好包含一个抽象方法的接口","C. 只包含静态方法的接口","D. 只包含默认方法的接口"],"answer":"B","explanation":"函数式接口有且仅有一个抽象方法，可用 Lambda 表达式实现，如 Runnable、Comparator。"}' />
+<Quiz :q='{"type":"single","question":"函数式接口（Functional Interface）是指？","options":["A. 包含多个抽象方法的接口","B. 恰好包含一个抽象方法的接口","C. 只包含静态方法的接口","D. 只包含默认方法的接口"],"answer":"B","explanation":"函数式接口(Functional Interface)是指有且仅有一个抽象方法的接口，常用 @FunctionalInterface 注解标记。即使接口中还有 default 方法或 static 方法，只要抽象方法只有一个，仍然是函数式接口。Lambda 表达式本质上就是函数式接口的匿名实现，编译器会自动推断类型。常见的函数式接口包括：Runnable（run）、Comparator（compare）、Callable（call）、Consumer（accept）、Supplier（get）、Function（apply）、Predicate（test）。非函数式接口（含多个抽象方法）不能用 Lambda 表达式。"}' />
 
 <Quiz :q='{"type":"multi","question":"接口中可以包含哪些成员？（JDK 8 以后）","options":["A. 抽象方法","B. default 方法（默认实现）","C. 静态方法（有方法体）","D. 实例变量"],"answer":["A","B","C"],"explanation":"JDK 8+ 接口可以有抽象方法、default 方法和静态方法。接口中不能有实例变量，只能有静态常量。"}' />
 
