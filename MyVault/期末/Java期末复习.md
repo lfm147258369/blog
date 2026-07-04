@@ -120,6 +120,14 @@
 <Quiz :q='{"type": "single", "question": "Circle x = new Circle()，以下哪句最确切？", "options": ["A. x 包含 int 数据", "B. x 包含 Circle 对象", "C. x 包含 Circle 对象的引用", "D. x 可赋 int 值"], "answer": "C", "explanation": "x 是引用变量，存储的是 Circle 对象的地址。"}' />
 <Quiz :q='{"type": "single", "question": "既能修饰类也能修饰类成员的是？", "options": ["A. extends", "B. Float", "C. public", "D. static"], "answer": "C", "explanation": "public 可修饰类（顶级类）和成员。static 只能修饰成员。"}' />
 <Quiz :q='{"type": "single", "question": "private 成员可以被哪些对象访问？", "options": ["A. 同包其他类", "B. 仅本类私有方法", "C. 仅本类所有方法", "D. 所有其他类"], "answer": "C", "explanation": "private 成员只能在定义它的类内部访问。"}' />
+<details>
+<summary>填空题：在同一包内和子类中可访问、其他包不可访问的访问修饰符是？</summary>
+答案：`protected`
+</details>
+<details>
+<summary>填空题：在同一包内和子类中可访问、其他包不可访问的访问修饰符是？</summary>
+答案：`protected`
+</details>
 <Quiz :q='{"type": "single", "question": "下面关于类的定义，哪个正确？", "options": ["A. public void HH { }", "B. public class MOVE() { }", "C. public class void number { }", "D. public class Car { }"], "answer": "D", "explanation": "类定义格式：public class 类名 { }。"}' />
 
 - 类的定义
@@ -217,6 +225,10 @@ graph TD
 
 - 目的：代码重用
 - 关键字：`extends`
+<details>
+<summary>填空题：Java 中用于继承类的关键字是？</summary>
+答案：`extends`
+</details>
 - Java **单继承**（类），接口**多继承**
 - 子类继承父类的非 `private` 成员，不能继承构造方法
 
@@ -247,6 +259,10 @@ graph TD
 <Quiz :q='{"type":"single","question":"在子类构造方法中调用父类构造方法应使用哪个关键字？","options":["A. this","B. super","C. parent","D. base"],"answer":"B","explanation":"super([参数]) 调用父类构造方法，且必须位于子类构造方法的第一行。"}' />
 
 # final
+<details>
+<summary>填空题：声明常量的关键字是？</summary>
+答案：`final`
+</details>
 
 - `final class`：不能被继承
 - `final method`：不能被重写
@@ -265,6 +281,10 @@ graph TD
 # 接口
 
 - 不同 JDK 版本接口特性有差异
+<details>
+<summary>填空题：接口中定义的变量默认是 public static final，也称为？</summary>
+答案：静态常量
+</details>
   - JDK 7：只能有抽象方法和静态常量
   - JDK 8：新增 `default` 方法（实现类对象调用）、静态方法（接口名调用）
   - JDK 9+：新增私有方法
@@ -296,6 +316,11 @@ graph TD
 <Quiz :q='{"type":"single","question":"表达式 Base y = new Derived()（Derived extends Base）描述正确的是？","options":["A. 编译错误","B. 这是向上转型","C. 这是向下转型","D. 对象切片"],"answer":"B","explanation":"子类对象赋值给父类引用是向上转型（自动转换），Java 不存在对象切片。"}' />
 
 # Object 类
+
+<details>
+<summary>填空题：Java 中所有类的根类是？</summary>
+答案：`Object`
+</details>
 
 - `toString()`、`equals()`、`hashCode()`
 
@@ -365,7 +390,18 @@ Throwable
 
 # List & Set & Map
 
-- **增强 for 循环**：`for(元素类型 变量名 : 数组或集合对象) { ... }`
+- **增强 for 循环**：
+<details>
+<summary>填空题：不允许存储重复元素的集合接口是？</summary>
+答案：`Set`（如 HashSet、TreeSet）
+</details>
+
+<details>
+<summary>填空题：增强 for 循环的语法中冒号后面应填写什么？</summary>
+答案：`数组或集合对象`，格式：`for(元素类型 变量名 : 数组或集合对象)`
+</details>
+
+- `for(元素类型 变量名 : 数组或集合对象) { ... }`
 - **泛型**在集合中的使用：`List<Integer> a = new ArrayList<>();`
 
 <Quiz :q='{"type":"single","question":"关于 ArrayList 和 LinkedList 的描述正确的是？","options":["A. ArrayList 头部插入 O(1)","B. LinkedList 头部插入 O(1)","C. 两者随机访问都是 O(1)","D. LinkedList 比 ArrayList 更省内存"],"answer":"B","explanation":"LinkedList 双向链表头插 O(1)，ArrayList 数组头插 O(n)。ArrayList 随机访问 O(1)，LinkedList 随机访问 O(n)。"}' />
@@ -393,32 +429,12 @@ Throwable
 <Quiz :q='{"type":"tf","question":"Java 8 以后，接口中可以定义带有方法体的默认方法。","answer":"true","explanation":"JDK 8 引入了 default 方法，允许接口中定义有默认实现的方法。"}' />
 
 <Quiz :q='{"type":"single","question":"Runnable 在 Java 中属于什么？","options":["A. 抽象类","B. 接口","C. 普通类","D. 方法"],"answer":"B","explanation":"Runnable 是函数式接口，包含一个抽象的 run() 方法，用于创建线程。"}' />
+<details>
+<summary>填空题：实现 Runnable 接口必须实现的方法是？</summary>
+答案：`run()` 方法
+</details>
 
 <Quiz :q='{"type":"single","question":"以下哪个不是 Java 的特性？","options":["A. 面向对象","B. 支持指针","C. 动态性","D. 平台无关"],"answer":"B","explanation":"Java 刻意不支持指针操作，这是其安全性和简单性的重要设计选择。"}' />
 
-# 填空题
 
-<details>
-<summary>点击显示答案</summary>
 
-1. Java 中用于继承类的关键字是 **\_\_\_\_**。→ `extends`
-
-2. `int` 的包装类是 **\_\_\_\_**。→ `Integer`
-
-3. 实现 Runnable 接口必须实现的方法是 **\_\_\_\_**。→ `run()`
-
-4. 在同一包内和子类中可访问、其他包不可访问的访问修饰符是 **\_\_\_\_**。→ `protected`
-
-5. 不允许存储重复元素的集合接口是 **\_\_\_\_**。→ `Set`
-
-6. `char` 类型在 Java 中占 **\_\_\_\_** 个字节。→ `2`
-
-7. Java 中所有类的根类是 **\_\_\_\_**。→ `Object`
-
-8. 声明常量的关键字是 **\_\_\_\_**。→ `final`
-
-9. 接口中定义的变量默认是 `public static final`，也称为 **\_\_\_\_**。→ 静态常量
-
-10. 增强 for 循环的语法是 `for(元素类型 变量名 : **\_\_\_**)`。→ `数组或集合对象`
-
-</details>
