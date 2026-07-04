@@ -7,7 +7,8 @@
 - 代码阅读题10分
 - 编程题24分：简单的编程题10分 + 14分（也不难）
 
-# Hello World
+
+# 第1章 Java开发入门
 
 <Quiz :q='{"type": "single", "question": "Java 一次编译，随处运行的特点在于其什么？", "options": ["A. 跨平台性", "B. 面向对象性", "C. 多线程性", "D. 安全性"], "answer": "A", "explanation": "Java 编译生成字节码 .class 文件，由不同平台的 JVM 解释执行，实现跨平台（Write Once, Run Anywhere）。"}' />
 
@@ -20,9 +21,8 @@
 
 <Quiz :q='{"type":"tf","question":"Java 是纯面向对象的语言，具有\"一次编写，到处运行\"的特性。","answer":"true","explanation":"Java 通过 JVM 实现跨平台，字节码在不同平台的 JVM 上运行，达到 Write Once, Run Anywhere。"}' />
 
-# 基础语法
 
-# 标识符
+# 第2章 Java编程基础
 
 
 <Quiz :q='{"type": "single", "question": "如下哪个是合法的 Java 标识符？", "options": ["A. fieldname", "B. super", "C. 3number", "D. #number"], "answer": "A", "explanation": "fieldname 以字母开头合法。"}' />
@@ -42,9 +42,6 @@
   - `dao`、`entity`、`service`、`util`
 
 
-
-# 变量和常量
-
 <Quiz :q='{"type": "single", "question": "下列关于成员变量默认值的描述中，错误的是？", "options": ["A. char 默认值是 \\u0000", "B. int 默认值是 0", "C. long 默认值是 0", "D. float 默认值是 0.0f"], "answer": "C", "explanation": "long 默认值是 0L，不是 0。"}' />
 
 - 变量的作用域
@@ -52,14 +49,11 @@
 - 常量（`final`）：只能赋值一次
 
 
-
-
 <details>
 <summary>填空题：若 x=5, y=10，则 x&lt;y 和 x&gt;=y 的逻辑值分别为____和____。</summary>
 答案：true, false
 </details>
 
-# 
 <Quiz :q='{"type": "single", "question": "表达式 10/3 的结果是？", "options": ["A. 3.3", "B. 3.33", "C. 3", "D. 3.0"], "answer": "C", "explanation": "整数相除结果为整数，10/3=3。"}' />
 <Quiz :q='{"type": "single", "question": "以下哪个不是 Java 的原始数据类型？", "options": ["A. int", "B. Boolean", "C. float", "D. char"], "answer": "B", "explanation": "Java 区分大小写，原始布尔类型是 boolean（小写），Boolean 是包装类。"}' />
 
@@ -76,18 +70,11 @@
   - 强制类型转换（大→小，可能丢失精度）
 
 
-
-
-
-
-
-
 <details>
 <summary>填空题：设 x=2，则表达式 (x++)/3 的值是____。</summary>
 答案：0
 </details>
 
-# 
 <Quiz :q='{"type": "single", "question": "设 x=1, y=2, z=3，则表达式 y+=z--/++x 的值是？", "options": ["A. 3", "B. 3.5", "C. 4", "D. 5"], "answer": "A", "explanation": "z-- 先返回值 3；++x 先自增 x=2；3/2=1；y+=1→y=3。"}' />
 <Quiz :q='{"type": "single", "question": "设 x=1, y=2, z=3，则表达式 y+=z--/++x 的值是？", "options": ["A. 3", "B. 3.5", "C. 4", "D. 5"], "answer": "A", "explanation": "z-- 先返回 3 再自减为 2；++x 使 x=2 并返回 2；3/2 整数除法=1；y+=1 → y=3。"}' />
 
@@ -95,12 +82,10 @@
 
 - `++`、`--`、`&&`、`&`、`||`、`|`、`=`（短路与/或 vs 非短路与/或）
 
-# 三元表达式 & switch
 
 - 三元：`条件 ? 值1 : 值2`
 - `switch`：不同 JDK 版本的支持差异（JDK 7+ 支持 String，JDK 14+ 支持箭头表达式）
 
-# 循环
 
 <Quiz :q='{"type": "single", "question": "以下代码执行后 count 的值是什么？\nint count = 1;\nfor (int i = 1; i <= 5; i++) {\n    count += i;\n}\nSystem.out.println(count);", "options": ["A. 5", "B. 1", "C. 15", "D. 16"], "answer": "D", "explanation": "count 初始 1，循环 i=1~5 累加：1+1+2+3+4+5 = 16。"}' />
 
@@ -113,17 +98,12 @@
 - `continue`：跳过本次循环
 
 
-# 方法
-
 <Quiz :q='{"type": "single", "question": "关于程序入口 main 方法说法错误的是？", "options": ["A. main 中可以将 void 改成 String", "B. main 中只有一条语句也要用 {} 括起", "C. main 是程序入口", "D. 一个程序只能有一个入口"], "answer": "A", "explanation": "main 必须是 public static void main(String[] args)，void 不能改。"}' />
 <Quiz :q='{"type": "single", "question": "一个类可定义多个同名方法（参数不同），这种特性称为？", "options": ["A. 隐藏", "B. 覆盖", "C. 重载", "D. 重写"], "answer": "C", "explanation": "重载（Overloading）：同名不同参。覆盖/重写是子类重写父类方法。"}' />
 
 - 语法：`返回值类型 方法名(参数列表) { return 返回值; }`
 - 方法里**不能**再定义方法
 - `main` 方法签名：`public static void main(String[] args)`
-
-
-# 数组
 
 
 <Quiz :q='{"type": "single", "question": "已知数组 array，最后一个元素的下标是？", "options": ["A. array.size", "B. array.length", "C. array.size-1", "D. array.length-1"], "answer": "D", "explanation": "数组下标从 0 到 length-1。"}' />
@@ -140,16 +120,11 @@
 - 二维数组：可以只有行没有列，`int[][] a = new int[2][];`
 
 
+# 第3章 面向对象（上）
 
-
-# 面向对象基础
-
-# 三大特性
 
 - 封装、继承、多态
 - 面向对象与面向过程的区别
-
-# 类和对象
 
 
 <Quiz :q='{"type": "single", "question": "下列哪个不是面向对象程序设计方法的特点？", "options": ["A. 封装", "B. 继承", "C. 多态", "D. 结构化"], "answer": "D", "explanation": "封装、继承、多态 是三大特性。"}' />
@@ -180,16 +155,10 @@
 - 包的定义：全小写
 
 
-
-# 封装
-
 <Quiz :q='{"type": "single", "question": "修改 Person 的 name 属性应使用？", "options": ["A. new Person(Tom, 1996)", "B. getName(Tom)", "C. 直接赋值 myName", "D. setName(Tom)"], "answer": "D", "explanation": "setName 是 setter 方法，可修改私有属性。A 创建新对象，C 不能访问私有成员。"}' />
 
 - 目的：隐藏实现细节，保护数据
 - 步骤：属性私有化（`private`）→ 提供 `getter`/`setter`
-
-
-# 构造方法
 
 
 <Quiz :q='{"type": "single", "question": "下列构造函数定义中，哪种形式是错误的？", "options": ["A. class MC { public MC() {} }", "B. class MC { public MC(int x) {} }", "C. class MC { public int MC() {} }", "D. class MC { public MC(int x, int y) {} }"], "answer": "C", "explanation": "构造方法不能有返回值类型声明。"}' />
@@ -212,23 +181,17 @@ public class A {
 ```
 
 
-
-
-# this
-
 - 当前类的一个对象
 - `this.属性`、`this.方法()`、`this([参数])`（访问本类其他构造方法）
 - **不能在静态方法中使用**
 
 <Quiz :q='{"type":"single","question":"this 关键字可以在以下哪个环境中使用？","options":["A. 静态方法中","B. 实例方法中","C. 静态块中","D. 以上都可以"],"answer":"B","explanation":"this 指向当前实例对象，静态方法/静态块没有当前对象，不能使用 this。"}' />
 
-# 构造块 & 静态块
 
 - 执行顺序：**静态块 → 构造块 → 构造方法**
 
 <Quiz :q='{"type":"single","question":"以下执行顺序正确的是？","options":["A. 构造块 → 静态块 → 构造方法","B. 构造方法 → 构造块 → 静态块","C. 静态块 → 构造块 → 构造方法","D. 静态块 → 构造方法 → 构造块"],"answer":"C","explanation":"类加载时执行静态块（一次），创建对象时先执行构造块，再执行构造方法。"}' />
 
-# static
 
 <Quiz :q='{"type": "single", "question": "为类 AB 写一个方法 method，要求用类名 AB 作前缀就能调用，方法头应为？", "options": ["A. static void method()", "B. public void method()", "C. final void method()", "D. abstract void method()"], "answer": "A", "explanation": "通过类名直接调用的是静态方法，用 static 修饰。实例方法必须通过对象调用。"}' />
 
@@ -266,47 +229,15 @@ graph TD
 
 <Quiz :q='{"type":"multi","question":"关于 static 方法的正确说法有哪些？","options":["A. 只能访问静态数据","B. 只能调用其他静态方法","C. 可以访问实例变量","D. 不能使用 this 或 super"],"answer":["A","B","D"],"explanation":"静态方法属于类，不依赖对象实例，因此：①只能直接访问静态成员（静态变量/其他静态方法）；②不能访问实例变量（必须通过对象引用才能访问）；③不能使用 this/super（因为没有当前对象）。A、B、D 正确，C 错误。"}' />
 
-# 继承
+
+# 第4章 面向对象（下）
 
 <Quiz :q='{"type": "single", "question": "以下程序输出什么？\nclass Animal {\n    Animal() { System.out.print(\"Animal \"); }\n}\nclass Dog extends Animal {\n    Dog() { System.out.print(\"Dog \"); }\n    public static void main(String[] args) { new Dog(); }\n}", "options": ["A. Dog", "B. Animal", "C. Animal Dog", "D. Dog Animal"], "answer": "C", "explanation": "创建子类对象时，先调用父类构造器（Animal），再调用子类构造器（Dog），输出 Animal Dog。"}' />
 
-# 基本概念
 
-- 目的：代码重用
-- 关键字：`extends`
-<details>
-<summary>填空题：Java 中用于继承类的关键字是？</summary>
-答案：`extends`
-</details>
-- Java **单继承**（类），接口**多继承**
-- 子类继承父类的非 `private` 成员
-<Quiz :q='{"type": "single", "question": "父类属性和方法继承规则描述错误的是？", "options": ["A. private 成员在子类中不被继承", "B. public 成员可访问", "C. protected 成员可访问", "D. default 成员同包中可访问"], "answer": "A", "explanation": "private 成员也会被子类继承，但子类中不可直接访问。"}' />，不能继承构造方法
+- 异常：导致程序不能正常运行的情况
+- 异常的描述和异常的处理
 
-<Quiz :q='{"type":"tf","question":"Java 支持类的多继承。","answer":"false","explanation":"Java 类只支持单继承（一个类只能有一个直接父类），但接口支持多继承。"}' />
-
-<Quiz :q='{"type":"single","question":"子类可以继承父类的哪些成员？","options":["A. 所有成员","B. 非 private 成员","C. 只有 public 成员","D. 只有 protected 成员"],"answer":"B","explanation":"子类继承父类所有非 private 成员（public、protected、默认权限）。构造方法不能被继承。"}' />
-
-
-
-<details>
-<summary>填空题：多个方法同名不同参称为____。</summary>
-答案：重载
-</details>
-
-# 
-<Quiz :q='{"type": "single", "question": "覆盖与重载的关系是？", "options": ["A. 覆盖在父子类间，重载在同一类中", "B. 覆盖可以不同名", "C. final 方法可被覆盖", "D. 两者是同一回事"], "answer": "A", "explanation": "覆盖是子类重写父类方法，重载是同一类中同名不同参。"}' />
-<Quiz :q='{"type": "single", "question": "覆盖（Override）与重载（Overload）的关系是？", "options": ["A. 覆盖发生在父子类间，重载可发生在同类中", "B. 覆盖方法可不同名，重载必须同名", "C. final 方法可被覆盖但不能重载", "D. 覆盖和重载是同一回事"], "answer": "A", "explanation": "覆盖（Override）是子类重写父类方法（同名同参），重载（Overload）是同类中间名不同参的方法。"}' />
-
-- 从父类继承的方法才能重写
-- 语法：方法签名不变，方法体变化
-  - 方法名、参数列表、返回值类型（可协变）不变
-  - 访问权限不能更严格
-
-<Quiz :q='{"type":"tf","question":"final 方法可以被重写。","answer":"false","explanation":"final 方法不能被重写，final 的作用就是禁止子类覆写该方法。"}' />
-
-<Quiz :q='{"type":"single","question":"关于方法重写（Override）的说法错误的是？","options":["A. 方法名必须相同","B. 参数列表必须相同","C. 返回值类型必须完全相同","D. 子类访问权限不能比父类更严格"],"answer":"C","explanation":"重写的返回值类型可以是原返回类型的子类型（协变返回类型），不一定完全相同。"}' />
-
-# super
 
 - 当前类对应的父类对象
 - `super.属性`、`super.方法()`、`super([参数])`（访问父类构造方法）
@@ -317,7 +248,7 @@ graph TD
 
 <Quiz :q='{"type":"single","question":"在子类构造方法中调用父类构造方法应使用哪个关键字？","options":["A. this","B. super","C. parent","D. base"],"answer":"B","explanation":"super([参数]) 调用父类构造方法，且必须位于子类构造方法的第一行。"}' />
 
-# final
+
 <Quiz :q='{"type": "single", "question": "下列修饰符中与访问控制无关的是？", "options": ["A. private", "B. public", "C. protected", "D. final"], "answer": "D", "explanation": "private/public/protected 是访问控制修饰符。final 用于修饰不可变类、方法和变量，与访问控制无关。"}' />
 
 <details>
@@ -328,8 +259,6 @@ graph TD
 - `final class`：不能被继承
 - `final method`：不能被重写
 - `final variable`：常量，只能赋值一次
-
-# 抽象类和抽象方法
 
 
 <Quiz :q='{"type": "single", "question": "以下关于抽象方法的说法正确的是？", "options": ["A. 可以有方法体", "B. 可出现在非抽象类中", "C. 是没有方法体的方法", "D. 抽象类中的方法都是抽象方法"], "answer": "C", "explanation": "抽象方法只有声明没有方法体。"}' />
@@ -342,13 +271,11 @@ graph TD
 <Quiz :q='{"type":"single","question":"以下关于抽象类的说法正确的是？","options":["A. 抽象类必须有抽象方法","B. 抽象类可以没有抽象方法","C. 抽象类可以直接 new 创建对象","D. 抽象类不能有构造方法"],"answer":"B","explanation":"抽象类可以没有抽象方法（但反之不成立——有抽象方法的类必须是抽象类）。抽象类不能实例化，可以有构造方法（供子类调用）。"}' />
 
 
-
 <details>
 <summary>填空题：类的定义实现____重继承，接口实现____重继承。</summary>
 答案：单, 多
 </details>
 
-# 
 <Quiz :q='{"type": "single", "question": "定义一个接口必须使用的关键字是？", "options": ["A. public", "B. class", "C. interface", "D. static"], "answer": "C", "explanation": "interface 是定义接口的关键字。"}' />
 <Quiz :q='{"type": "single", "question": "实现接口用哪个关键字？", "options": ["A. implements", "B. extends", "C. interface", "D. class"], "answer": "A", "explanation": "implements 用于类实现接口。"}' />
 - 不同 JDK 版本接口特性有差异
@@ -369,12 +296,10 @@ graph TD
 
 <Quiz :q='{"type":"single","question":"接口中的 default 方法如何调用？","options":["A. 接口名.方法名()","B. 实现类对象.方法名()","C. 类名.方法名()","D. 直接调用方法名"],"answer":"B","explanation":"default 方法是实例方法，由接口实现类对象调用。接口中的静态方法必须通过接口名调用（如 MyInterface.staticMethod()）。default 方法可以有方法体，子类可以继承或重写。区分三种接口成员：\n①抽象方法→实现类实现\n②default方法→实现类对象调用\n③静态方法→接口名调用"}' />
 
-# 对象的类型转换
 
 - **向上转型**（自动）：`父类 = 子类对象`、`接口 = 实现类对象`
 - **向下转型**（强制）：`子类 = (子类)父类对象`、`实现类 = (实现类)接口对象`
 
-# 多态
 
 - 实现多态的条件：
   - 方法重载
@@ -386,7 +311,6 @@ graph TD
 
 <Quiz :q='{"type":"single","question":"表达式 Base y = new Derived()（Derived extends Base）描述正确的是？","options":["A. 编译错误","B. 这是向上转型","C. 这是向下转型","D. 对象切片"],"answer":"B","explanation":"子类对象赋值给父类引用是向上转型（自动转换），Java 不存在对象切片。"}' />
 
-# Object 类
 
 <details>
 <summary>填空题：Java 中所有类的根类是？</summary>
@@ -397,28 +321,21 @@ graph TD
 
 <Quiz :q='{"type":"single","question":"toString() 方法定义在哪个类中？","options":["A. java.lang.String","B. java.lang.Object","C. java.util","D. java.lang.System"],"answer":"B","explanation":"toString() 定义在 java.lang.Object 类中（java.lang 包自动导入，无需 import）。Object 是所有类的根父类，因此所有 Java 类都继承了 toString()。默认实现返回 类名@哈希码，通常需要重写来返回有意义的字符串表示。System.out.println(obj) 打印时会自动调用 obj.toString()。类似的还有 equals() 和 hashCode()。"}' />
 
-# 内部类
 
 - 匿名内部类
 
 <Quiz :q='{"type":"single","question":"以下关于匿名内部类的描述正确的是？","options":["A. 使用 anonymous 关键字声明","B. 没有类名，定义和实例化在同一表达式","C. 必须是静态类","D. 不能实现接口"],"answer":"B","explanation":"匿名内部类没有类名，在定义时同时实例化，常用于实现接口或继承类的简写形式。"}' />
 
-# Lambda 表达式
 
 - 语法：`(参数列表) -> { 方法体 }`
 
-# 异常
 
-# 基本概念
+# 第5章 异常
+
 
 - 异常：导致程序不能正常运行的情况
 - 异常的描述和异常的处理
 
-# 异常导致的后果
-
-# 异常处理的目的
-
-# 类的继承结构
 
 ```
 Throwable
@@ -433,7 +350,6 @@ Throwable
 <Quiz :q='{"type":"single","question":"整数除法中除数为 0 会抛出什么异常？","options":["A. NullPointerException","B. NumberFormatException","C. ArithmeticException","D. ArrayIndexOutOfBoundsException"],"answer":"C","explanation":"整数除以 0 抛出 ArithmeticException（注意：浮点数除以 0 不会抛异常，结果为 Infinity）。"}' />
 
 
-
 <details>
 <summary>填空题：异常处理由____、____和 finally 组成。</summary>
 答案：try, catch
@@ -444,7 +360,6 @@ Throwable
 答案：Exception
 </details>
 
-# 
 <Quiz :q='{"type": "single", "question": "对于可能抛出异常的语句，编程时应该？", "options": ["A. 必须 try/catch 或用 throws", "B. 出错才 try/catch", "C. 可以不管", "D. 只能用 try/catch"], "answer": "A", "explanation": "受检异常必须处理。"}' />
 <Quiz :q='{"type": "tf", "question": "catch 参数有父子关系，父类放后面。", "options": [], "answer": "true", "explanation": ""}' />
 <Quiz :q='{"type": "tf", "question": "异常处理中多个 catch 时，父类异常应放在后面，子类异常放在前面。", "answer": "true", "explanation": "子类异常在前、父类在后，否则子类异常会被父类 catch 提前捕获，永远无法执行到子类 catch。"}' />
@@ -457,16 +372,14 @@ Throwable
 
 <Quiz :q='{"type":"single","question":"throw 和 throws 的区别是什么？","options":["A. 功能完全相同","B. throws 声明异常，throw 抛出异常","C. throw 声明异常，throws 抛出异常","D. 两者都在方法签名中使用"],"answer":"B","explanation":"throw 和 throws 的区别：\n① throw（方法体内）→ 实际抛出一个异常对象，如 throw new IOException()，每次只能抛一个\n② throws（方法签名末尾）→ 声明该方法可能抛出的异常类型，如 void read() throws IOException，可声明多个用逗号隔开\n③ throw 后接的是异常实例，throws 后接的是异常类名\n④ 受检异常要么用 try-catch 处理，要么用 throws 继续往外抛"}' />
 
-# 自定义异常
 
 - `extends Exception` → 受检异常
 - `extends RuntimeException` → 非受检异常
 
 <Quiz :q='{"type":"single","question":"自定义受检异常应继承哪个类？","options":["A. RuntimeException","B. Exception","C. Error","D. Throwable"],"answer":"B","explanation":"自定义异常：\n① 继承 Exception → 受检异常（Checked Exception），编译器强制要求 try-catch 或 throws 声明，适用于可预见的业务异常\n② 继承 RuntimeException → 非受检异常（Unchecked Exception），编译器不强制处理，适用于程序逻辑错误\n③ 通常提供两个构造方法：无参构造和带 String message 参数的构造（调用父类 super(message)）"}' />
 
-# 常用类与集合
 
-# String
+# 集合
 
 
 <Quiz :q='{"type": "single", "question": "String 的 equals vs ==：\nString s1 = new String(\"abc\");\nString s2 = new String(\"abc\");\nSystem.out.print(s1.equals(s2) + \" \" + (s1 == s2));", "options": ["A. true false", "B. false true", "C. true true", "D. false false"], "answer": "A", "explanation": "equals() 比较内容→true；== 比较引用→false。"}' />
@@ -483,8 +396,6 @@ Throwable
 <Quiz :q='{"type":"single","question":"String 类的 compareTo() 方法返回值类型是？","options":["A. boolean","B. int","C. char","D. String"],"answer":"B","explanation":"compareTo() 是 Comparable 接口中的方法，返回值类型为 int：\n① 当前对象 < 参数对象 → 返回负数\n② 当前对象 == 参数对象 → 返回 0\n③ 当前对象 > 参数对象 → 返回正数\nString 类实现了 Comparable 接口，按字典序（lexicographic）比较。区别于 equals()：equals 返回 boolean，compareTo 返回 int 且能区分大小顺序。"}' />
 
 <Quiz :q='{"type":"single","question":"String 类的 substring(1, 3) 对 \"abcde\" 的结果是？","options":["A. \"abc\"","B. \"bc\"","C. \"bcd\"","D. \"cd\""],"answer":"B","explanation":"substring(begin, end) 取 [begin, end)，即索引 1 到 2 的字符：\"bc\"。"}' />
-
-# List & Set & Map
 
 
 <Quiz :q='{"type": "single", "question": "关于集合的说法不正确的是？", "options": ["A. List/Set/Map 都是 java.util 接口", "B. List 可包含重复元素", "C. Set 不包含重复元素", "D. Map 的键可重复"], "answer": "D", "explanation": "Map 的键不能重复。"}' />
@@ -509,6 +420,7 @@ Throwable
 <Quiz :q='{"type":"single","question":"以下哪个集合不允许存储重复元素？","options":["A. ArrayList","B. LinkedList","C. Set","D. Map"],"answer":"C","explanation":"Set 接口不允许重复元素（如 HashSet、TreeSet）。List 允许重复，Map 存储键值对。"}' />
 
 <Quiz :q='{"type":"single","question":"List<String> list = new ArrayList<>(); 中使用了什么 Java 特性？","options":["A. 反射","B. 泛型","C. 注解","D. 序列化"],"answer":"B","explanation":"<String> 是泛型，指定集合中元素的类型，编译时提供类型安全检查。"}' />
+
 
 # Java 17 新特性（LTS，2021.09）
 
@@ -599,6 +511,7 @@ RandomGenerator rg = factory.create(System.currentTimeMillis());
 int num = rg.nextInt(10);  // 生成 [0,10) 随机数
 ```
 
+
 # 补充练习
 
 <Quiz :q='{"type":"tf","question":"Java 中 == 比较的是对象的内容是否相等。","answer":"false","explanation":"== 比较的是引用地址（引用类型）或值（基本类型）。内容比较需用 equals()。"}' />
@@ -624,6 +537,5 @@ int num = rg.nextInt(10);  // 生成 [0,10) 随机数
 </details>
 
 <Quiz :q='{"type":"single","question":"以下哪个不是 Java 的特性？","options":["A. 面向对象","B. 支持指针","C. 动态性","D. 平台无关"],"answer":"B","explanation":"Java 刻意不支持指针操作，这是其安全性和简单性的重要设计选择。"}' />
-
 
 
