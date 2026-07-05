@@ -88,7 +88,7 @@
 - `switch`：不同 JDK 版本的支持差异（JDK 7+ 支持 String，JDK 14+ 支持箭头表达式）
 
 
-<Quiz :q='{"type": "single", "question": "以下代码执行后 count 的值是什么？\nint count = 1;\nfor (int i = 1; i <= 5; i++) {\n    count += i;\n}\nSystem.out.println(count);", "options": ["A. 5", "B. 1", "C. 15", "D. 16"], "answer": "D", "explanation": "count 初始 1，循环 i=1~5 累加：1+1+2+3+4+5 = 16。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码执行后 count 的值是什么？<br><pre>int count = 1;\nfor (int i = 1; i &lt;= 5; i++) {\n    count += i;\n}\nSystem.out.println(count);</pre>", "options": ["A. 5", "B. 1", "C. 15", "D. 16"], "answer": "D", "explanation": "count 初始 1，循环 i=1~5 累加：1+1+2+3+4+5 = 16。"}' />
 
 <Quiz :q='{"type": "single", "question": "关于选择结构，下列哪个说法正确？", "options": ["A. if 和 else 必须成对出现", "B. if 可以没有 else 对应", "C. switch 的每个 case 必须写 break", "D. switch 必须有 default"], "answer": "B", "explanation": "if 可单独使用无 else；switch 的 case 可不写 break（穿透），default 可选。"}' />
 
@@ -196,8 +196,8 @@ public class Test {
 答案：相等（equals 比较字符串内容）
 </details>
 
-<Quiz :q='{"type": "single", "question": "String aStr=\"One\";String bStr=aStr;\naStr.toUpperCase();aStr.trim();\nSystem.out.println(\"[\"+aStr+\",\"+bStr+\"]\"+1+2);", "options": ["A. [ONE,One]12", "B. [One,One]3", "C. [ONE,ONE]12", "D. [One,One]12"], "answer": "D", "explanation": "String 不可变，原字符串不变。"}' />
-<Quiz :q='{"type": "single", "question": "int num1=100;int num2=num1--;\nSystem.out.println(++num1);\nSystem.out.println(num2);", "options": ["A. 100 100", "B. 99 99", "C. 100 99", "D. 98 99"], "answer": "C", "explanation": "num1-- 先赋值 100 给 num2 再自减；++num1 自增为 100 再输出。"}' />
+<Quiz :q='{"type": "single", "question": "<br><pre>String aStr=\"One\";String bStr=aStr;\naStr.toUpperCase();aStr.trim();\nSystem.out.println(\"[\"+aStr+\",\"+bStr+\"]\"+1+2);</pre>", "options": ["A. [ONE,One]12", "B. [One,One]3", "C. [ONE,ONE]12", "D. [One,One]12"], "answer": "D", "explanation": "String 不可变，原字符串不变。"}' />
+<Quiz :q='{"type": "single", "question": "<br><pre>int num1=100;int num2=num1--;\nSystem.out.println(++num1);\nSystem.out.println(num2);</pre>", "options": ["A. 100 100", "B. 99 99", "C. 100 99", "D. 98 99"], "answer": "C", "explanation": "num1-- 先赋值 100 给 num2 再自减；++num1 自增为 100 再输出。"}' />
 # 第3章 面向对象（上）
 
 
@@ -378,14 +378,14 @@ public class Computer {
 ③如果一个类是抽象类的子类且不是抽象类，它必须实现父类的所有抽象方法。
 ④抽象类中可以同时包含抽象方法和具体方法。
 </details>
-<Quiz :q='{"type": "single", "question": "class Super{int i=0;Super(String t){i=1;}}\nclass Sub extends Super{Sub(String t){i=2;}}\nnew Sub(\"Hello\")结果？", "options": ["A. 编译失败", "B. 0", "C. 1", "D. 2"], "answer": "A", "explanation": "父类无默认构造，子类未调用 super，编译失败。"}' />
+<Quiz :q='{"type": "single", "question": "<br><pre>class Super{int i=0;Super(String t){i=1;}}\nclass Sub extends Super{Sub(String t){i=2;}}\nnew Sub(\"Hello\")结果？</pre>", "options": ["A. 编译失败", "B. 0", "C. 1", "D. 2"], "answer": "A", "explanation": "父类无默认构造，子类未调用 super，编译失败。"}' />
 <Quiz :q='{"type": "single", "question": "C extends B, B extends A, cat是C对象，错误的是？", "options": ["A. cat instanceof B true", "B. bird instanceof A true", "C. cat instanceof A true", "D. bird instanceof C true"], "answer": "D", "explanation": "bird可能是B的其他子类，不一定是C。"}' />
 <Quiz :q='{"type": "single", "question": "类方法和实例方法描述错误的是？", "options": ["A. static修饰的是类方法", "B. 类方法可调用实例方法", "C. 实例方法可调用类方法", "D. 类方法中不能用this"], "answer": "B", "explanation": "静态方法不能直接调用实例方法。"}' />
 <Quiz :q='{"type": "single", "question": "子类父类不同包，父类哪种属性子类可访问？", "options": ["A. private", "B. 默认", "C. protected", "D. 都不可以"], "answer": "C", "explanation": "protected在不同包子类中可访问。"}' />
 <Quiz :q='{"type": "single", "question": "接口描述错误的是？", "options": ["A. 一个类只允许实现一个接口", "B. 定义接口用interface", "C. 实现类给出抽象方法实现", "D. JDK8前接口只有抽象方法"], "answer": "A", "explanation": "一个类可实现多个接口。"}' />
 # 第4章 面向对象（下）
 
-<Quiz :q='{"type": "single", "question": "以下程序输出什么？\nclass Animal {\n    Animal() { System.out.print(\"Animal \"); }\n}\nclass Dog extends Animal {\n    Dog() { System.out.print(\"Dog \"); }\n    public static void main(String[] args) { new Dog(); }\n}", "options": ["A. Dog", "B. Animal", "C. Animal Dog", "D. Dog Animal"], "answer": "C", "explanation": "创建子类对象时，先调用父类构造器（Animal），再调用子类构造器（Dog），输出 Animal Dog。"}' />
+<Quiz :q='{"type": "single", "question": "以下程序输出什么？<br><pre>class Animal {\n    Animal() { System.out.print(\"Animal \"); }\n}\nclass Dog extends Animal {\n    Dog() { System.out.print(\"Dog \"); }\n    public static void main(String[] args) { new Dog(); }\n}</pre>", "options": ["A. Dog", "B. Animal", "C. Animal Dog", "D. Dog Animal"], "answer": "C", "explanation": "创建子类对象时，先调用父类构造器（Animal），再调用子类构造器（Dog），输出 Animal Dog。"}' />
 
 
 - 异常：导致程序不能正常运行的情况
@@ -684,7 +684,7 @@ System.out.println(x * x);
 
 答案：不能正确执行。输入 "exit" 后 Integer.parseInt("exit") 抛出 NumberFormatException（运行时异常），程序中断。
 </details>
-<Quiz :q='{"type": "single", "question": "运行以下代码结果是？\nList<String> list = new ArrayList<>();\nlist.add(\"hello\");\nlist.add(true);\nlist.add(20);\nSystem.out.println(list);", "options": ["A. [\"hello\", true, 20]", "B. 编译失败", "C. [\"hello\"]", "D. [true, 20]"], "answer": "B", "explanation": "ArrayList<String> 限定只能存入 String 类型，add(true) 和 add(20) 编译失败。"}' />
+<Quiz :q='{"type": "single", "question": "运行以下代码结果是？<br><pre>List&lt;String&gt; list = new ArrayList&lt;&gt;();\nlist.add(\"hello\");\nlist.add(true);\nlist.add(20);\nSystem.out.println(list);</pre>", "options": ["A. [\"hello\", true, 20]", "B. 编译失败", "C. [\"hello\"]", "D. [true, 20]"], "answer": "B", "explanation": "ArrayList<String> 限定只能存入 String 类型，add(true) 和 add(20) 编译失败。"}' />
 
 
 <details>
@@ -696,12 +696,12 @@ System.out.println(x * x);
 # 集合
 
 
-<Quiz :q='{"type": "single", "question": "String 的 equals vs ==：\nString s1 = new String(\"abc\");\nString s2 = new String(\"abc\");\nSystem.out.print(s1.equals(s2) + \" \" + (s1 == s2));", "options": ["A. true false", "B. false true", "C. true true", "D. false false"], "answer": "A", "explanation": "equals() 比较内容→true；== 比较引用→false。"}' />
+<Quiz :q='{"type": "single", "question": "<br><pre>String 的 equals vs ==：\nString s1 = new String(\"abc\");\nString s2 = new String(\"abc\");\nSystem.out.print(s1.equals(s2) + \" \" + (s1 == s2));</pre>", "options": ["A. true false", "B. false true", "C. true true", "D. false false"], "answer": "A", "explanation": "equals() 比较内容→true；== 比较引用→false。"}' />
 <Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>String s = new String(\"abcdefg\");\nfor (int i = 0; i &lt; s.length(); i += 2)\n    System.out.print(s.charAt(i));</pre>", "options": ["A. aceg", "B. ACEG", "C. abcdefg", "D. abcd"], "answer": "A", "explanation": "i=0,2,4,6 时分别取字符 a、c、e、g，输出 aceg。"}' />
 
 <Quiz :q='{"type": "single", "question": "已知 String s = \"story\"; 下面哪个语句不合法？", "options": ["A. s += \"books\";", "B. s = s + 100;", "C. int len = s.length;", "D. String t = s + \"abc\";"], "answer": "C", "explanation": "length 是 String 的方法，必须用 s.length() 调用（带括号），不是 public 属性。"}' />
 
-<Quiz :q='{"type": "single", "question": "以下代码输出什么？\nString s1 = new String(\"abc\");\nString s2 = new String(\"abc\");\nboolean b1 = s1.equals(s2);\nboolean b2 = (s1 == s2);\nSystem.out.print(b1 + \" \" + b2);", "options": ["A. true false", "B. false true", "C. true true", "D. false false"], "answer": "A", "explanation": "equals() 比较内容相等为 true；== 比较引用地址，两个 new 对象在堆中不同，为 false。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>String s1 = new String(\"abc\");\nString s2 = new String(\"abc\");\nboolean b1 = s1.equals(s2);\nboolean b2 = (s1 == s2);\nSystem.out.print(b1 + \" \" + b2);</pre>", "options": ["A. true false", "B. false true", "C. true true", "D. false false"], "answer": "A", "explanation": "equals() 比较内容相等为 true；== 比较引用地址，两个 new 对象在堆中不同，为 false。"}' />
 
 <Quiz :q='{"type": "single", "question": "String s1 = \"aaa\"; s1.concat(\"bbb\"); System.out.println(s1); 输出是？", "options": ["A. aaa", "B. aaabbb", "C. bbbaaa", "D. bbb"], "answer": "A", "explanation": "String 是不可变对象，concat() 返回拼接后的新字符串但不改变原字符串，s1 仍为 aaa。"}' />
 
