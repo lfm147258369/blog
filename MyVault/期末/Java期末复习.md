@@ -684,6 +684,14 @@ System.out.println(x * x);
 
 答案：不能正确执行。输入 "exit" 后 Integer.parseInt("exit") 抛出 NumberFormatException（运行时异常），程序中断。
 </details>
+<Quiz :q='{"type": "single", "question": "运行以下代码结果是？\nList<String> list = new ArrayList<>();\nlist.add(\"hello\");\nlist.add(true);\nlist.add(20);\nSystem.out.println(list);", "options": ["A. [\"hello\", true, 20]", "B. 编译失败", "C. [\"hello\"]", "D. [true, 20]"], "answer": "B", "explanation": "ArrayList<String> 限定只能存入 String 类型，add(true) 和 add(20) 编译失败。"}' />
+
+
+<details>
+<summary>填空题：Java语言对于 int 对应的包装类是____。</summary>
+答案：Integer
+</details>
+
 
 # 集合
 
