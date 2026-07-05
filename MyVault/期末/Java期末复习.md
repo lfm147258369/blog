@@ -197,10 +197,6 @@ public class Test {
 <summary>填空题：在同一包内和子类中可访问、其他包不可访问的访问修饰符是？</summary>
 答案：`protected`
 </details>
-<details>
-<summary>填空题：在同一包内和子类中可访问、其他包不可访问的访问修饰符是？</summary>
-答案：`protected`
-</details>
 <Quiz :q='{"type": "single", "question": "下面关于类的定义，哪个正确？", "options": ["A. public void HH { }", "B. public class MOVE() { }", "C. public class void number { }", "D. public class Car { }"], "answer": "D", "explanation": "类定义格式：public class 类名 { }。"}' />
 
 - 类的定义
@@ -645,7 +641,7 @@ System.out.println(x * x);
 
 
 <Quiz :q='{"type": "single", "question": "String 的 equals vs ==：\nString s1 = new String(\"abc\");\nString s2 = new String(\"abc\");\nSystem.out.print(s1.equals(s2) + \" \" + (s1 == s2));", "options": ["A. true false", "B. false true", "C. true true", "D. false false"], "answer": "A", "explanation": "equals() 比较内容→true；== 比较引用→false。"}' />
-<Quiz :q='{"type": "single", "question": "String s = new String(\"abcdefg\"); for(int i=0; i&lt;s.length(); i+=2) System.out.print(s.charAt(i)); 输出是？", "options": ["A. aceg", "B. ACEG", "C. abcdefg", "D. abcd"], "answer": "A", "explanation": "i=0,2,4,6 时分别取字符 a,c,e,g。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>String s = new String(\"abcdefg\");\nfor (int i = 0; i &lt; s.length(); i += 2)\n    System.out.print(s.charAt(i));</pre>", "options": ["A. aceg", "B. ACEG", "C. abcdefg", "D. abcd"], "answer": "A", "explanation": "i=0,2,4,6 时分别取字符 a、c、e、g，输出 aceg。"}' />
 
 <Quiz :q='{"type": "single", "question": "已知 String s = \"story\"; 下面哪个语句不合法？", "options": ["A. s += \"books\";", "B. s = s + 100;", "C. int len = s.length;", "D. String t = s + \"abc\";"], "answer": "C", "explanation": "length 是 String 的方法，必须用 s.length() 调用（带括号），不是 public 属性。"}' />
 
@@ -660,8 +656,7 @@ System.out.println(x * x);
 <Quiz :q='{"type":"single","question":"String 类的 substring(1, 3) 对 \"abcde\" 的结果是？","options":["A. \"abc\"","B. \"bc\"","C. \"bcd\"","D. \"cd\""],"answer":"B","explanation":"substring(begin, end) 取 [begin, end)，即索引 1 到 2 的字符：\"bc\"。"}' />
 
 
-<Quiz :q='{"type": "single", "question": "关于集合的说法不正确的是？", "options": ["A. List/Set/Map 都是 java.util 接口", "B. List 可包含重复元素", "C. Set 不包含重复元素", "D. Map 的键可重复"], "answer": "D", "explanation": "Map 的键不能重复。"}' />
-<Quiz :q='{"type": "single", "question": "下面说法不正确的是？", "options": ["A. List/Set/Map 都是 java.util 中的接口", "B. List 可含重复元素、有序", "C. Set 不含重复元素", "D. Map 的键可以重复，每个键最多映射一个值"], "answer": "D", "explanation": "Map 的键不能重复。List 可重复且有序，Set 不可重复，Map 键不可重复。"}' />
+<Quiz :q='{"type": "single", "question": "关于集合的说法不正确的是？", "options": ["A. List/Set/Map 都是 java.util 接口", "B. List 可含重复元素且有序", "C. Set 不含重复元素", "D. Map 的键可重复"], "answer": "D", "explanation": "Map 的键不能重复。List 可重复且有序，Set 不可重复。"}' />
 
 - **增强 for 循环**：
 <details>
