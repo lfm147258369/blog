@@ -196,8 +196,8 @@ public class Test {
 答案：相等（equals 比较字符串内容）
 </details>
 
-<Quiz :q='{"type": "single", "question": "<br><pre>String aStr=\"One\";String bStr=aStr;\naStr.toUpperCase();aStr.trim();\nSystem.out.println(\"[\"+aStr+\",\"+bStr+\"]\"+1+2);</pre>", "options": ["A. [ONE,One]12", "B. [One,One]3", "C. [ONE,ONE]12", "D. [One,One]12"], "answer": "D", "explanation": "String 不可变，原字符串不变。"}' />
-<Quiz :q='{"type": "single", "question": "<br><pre>int num1=100;int num2=num1--;\nSystem.out.println(++num1);\nSystem.out.println(num2);</pre>", "options": ["A. 100 100", "B. 99 99", "C. 100 99", "D. 98 99"], "answer": "C", "explanation": "num1-- 先赋值 100 给 num2 再自减；++num1 自增为 100 再输出。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>String aStr = \"One\";\nString bStr = aStr;\naStr.toUpperCase();\naStr.trim();\nSystem.out.println(\"[\" + aStr + \",\" + bStr + \"]\" + 1 + 2);</pre>", "options": ["A. [ONE,One]12", "B. [One,One]3", "C. [ONE,ONE]12", "D. [One,One]12"], "answer": "D", "explanation": "String 不可变，原字符串不变。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>int num1 = 100;\nint num2 = num1--;\nSystem.out.println(++num1);\nSystem.out.println(num2);</pre>", "options": ["A. 100 100", "B. 99 99", "C. 100 99", "D. 98 99"], "answer": "C", "explanation": "num1-- 先赋值 100 给 num2 再自减；++num1 自增为 100 再输出。"}' />
 # 第3章 面向对象（上）
 
 
@@ -378,7 +378,7 @@ public class Computer {
 ③如果一个类是抽象类的子类且不是抽象类，它必须实现父类的所有抽象方法。
 ④抽象类中可以同时包含抽象方法和具体方法。
 </details>
-<Quiz :q='{"type": "single", "question": "<br><pre>class Super{int i=0;Super(String t){i=1;}}\nclass Sub extends Super{Sub(String t){i=2;}}\nnew Sub(\"Hello\")结果？</pre>", "options": ["A. 编译失败", "B. 0", "C. 1", "D. 2"], "answer": "A", "explanation": "父类无默认构造，子类未调用 super，编译失败。"}' />
+<Quiz :q='{"type": "single", "question": "分析程序结果？<br><pre>class Super {\n    int i = 0;\n    Super(String t) { i = 1; }\n}\nclass Sub extends Super {\n    Sub(String t) { i = 2; }\n    public static void main(String[] args) {\n        Sub sub = new Sub(\"Hello\");\n        System.out.println(sub.i);\n    }\n}</pre>", "options": ["A. 编译失败", "B. 0", "C. 1", "D. 2"], "answer": "A", "explanation": "父类无默认构造，子类未调用 super，编译失败。"}' />
 <Quiz :q='{"type": "single", "question": "C extends B, B extends A, cat是C对象, bird是B对象，错误的是？", "options": ["A. cat instanceof B true", "B. bird instanceof A true", "C. cat instanceof A true", "D. bird instanceof C true"], "answer": "D", "explanation": "bird可能是B的其他子类，不一定是C。"}' />
 <Quiz :q='{"type": "single", "question": "类方法和实例方法描述错误的是？", "options": ["A. static修饰的是类方法", "B. 类方法可调用实例方法", "C. 实例方法可调用类方法", "D. 类方法中不能用this"], "answer": "B", "explanation": "静态方法不能直接调用实例方法。"}' />
 <Quiz :q='{"type": "single", "question": "子类父类不同包，父类哪种属性子类可访问？", "options": ["A. private", "B. 默认", "C. protected", "D. 都不可以"], "answer": "C", "explanation": "protected在不同包子类中可访问。"}' />
@@ -696,7 +696,7 @@ System.out.println(x * x);
 # 集合
 
 
-<Quiz :q='{"type": "single", "question": "<br><pre>String 的 equals vs ==：\nString s1 = new String(\"abc\");\nString s2 = new String(\"abc\");\nSystem.out.print(s1.equals(s2) + \" \" + (s1 == s2));</pre>", "options": ["A. true false", "B. false true", "C. true true", "D. false false"], "answer": "A", "explanation": "equals() 比较内容→true；== 比较引用→false。"}' />
+<Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>String s1 = new String(\"abc\");\nString s2 = new String(\"abc\");\nSystem.out.print(s1.equals(s2) + \" \" + (s1 == s2));</pre>", "options": ["A. true false", "B. false true", "C. true true", "D. false false"], "answer": "A", "explanation": "equals() 比较内容→true；== 比较引用→false。"}' />
 <Quiz :q='{"type": "single", "question": "以下代码输出什么？<br><pre>String s = new String(\"abcdefg\");\nfor (int i = 0; i &lt; s.length(); i += 2)\n    System.out.print(s.charAt(i));</pre>", "options": ["A. aceg", "B. ACEG", "C. abcdefg", "D. abcd"], "answer": "A", "explanation": "i=0,2,4,6 时分别取字符 a、c、e、g，输出 aceg。"}' />
 
 <Quiz :q='{"type": "single", "question": "已知 String s = \"story\"; 下面哪个语句不合法？", "options": ["A. s += \"books\";", "B. s = s + 100;", "C. int len = s.length;", "D. String t = s + \"abc\";"], "answer": "C", "explanation": "length 是 String 的方法，必须用 s.length() 调用（带括号），不是 public 属性。"}' />
