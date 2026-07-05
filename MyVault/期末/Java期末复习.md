@@ -379,7 +379,7 @@ public class Computer {
 ④抽象类中可以同时包含抽象方法和具体方法。
 </details>
 <Quiz :q='{"type": "single", "question": "<br><pre>class Super{int i=0;Super(String t){i=1;}}\nclass Sub extends Super{Sub(String t){i=2;}}\nnew Sub(\"Hello\")结果？</pre>", "options": ["A. 编译失败", "B. 0", "C. 1", "D. 2"], "answer": "A", "explanation": "父类无默认构造，子类未调用 super，编译失败。"}' />
-<Quiz :q='{"type": "single", "question": "C extends B, B extends A, cat是C对象，错误的是？", "options": ["A. cat instanceof B true", "B. bird instanceof A true", "C. cat instanceof A true", "D. bird instanceof C true"], "answer": "D", "explanation": "bird可能是B的其他子类，不一定是C。"}' />
+<Quiz :q='{"type": "single", "question": "C extends B, B extends A, cat是C对象, bird是B对象，错误的是？", "options": ["A. cat instanceof B true", "B. bird instanceof A true", "C. cat instanceof A true", "D. bird instanceof C true"], "answer": "D", "explanation": "bird可能是B的其他子类，不一定是C。"}' />
 <Quiz :q='{"type": "single", "question": "类方法和实例方法描述错误的是？", "options": ["A. static修饰的是类方法", "B. 类方法可调用实例方法", "C. 实例方法可调用类方法", "D. 类方法中不能用this"], "answer": "B", "explanation": "静态方法不能直接调用实例方法。"}' />
 <Quiz :q='{"type": "single", "question": "子类父类不同包，父类哪种属性子类可访问？", "options": ["A. private", "B. 默认", "C. protected", "D. 都不可以"], "answer": "C", "explanation": "protected在不同包子类中可访问。"}' />
 <Quiz :q='{"type": "single", "question": "接口描述错误的是？", "options": ["A. 一个类只允许实现一个接口", "B. 定义接口用interface", "C. 实现类给出抽象方法实现", "D. JDK8前接口只有抽象方法"], "answer": "A", "explanation": "一个类可实现多个接口。"}' />
